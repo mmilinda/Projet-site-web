@@ -19,7 +19,8 @@ Route::get('/', function () {
 Route::get('/Guest_Detail', function () {
     return view('/Guest_Detail');
 });
-// Route::get('/header', function () {
-//     return view('/header');
-// });
 
+
+Route::get('/checkoutpageA', function () {
+    return view('/checkoutpageA');
+});

@@ -1,4 +1,4 @@
-@include('header')
+           @include('header')
 
    
 <section class="section_Guest_details">
@@ -163,12 +163,20 @@
             <p>By clicking "Book" below, I have read and agreed to the <a href="">key contract terms, cancellation policy and apartment & building rules</a> , and to pay the total amount shown.</p> 
         </div>
         <div>
-            <button class="btn btn-success rounded-pill">Book</button>
+            <button class="btn btn-success">Book</button>
         </div>
-    </div><br><br><br><br>
+    </div><br><br>
    
 <link rel="stylesheet" href="assets/build/css/intlTelInput.css" />
          
 
 
     @include('footer')
+
+
+
+
+
+
+
+    

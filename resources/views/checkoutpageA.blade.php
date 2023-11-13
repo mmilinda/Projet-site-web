@@ -3,50 +3,71 @@
    
 <section class="section_Guest_details">
     <div class="maincontainer_Guest_details">
-        <div >
-             <div class="title_Guest_Details">
-                 <p><strong>Guest details</strong></p>
-             </div>
-             <div>
-                <div class="inputtext_guest_details">
-                    <input type="text" placeholder="First name">
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text"  placeholder="Last name">
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text"  placeholder="Email">
-                </div><br>
-                <div class="inputtext_guest_details">
-                <input id="phone" name="phone" type="tel" />
+       <div class="maincontaier_checkout">
+            <div class="Booking_review">
+                <p><strong>Booking review</strong></p>
+            </div>
+            <div class="grouprumcheckout">
+                <div>
+                    <div class="RUM_checkout">
+                        <div>
+                            <div>
+                                <p><strong>Rent per month</strong></p>
+                            </div>
+                            <div>
+                                <span>Utilities per month <img src="image/Vector (10).png" alt=""></span>
+                            </div>
+                            <div>
+                                <p><strong>Monthly subtotal</strong></p>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <p>£2990.00 </p>
+                            </div>
+                            <div>
+                                <p>£250.70</p>
+                            </div>
+                            <div>
+                                <p>£3340.70 </p>
+                            </div> 
+                        </div>
+                    </div>
                 </div>
-             </div><br>
-             <div>
-                <div class="Purpose_of_stay">
-                    <p><strong>Purpose of stay</strong></p>
+                <div class="RUM_checkout">
+                    <div>
+                        <div>
+                            <span>One-time cleaning fee <img src="image/Vector (10)" alt=""></span>
+                        </div>
+                        <div class="Total_charges">
+                            <p><strong>Total charges</strong></p>
+                        </div>
+                        <div>
+                            <p><strong>Total</strong></p>
+                        </div>
+                    </div>
+                    <div class="price_checkout">
+                        <div>
+                            <p>£225.00</p>
+                        </div>
+                        <div>
+                            <p>£3340.70 </p>
+                        </div>
+                        <div>
+                            <p>£4225.00</p>
+                        </div>
+                    </div> 
+                </div><br>
+            </div>
+            <div class="footer_checkout">
+                <div>
+                    <a href="" class="btn btn-success">Confirm and pay</a>
                 </div>
                 <div>
-                    <span><input type="radio"> Business Travel/ Work</span><br>
-                    <span><input type="radio"> Moving to this city or country</span><br>
-                    <span><input type="radio"> Holiday</span><br>
-                    <span><input type="radio"> Other</span><br>
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text" placeholder="Name of Employer/ Organisaition">
+                    <p>You won’t be charged yet</p>
                 </div>
-             </div><br>
-             <div  class="behalf_of_someone">
-                <div>
-                   <span><input type="checkbox" name="" id="" > I’m booking on behalf of someone else</span>
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text" placeholder="Name">
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text" placeholder="Email of the guest">
-                </div>
-             </div>
-        </div>
+            </div>
+       </div>
         <div class="card2_guest_details">
             <div class="image_guest_details">
                 <img src="image/Rectangle 228.png" alt="">
@@ -145,30 +166,6 @@
     </div>
     <br><br><br>
 </section>
-<br><br><br>
-    <div class="maincontainer_book">
-        <div class="booking_guest_detail">
-            <p><strong>Payment method</strong></p>
-        </div>
-        <div>
-            <select name="" id="" class="inputtext_guest_details">
-                <option value="">Dakar</option>
-                <option value="">Dakar</option>
-                <option value="">Dakar</option>
-                <option value="">Dakar</option>
-                <option value="">Dakar</option>
-            </select>
-        </div>
-        <div><br>
-            <p>By clicking "Book" below, I have read and agreed to the <a href="">key contract terms, cancellation policy and apartment & building rules</a> , and to pay the total amount shown.</p> 
-        </div>
-        <div>
-            <button class="btn btn-success rounded-pill">Book</button>
-        </div>
-    </div><br><br><br><br>
-   
+<br><br><br> 
 <link rel="stylesheet" href="assets/build/css/intlTelInput.css" />
-         
-
-
     @include('footer')
