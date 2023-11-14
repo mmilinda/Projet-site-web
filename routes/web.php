@@ -31,3 +31,10 @@ Route::get('/contact', function () {
 Route::get('/landlord', function () {
     return view('/projet.landlord');
 });
+
+Route::get('/property', function () {
+    return view('property');
+});  
+Route::get('/blog', function () {
+    return view('blog');
+}); 
