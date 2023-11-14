@@ -10,7 +10,6 @@
     <div class="werent"><p>We rent your property</p></div>
     <div class="werentlorem"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, totam?</p></div>
   </div>
-
 </section>
 </div>
 <div class="barrecherche">

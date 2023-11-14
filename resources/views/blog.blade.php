@@ -35,10 +35,11 @@
     <p class="card-text"><small>Last updated 3 mins ago</small></p>
   </div> -->
   <div class="card mt-4" style="width: 18rem; ">
-    <div class="card-body">
-      <h3 class="card-title">We rent your property</h3>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
+  <div class="card1section1" id="card1section1">
+    <div class="werent"><p>We rent your property</p></div>
+    <div class="werentlorem"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, totam?</p></div>
+  </div>
+
   </div>
   <div class="flesh">
         <i class="bi bi-caret-left"></i> 
@@ -51,7 +52,7 @@
 <!-- Card -->
 <div class="container">
     <!-- Première ligne -->
-    <div class="row">
+    <div class="row  ">
         <div class="col-md-4">
         <div class="card">
           <img src="assets\img\1.png" class="card-img-top" alt="...">
@@ -166,7 +167,7 @@
 
   <!-- 2ème blog -->
 
-  <div class="row">
+  <div class="row card2_blog">
     <div class="col-md-4">
       <div class="card">
         <img src="assets\img\r1.png" class="card-img-top" alt="...">
@@ -198,7 +199,163 @@
       </div>
     </div>
   </div>
+<style>
+  .container{
+    display:flex;
+    flex-direction:column;
+    margin-top:40%;
+    gap:100px;
 
+  }
+
+  .card1section1{
+  position:absolute;
+  display:flex;
+  justify-content:left;
+  align-items:left;
+  flex-direction:column;
+   width: 293px;
+  height:236px; 
+  margin-top:-400px;
+  background-color:#ffff;
+  border-radius:10px;
+  padding:20px;
+ 
+   }
+ 
+  @media screen and (max-width:965px){
+        .container{
+        display:flex;
+        flex-direction:column;
+        margin-top:50%;
+        gap:100px;
+
+      }
+      .card1section1{
+  position:absolute;
+  display:flex;
+  justify-content:left;
+  align-items:left;
+  flex-direction:column;
+   width: 293px;
+  height:236px; 
+  margin-top:-300px;
+  background-color:#ffff;
+  border-radius:10px;
+  padding:20px;
+ 
+   }
+      
+  }
+
+  
+  @media screen and (max-width:773px){
+  .container{
+      display:flex;
+      flex-direction:column;
+      margin-top:350%;
+      gap:100px;
+      width:300px;
+      gap:100px;
+
+    }
+
+    .card2_blog{
+    width:300px;
+    margin-top:210%;
+    gap:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-left:100px;
+
+  }
+  }
+  @media screen and (max-width:762px){
+        .container{
+        display:flex;
+        flex-direction:column;
+        margin-top:230%;
+        gap:100px;
+        width:300px;
+
+      }
+      
+  }
+  @media screen and (max-width:700px){
+        .container{
+        display:flex;
+        flex-direction:column;
+        margin-top:250%;
+        gap:100px;
+        width:300px;
+
+      }
+
+      .card1section1{
+      position:absolute;
+      display:flex;
+      justify-content:left;
+      align-items:left;
+      flex-direction:column;
+      width: 293px;
+      height:236px; 
+      margin-top:-200px;
+      background-color:#ffff;
+      border-radius:10px;
+      padding:20px;
+    
+   }
+      
+  }
+  @media screen and (max-width:684px){
+    .container{
+        display:flex;
+        flex-direction:column;
+        margin-top:250%;
+        gap:100px;
+        width:300px;
+      }
+            }
+  @media screen and (max-width:641px){
+  .container{
+      display:flex;
+      flex-direction:column;
+      margin-top:300%;
+      gap:100px;
+      width:300px;
+
+    }
+  }
+  @media screen and (max-width:551px){
+  .container{
+      display:flex;
+      flex-direction:column;
+      margin-top:320%;
+      gap:100px;
+      width:300px;
+
+    }
+  }
+  @media screen and (max-width:512px){
+  .container{
+      display:flex;
+      flex-direction:column;
+      margin-top:350%;
+      gap:100px;
+      width:300px;
+
+    }
+  }
+
+ 
+            
+  .container button{
+    margin-top:30%;
+  }
+  .container 
+</style>
+<br><br><br>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
