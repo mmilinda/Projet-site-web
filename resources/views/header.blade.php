@@ -18,7 +18,10 @@
     <link rel="stylesheet" href="assets/css/contact_contact.css">
 
     <link rel="stylesheet" href="assets/css/style_homepage.css">
-
+<!-- header Bachir -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -32,8 +35,8 @@
             </div>
             <div class="menuheadera" >
                 <div class="ullia">
-                    <li class="navbar-item"><a class="navbar-link" href="/about">Home</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/careers">Landloards</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/landlord">Landloards</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
                 </div>

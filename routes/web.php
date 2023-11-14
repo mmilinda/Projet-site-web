@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LandlordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/homepage', function () {
+    return view('homepage');
 });
 Route::get('/Guest_Detail', function () {
     return view('/Guest_Detail');
@@ -27,4 +27,7 @@ Route::get('/checkoutpageA', function () {
 
 Route::get('/contact', function () {
     return view('/contact');
+});
+Route::get('/landlord', function () {
+    return view('/projet.landlord');
 });
