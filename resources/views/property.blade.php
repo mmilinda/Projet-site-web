@@ -12,6 +12,10 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
         <style>
+            .k{
+                padding-left:5px;
+
+            }
             .t{
                 padding-left:5px;
             }
@@ -94,9 +98,10 @@
                     <p>London, Nottling Hill</p>
                 </div>
                 <div class="d-flex">
-                    <div>2 bedroom</div>
-                    <div>2 bath</div>
-                    <div>500 sq ft | City view| 3rd floor | Elevator</div>
+                    <div class="k"><img src="{{ asset('assets/imgicone/chambre.png') }}" width="15" alt="" class="img-fluid"></div>
+                    <div class="k">2 bedroom</div>
+                    <div class="k"><img src="{{ asset('assets/imgicone/bath.png') }}" width="15" alt="" class="img-fluid"> 2 bath</div>
+                    <div class="k">500 sq ft | City view| 3rd floor | Elevator</div>
                 </div>
                 <div class="mt-2">
                     <h3 class="mb-2">Description</h3>
@@ -134,7 +139,7 @@
 
                             <p>Move in</p>
                             
-                            <p class="bg-white w-10" style="border-radius: 26%;"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"> 31.12.2021</p>
+                            <button class="bg-white w-10 border-0 rounded-top rounded-bottom"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"> 31.12.2021</button>
                             <div class="my-4">
                                 <p><img src="{{ asset('assets/imgicone/guest.png') }}" alt="" width="20"> Guests + 1 -</p>
 
@@ -147,7 +152,9 @@
                         </div>
                         <div class="col-lg-6">
                             <p>Move out</p>
-                            <p class="bg-white" style="border-radius: 26%;"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20">31.02.2022</p>
+                            <!--<p class="bg-white" style="border-radius: 26%;"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"></p>-->
+                            <button class="bg-white w-10 border-0 rounded-top rounded-bottom"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20">31.02.2022</button>
+
                             <div class="mt-5 pl-3">
                             <div>
                             <p class="fw-bold">E3700</p>
@@ -256,7 +263,7 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="text-center">
+            <div class="text-center my-4">
                 <h1>Neighbourhood</h1>
             </div>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit dolore necessitatibus iusto, qui inventore in totam! Consequuntur quaerat modi suscipit ad architecto consequatur accusamus. Minus hic nulla corrupti dicta. Eos!.
@@ -266,7 +273,7 @@
             </p>
         </div>
         <div class="row mt-5">
-            <div class="text-center">
+            <div class="text-center my-3">
                 <h1>Location</h1>
             </div>
             <div id="map" style="height: 400px;"></div>
