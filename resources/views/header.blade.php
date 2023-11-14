@@ -15,6 +15,7 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/guest_details.css">
+    <link rel="stylesheet" href="assets/css/contact_contact.css">
 
     <link rel="stylesheet" href="assets/css/style_homepage.css">
 

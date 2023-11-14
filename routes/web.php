@@ -24,3 +24,7 @@ Route::get('/Guest_Detail', function () {
 Route::get('/checkoutpageA', function () {
     return view('/checkoutpageA');
 });
+
+Route::get('/contact', function () {
+    return view('/contact');
+});
