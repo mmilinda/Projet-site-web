@@ -10,6 +10,18 @@
     <script src="https://kit.fontawesome.com/14b44e0e2e.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <style>
+            .t{
+                padding-left:5px;
+            }
+            .r{
+                padding-left: 5px;
+            }
+            .s{
+                padding-left: 5px;
+            }
+        </style>
 </head>
 
 <body>
@@ -50,10 +62,10 @@
 
     <div class="container-fluid mt-2">
         <div class="row align-items-stretch">
-            <div class="col-lg-7 col-md-6">
+            <div class="col-lg-7 col-md-12">
                 <img src="{{ asset('assets/img/im1.png') }}" alt="" class="img-fluid custom-height" style="height:480px;">
             </div>
-            <div class="col-lg-5 col-md-6">
+            <div class="col-lg-5 col-md-12">
                 <div class="row col-xs-6">
                     <div class="col-md-6">
                         <img src="{{ asset('assets/img/im2.png') }}" alt="" class="img-fluid">
@@ -111,7 +123,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-6 bg-secondary">
+            <div class="col-lg-6 bg-light">
                 <div class="mt-3">
                     <div class="text-center">
                         <h2 class="align-items-center mb-5">E3990 / Month</h2>
@@ -122,9 +134,9 @@
 
                             <p>Move in</p>
                             
-                            <p class="bg-white"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"> 31.12.2021</p>
+                            <p class="bg-white w-10" style="border-radius: 26%;"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"> 31.12.2021</p>
                             <div class="my-4">
-                                <p>Guests + 1 -</p>
+                                <p><img src="{{ asset('assets/imgicone/guest.png') }}" alt="" width="20"> Guests + 1 -</p>
 
                             </div>
                             <p class="my-4">All utilities are included</p>
@@ -135,7 +147,7 @@
                         </div>
                         <div class="col-lg-6">
                             <p>Move out</p>
-                            <p class="bg-white"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20">31.02.2022</p>
+                            <p class="bg-white" style="border-radius: 26%;"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20">31.02.2022</p>
                             <div class="mt-5 pl-3">
                             <div>
                             <p class="fw-bold">E3700</p>
@@ -176,7 +188,8 @@
                 <h1>Amenities</h1>
             </div>
             <div class="row w-100 mt-4 mx-5">
-                <div class="col-lg-2 ">
+                <div class="col-lg-4 d-flex">
+                <div class="t">
                     <p>Tv</p>
                     <p>Flatscreen TV</p>
                     <p>Fireplace</p>
@@ -184,7 +197,7 @@
                     <p>Work desk</p>
                     <p>With computer</p>
                 </div>
-                <div class="col-lg-2 ">
+                <div class="t">
                 <p><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"></p>
                 <p><img src="{{ asset('assets/imgicone/fireplace.png') }}" alt="" width="20"></p>
                 <p><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"></p>
@@ -195,13 +208,16 @@
                     <p><i class="fa-solid fa-phone"></i></p>
                     <p><i class="fa-solid fa-desktop"></i></p>-->
                 </div>
-                <div class="col-lg-2 ">
+
+                </div>
+                <div class="col-lg-4 d-flex">
+                <div class="r ">
                     <p>Fridge</p>
                     <p>Kettle</p>
                     <p>Coffee machine</p>
                     <p>Dishes</p>
                 </div>
-                <div class="col-lg-2 ">
+                <div class="r">
                 <p><img src="{{ asset('assets/imgicone/fridge.png') }}" alt="" width="20"></p>
                 <p><img src="{{ asset('assets/imgicone/kettle.png') }}" alt="" width="20"></p>
                 <p><img src="{{ asset('assets/imgicone/coffeemachine.png') }}" alt="" width="20"></p>
@@ -212,13 +228,18 @@
                     <p><i class="fa-solid fa-mug-saucer"></i></p>-->
                     
                 </div>
-                <div class="col-lg-2 ">
+
+                </div>
+                
+                <div class="col-lg-4 d-flex">
+
+                <div class="s">
                     <p>Washing machine</p>
                     <p>Dryer</p>
                     <p>Iron</p>
                     <p>Wardrobe</p>
                 </div>
-                <div class="col-lg-2 pl-4">
+                <div class="s">
                 <p><img src="{{ asset('assets/imgicone/washingmachine.png') }}" alt="" width="20"></p>
                 <p><img src="{{ asset('assets/imgicone/dryer.png') }}" alt="" width="20"></p>
                 <p><img src="{{ asset('assets/imgicone/iron.png') }}" alt="" width="20"></p>
@@ -228,6 +249,10 @@
                     <p><i class="fa-solid fa-bath"></i></p>
                     <p><i class="fa-solid fa-bath"></i></p>-->
                 </div>
+
+                </div>
+               
+              
             </div>
         </div>
         <div class="row mt-5">
