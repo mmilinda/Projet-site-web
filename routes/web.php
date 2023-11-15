@@ -46,3 +46,6 @@ Route::get('/Signin', function () {
 Route::get('/homepage', function () {
     return view('homepage');
 });
+Route::get('/LogIn', function () {
+    return view('LogIn');
+});
