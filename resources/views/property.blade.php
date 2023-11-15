@@ -34,6 +34,9 @@
         .imag-grid-row-2{
             grid-row: span 2;
         }
+        .property{
+            gap:100px;
+        }
         /*Responsivité */
         @media screen and (max-width: 1024px) {
             .imag-grid{
@@ -81,23 +84,118 @@
 <!-- Rhoncus suspendisse -->
 
 <div class="clearfix">
+   <section class="section_Guest_details property">
+        <div>
+            <div>
+                <h2 class="a">Rhoncus suspendisse</h2>
+                <p>London, Notthing Hill</p><br>
+            </div>
+            <div class="">
+                <i class="bi bi-usb-mini-fill"></i>
+                <p>2 bedroom</p>
+                <i class="bi bi-usb-mini-fill"></i>
+                <p>2 bath</p>
+                <p>500 sq.ft|City view | 3rd floor | Elevator</p>
+            </div>
+        </div>
+        <div class="card2_guest_details">
+            <div class="image_guest_details">
+                <img src="image/Rectangle 228.png" alt="">
+            </div><br>
+            <div class="part1_guest_details">
+                 <div class="ctn_part1_guest_details">
+                        <div>
+                            <div>
+                                <p>Move in</p>                  
+                                <span><img src="image/Vector (9).png" alt=""> 31.12.2021</span>
+                            </div>
+                        </div><br>
+                        <div>
+                            <div>
+                                <span><img src="image/eva_people-fill.png" alt=""> Guests 1</span>
+                            </div>
+                        </div><br><br>
+                        <div>
+                            <p>All utilities are included</p>
+                        </div>
+                  </div>    
+                    <div>
+                        <div>
+                            <p>Move out</p>
+                        </div>
+                        <span><img src="image/Vector (9).png" alt=""> 31.02.2022</span>
+                    </div>        
+            </div><br>
+            <div class="card3_guest_details">
+                <div>
+                    <div>
+                        <p>Average monthy rent</p>
+                    </div>
+                    <div>
+                        <span><strong>Pay upon booking</strong> <img src="image/Vector (10).png" alt=""></span>
+                    </div><br>
+                    <div>
+                        <div>
+                           <span>Total costs <img src="image/Vector (10).png" alt=""></span>
+                        </div>
+                            <a href="">Show more</a>
+                    </div>
+                </div>
+                <div class="prices_guest_details">
+                    <div>
+                        <div>
+                            <p>£3700</p>
+                        </div>
+                        <p>incl. VAT</p>
+                    </div>
+                    <div>
+                        <div>
+                            <p><strong>£3989.23</strong></p>
+                        </div>
+                        <p>incl. VAT</p>
+                    </div>
+                    <div>
+                        <div>
+                            <p>£4001.70</p>
+                        </div>                          
+                        <p>incl. VAT</p>
+                    </div>
+                </div>
+            </div>
+            <div class="maincontainer_footer_guests">
+                <div class="Payment_timeline_guest">
+                    <p><strong>Payment timeline</strong></p>
+                </div>
+                
+                    <div class="footer_guest_detail">
+                        <div class="time_line_img_guest">
+                            <img src="image/Timeline.png" alt="">
+                        </div>
+                        <div class="lastpart_guest_footer">
+                            <div class="Reserve_Due_After_Receive">
+                                <div>
+                                    <div>
+                                        <p>Reserve this apaptment</p>
+                                    </div>
+                                    <p>Due now</p>
+                                </div>
+                                <div>
+                                    <div>
+                                        <p>After move-out</p>
+                                    </div>
+                                    <span>Receive your £400.00 <img src="image/Vector (10).png" alt=""></span>
+                                </div>
+                            </div> 
+                            <div>
+                                <p>£4001.70</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <img src="assets\img\p2.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
-  <h2 class="a">Rhoncus suspendisse</h2>
-  <p>London, Notthing Hill</p><br>
-  <div class="l">
-
-        <i class="bi bi-usb-mini-fill"></i>
-        <p>2 bedroom</p>
-
-
-        <i class="bi bi-usb-mini-fill"></i>
-        <p>2 bath</p>
-
-
-        <p>500 sq.ft|City view | 3rd floor | Elevator</p>
-
-  </div><br><br>
+  </section>
+  <br><br>
   <h2>Description</h2>
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, distinctio architecto recusandae praesentium earum optio hic accusamus expedita nobis at reiciendis labore illo! Illo odio omnis optio voluptatem dignissimos cupiditate sunt libero. Totam fugit aliquid mollitia suscipit, sunt beatae, ullam magnam doloribus nulla vitae atque numquam possimus dolorem asperiores quasi iste necessitatibus esse, delectus praesentium. Labore excepturi amet vitae officiis.
@@ -113,11 +211,24 @@
 
 
 </div>
+<style>
+    .mainmili{
+        gap:200px;
+    }
+    @media screen and (max-width:500px){
+        .mainmili{
+        display:flex;
+        justify-content:center;
+        flex-direction:column;
+        gap:20px;
+    } 
 
+    }
+</style>
 <!-- Partie icône-->
 <h1>Amenities</h1><br>
 <div class="container text-center">
-  <div class="row align-items-start">
+  <div class="row mainmili align-items-start">
     <div class="col">
         <div class="i">
             <p>

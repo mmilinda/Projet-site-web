@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@include('header')
   <link rel="stylesheet" type="text/css" href="{{ asset('css/signin.css') }}">
   <title>Sign In </title>
 </head>
@@ -84,7 +80,7 @@
         </div>
     </div>
 
-    <div class="row inputs">
+    <div class="row inputs" >
         <div class="col-md-6">
             <input type="text" class="input-first-name" id="inputFirstName" aria-label="First name" placeholder="First Name">
         </div>
@@ -143,7 +139,5 @@
             </p>
     </div>
 </div>
-
-
-</body>
-</html>
+<br><br><br><br><br><br>
+@include('footer')

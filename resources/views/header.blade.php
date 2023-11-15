@@ -38,7 +38,13 @@
                     <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/landlord">Landloards</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/property">Property</a></li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="/booking">Booking</a></li> -->
                     <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/Signin">Signin</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/login">Longin</a></li>
                 </div>
             </div>
             <button type="button" class="nav-toggler togglers" id="togglers">
