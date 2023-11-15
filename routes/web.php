@@ -14,38 +14,3 @@ use App\Http\Controllers\LandlordController;
 
 
 
-Route::get('/Guest_Detail', function () {
-    return view('/Guest_Detail');
-});
-
-Route::get('/checkoutpageA', function () {
-    return view('/checkoutpageA');
-});
-
-Route::get('/contact', function () {
-    return view('/contact');
-});
-Route::get('/landlord', function () {
-    return view('/projet.landlord');
-});
-
-Route::get('/property', function () {
-    return view('property');
-});  
-Route::get('/blog', function () {
-    return view('blog');
-}); 
-
-Route::get('/booking', function () {
-    return view('booking');
-});
-
-Route::get('/Signin', function () {
-    return view('SignIn');
-});
-Route::get('/homepage', function () {
-    return view('homepage');
-});
-Route::get('/LogIn', function () {
-    return view('LogIn');
-});
