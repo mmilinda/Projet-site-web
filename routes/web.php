@@ -48,3 +48,7 @@ Route::get('/property', function () {
     return view('property');
 
 });
+
+Route::get('/proper', function () {
+    return view('/proper');
+});

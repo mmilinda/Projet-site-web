@@ -11,6 +11,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+   
+        <link rel="stylesheet" href="assets/css/style_homepage.css">
+<!-- header Bachir -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <style>
             .k{
                 padding-left:5px;
@@ -25,14 +31,45 @@
             .s{
                 padding-left: 5px;
             }
-            .property_projet{
+            /* .property_projet{
                 margin-top:80%;
+            } */
+            .footerproper{
+                gap:65px;
             }
         </style>
 </head>
 
 <body>
-@include('header')
+
+<header class="header">
+    <div>
+      <div>
+        <ul class="containerheader">
+          <div class="logoimage">
+                <a href="/" class="home-link"><img src="image/Logo.png"  alt=""></a>
+            </div>
+            <div class="menuheadera" >
+                <div class="ullia">
+                    <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/landlord">Landloards</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/property">Property</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/booking">Booking</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
+                    <li class="navbar-item"><a class="navbar-link" href="/Signin">Sign Up</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/LogIn">Login</a></li>
+                </div>
+            </div>
+            <button type="button" class="nav-toggler togglers" id="togglers">
+                  <span></span>
+            </button>
+        </ul>
+      </div>
+    </div>
+  </header>
     <div class="container-fluid mt-2">
         <div class="row align-items-stretch">
             <div class="col-lg-7 col-md-12">
@@ -245,7 +282,9 @@
             <div class="text-center my-3">
                 <h1>Location</h1>
             </div>
-            <div id="map" style="height: 400px;"></div>
+            <!-- <div id="map" style="height: 400px;"></div> -->
+            <img src="{{ asset('assets/imgicone/Map.png') }}" alt="" width="20">
+
             
         </div>
         <div class="row mt-5">
@@ -315,16 +354,132 @@
                 
             </div>
         </div>
-        <div class="container-fluid">
-        @include('footer')
-         </div>
+       
     
     </div>
+    <br><br><br>
    
+<div class="row">
+<section class="footer ">
+       <div class="maincontainer_footer  footerproper">
+             <div class="col1_footer">
+                  <div class="logo_footer">
+                       <a href=""><img src="image/logo.png" alt=""></a>
+                  </div>
+                  <div class="contact_footer">
+                      <div class="tel_footer">
+                        <p>Contact number: 02033074477</p>
+                      </div>
+                      <div class="reseauxfooter">
+                          <div>
+                              <a href=""><img src="image/Group.png" alt=""></a>
+                          </div>
+                          <div>
+                              <a href=""><img src="image/eva_facebook-fill.png" alt=""></a>
+                          </div>
+                          <div>
+                              <a href=""><img src="image/eva_twitter-fill.png" alt=""></a>
+                          </div>
+                      </div>
+                      <div class="copy_right_footer">
+                        <p>© 2021 Flex Living</p>
+                      </div>
+                  </div>
+             </div>
+             <div class="col_footer">
+                  <div class="title_col2_footer">
+                      <div class="title">
+                          <p><strong>Company</strong></p>
+                      </div>
+                  </div>
+                  <div class="textcol2_footer">
+                      <div >
+                          <p><a href="">Home</a></p>
+                      </div>
+                      <div>
+                          <p><a href="">About Us</p></a>
+                      </div>
+                      <div>
+                          <p><a href="">Our Team</p></a>
+                      </div>
+                  </div>
+             </div>
+             <div class="col_footer">
+                  <div class="title_col3_footer">
+                      <div class="title">
+                          <p><strong>Guests</strong></p>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <p><a href="">Blog</a></p>
+                      </div>
+                      <div>
+                          <p><a href="">FAQ</p></a>
+                      </div>
+                      <div>
+                          <p><a href="">Career</p></a>
+                      </div>
+                  </div>
+             </div>
+             <div class="col_footer col4_footer">
+                  <div class="title_col4_footer">
+                      <div class="title">
+                          <p><strong>Provacy</strong></p>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <p><a href="">Teams of Service</a></p>
+                      </div>
+                      <div>
+                          <p><a href="">Privacy Policy</p></a>
+                      </div>
+                  </div>
+             </div>
+             <div class="col5_footer">
+                  <div class="title_col4_footer">
+                      <p><strong>Stay up to date</strong></p>
+                  </div>
+                  <div class="title">
+                      <p><a href="">Be the first to know br about our newest apartments</a></p>
+                  </div>
+                  <div>
+                      <input type="text" placeholder="Email address">
+                  </div>
+                  <div><br>
+                     <button type="submit" class="btn btn-success rounded-pill">Subscribe</button>
+                  </div>
+             </div>
+                 <div class="display_none_footer">
+                      <div>
+                        <p><a href="">Contact number: 02033074477</a></p>
+                      </div>
+                      <div class="reseau_footer">
+                          <div>
+                            <a href=""><img src="image/Group.png" alt=""></a>
+                          </div>
+                          <div>
+                            <a href=""><img src="image/eva_facebook-fill.png" alt=""></a>
+                          </div>
+                          <div>
+                              <a href=""><img src="image/eva_twitter-fill.png" alt=""></a>
+                          </div>
+                      </div>
+                      <div class="copyright_footer">
+                        <p>© 2021 Flex Living</p>
+                      </div>
+                 </div>
+        </div>
+    </section>
+</div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <!-- Ajouter le script de l'API Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-
+<script src="JStapha/jstapha.js"></script>
 <script>
     // Fonction d'initialisation de la carte
     function initMap() {

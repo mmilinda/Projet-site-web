@@ -38,7 +38,7 @@
                     <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/landlord">Landloards</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/property">Property</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/proper">Property</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/booking">Booking</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li>
