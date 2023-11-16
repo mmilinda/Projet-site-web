@@ -223,6 +223,17 @@
 }
 
 @media screen and (max-width: 988px) {
+     
+    .card2_landlord{
+      
+    }
+    .marginTop_landlord{
+        margin-top:20px;
+    }
+    .card2_landlord_container{
+        margin-top:-700px;
+        /* gap:10px; */
+    }
     body{
         width: 100%;
     }
@@ -505,10 +516,9 @@
        <!-- Modal gallery -->
         <section class="">
         <!-- Section: Images -->
-        <section class="container-fluid">
-            <div class="row">
-                
-                <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+        <section class="container-fluid card2_landlord_container">
+            <div class="row card2_landlord">
+                <div class="col-lg-6 col-md-12  mb-lg-0">
                     <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
                         <img src="img/before.png"class=" col-6 w-100"/>
                         <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">
@@ -517,7 +527,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 marginTop_landlord">
                     <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
                         <img src="img/After.png" class=" col-6 w-100"/>
                         <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal2">

@@ -52,3 +52,15 @@ Route::get('/property', function () {
 Route::get('/proper', function () {
     return view('/proper');
 });
+
+Route::get('/formulaire_ajout_articke', function () {
+    return view('/formulaire_ajout_articke');
+});
+
+// ajout d'un article
+
+// Route::post('/insert_video',[App\Http\Controllers\Admin\DashdoardController::class,'insert'])->name('insert.file');
+Route::post('/ajouter_article',[App\Http\Controllers\TAPHACONTROLLER::class,'ajouter_article_controller'])->name('form_ajout_article.file');
+// Route::post('/ajouter_article', 'TAPHACONTROLLER@ajouter_article_controller');
+// Route::put('/role_register_update/{id}', 'Admin\DashdoardController@registersupdate');
+

@@ -21,4 +21,13 @@
         utilsScript: "assets/build/js/utils.js"
     });
 
-          
+
+  
+    blog  = document.getElementById("blog");
+    blog.onclick= function(){
+    appear = document.querySelector(".ajout_article");
+    appear.classList.toggle("activeblog");
+    appear.transition ="0.10";
+    };
+
+
