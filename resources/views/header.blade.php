@@ -38,7 +38,7 @@
                     <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/landlord">Landloards</a></li>
                     <li class="navbar-item" style="display:flex; justify-content:center;">
-                      <div class="navbar-link blog" id="blog"  href="/blog">Blog <span class="arrow_blog"><i class="fa fa-angle-right"></i></span></div>
+                      <a class="navbar-link blog" id="blog"  href="/afficheArticle">Blog <span class="arrow_blog"><i class="fa fa-angle-right"></i></span></a>
                       <ul class="ajout_article">
                         <li>
                           <a href="/formulaire_ajout_articke"  style="list-style:none;">Ajouter un article</a>
@@ -68,7 +68,7 @@
       background-color:#F2F0F2;
       position:absolute;
       margin-top:30px;
-      display:none;  
+      display:flex;  
     }
     .activeblog{
       position:absolute;

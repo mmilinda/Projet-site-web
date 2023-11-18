@@ -1,5 +1,5 @@
 
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
@@ -8,13 +8,15 @@
             <div class="row col-sm-12 justify-content-end">
                 <div class="col-lg-6 col-md-10 col-sm-12">
                     <div class="form-box px-5">
-                    <form method="POST" action="{{Route('form_ajout_article.file')}}" enctype="multipart/form-data">
+                    <form method="POST" action="/edition_article_blogA/{{$ajouter_article_tapha_a_s->id}}" 
+                    enctype="multipart/form-data">                        <!--nom de la table-->
                         @csrf>
-                            <h2 class="text-center">Ajouter un artcle</h2>
+                            <h2 class="text-center">Editer un artcle</h2>
                             <br>
-                            <input type="file" name="photo" placeholder="photo" class="form-control mb-3">     
-                            <input type="text" name="titre" placeholder="titre" class="form-control mb-3">    
-                            <textarea name="contenu" id="" cols="60" rows="10" placeholder="contenu"></textarea>
+                            <input type="file" name="photo" placeholder="photo" class="form-control mb-3" value="{{$ajouter_article_tapha_a_s->photo}}">     
+                            <input type="text" name="titre" placeholder="titre" class="form-control mb-3" value="{{$ajouter_article_tapha_a_s->titre}}">    
+                            <textarea name="contenu" id="" cols="60" rows="10" placeholder="contenu" value="{{$ajouter_article_tapha_a_s->contenu}}"></textarea>
+                            <input type="text" name="created_at" placeholder="titre" class="form-control mb-3" value="{{$ajouter_article_tapha_a_s->updated_at}}"> 
                             <br><br><br>
                             <div class="div col-12">
                             <button type="submit" class=" button btn btn-success rounded-pill">Submit</button>

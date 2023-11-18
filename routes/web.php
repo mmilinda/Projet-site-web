@@ -27,9 +27,9 @@ Route::get('/landlord', function () {
 });
 
 
-Route::get('/blog', function () {
-    return view('blog');
-}); 
+// Route::get('/blog', function () {
+//     return view('blog');
+// }); 
 
 Route::get('/booking', function () {
     return view('booking');
@@ -57,10 +57,16 @@ Route::get('/formulaire_ajout_articke', function () {
     return view('/formulaire_ajout_articke');
 });
 
-// ajout d'un article
-
-// Route::post('/insert_video',[App\Http\Controllers\Admin\DashdoardController::class,'insert'])->name('insert.file');
+// envoi du formulaire
 Route::post('/ajouter_article',[App\Http\Controllers\TAPHACONTROLLER::class,'ajouter_article_controller'])->name('form_ajout_article.file');
-// Route::post('/ajouter_article', 'TAPHACONTROLLER@ajouter_article_controller');
-// Route::put('/role_register_update/{id}', 'Admin\DashdoardController@registersupdate');
 
+
+//  affichage de la page des articles
+ Route::get('/afficheArticle',[App\Http\Controllers\TAPHACONTROLLER::class,'affiche_article_control']);
+
+// Edition d'article
+Route::get('/edition_article_blog/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'edition_article_blog_show']);
+Route::post('/edition_article_blogA/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'edition_article_update']);
+
+// Supprimer un article
+Route::delete('/article-supprimer/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'suppression_article']);

@@ -3,7 +3,6 @@
 <section class="section">
 
 </section>
-</body>
 <div>
 <section class="section1" >
   <div class="card1section1" id="card1section1">

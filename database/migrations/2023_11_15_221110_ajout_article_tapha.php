@@ -13,14 +13,11 @@ return new class extends Migration
     {
         Schema::create('ajout_article_tapha', function (Blueprint $table){ 
             $table->bigIncrements('id');
+            $table->string('photo');
             $table->string('titre');
-            $table->string('consigne');
-            $table->string('video');
-            $table->string('lienvc');
-            $table->string('sujetvm');
-            $table->string('lienvm');
-            $table->string('imagevm');
-            
+            $table->string('contenu');
+            $table->string('created_at');
+            $table->string('update_at'); 
         });
     }
 

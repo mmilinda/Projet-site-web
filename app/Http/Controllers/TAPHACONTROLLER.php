@@ -1,13 +1,22 @@
 <?php
-
 namespace App\Http\Controllers;
-use App\ajouter_article;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\ajouter_article_taphaA;
 use Illuminate\Http\Request;
-
+use App\Models;
 class TAPHACONTROLLER extends Controller
 {
-    public function ajouter_article_controller( Request $request)
 
+// affichage des articles 
+    public function affiche_article_control(Request $request)
+    {
+        $ajouter_article_tapha = ajouter_article_taphaA::all();
+        return view('blog')->with('ajouter_article_tapha_a_s', $ajouter_article_tapha);
+                                    // nom de la table
+    }
+
+    public function ajouter_article_controller(Request $request)
     {
        
         $request->validate([
@@ -17,49 +26,55 @@ class TAPHACONTROLLER extends Controller
         ]);
       
    
-        // $file = $request->file('photo');
-        // $file->move('assets.imagesepreuve',$file->getClientOriginalName());
-        // $file_name=$file->getClientOriginalName();
-   
-        $ajouter = new ajouter_article();
-        $ajouter->photo = $request->input('photo');
+        $file = $request->file('photo');
+        $file->move('images_article',$file->getClientOriginalName());
+        $file_name=$file->getClientOriginalName();
+
+        $ajouter = new ajouter_article_taphaA();
+        $ajouter->photo = $file_name;
         $ajouter->titre = $request->input('titre');
         $ajouter->contenu = $request->input('contenu');
         $ajouter->save();
-        return redirect('/blog')->with('messageC','L\'article a étè bien ajouter !');
-          
+        return redirect('/afficheArticle')->with('message','L\'article a étè bien ajouter !');   
     }
 
-    // public function insert( Request $request)
 
-    // {
-       
-    //     $request->validate([
-    //        'titre'=>'required',
-    //        'consigne'=>'required',
-    //        'video' => 'required',
-    //        'lienvc'=>'required',
-    //        'sujetvm'=>'required',
-    //        'lienvm'=>'required',
-    //        'imagevm'=>'required|max:100',
-          
-    //     ]);
+
+    // affichage des articles pour edition
+    public function  edition_article_blog_show(Request $request, $id)
+    {
+        $ajouter_article_tapha = ajouter_article_taphaA::findOrFail($id);
+        return view('edition-Article')->with('ajouter_article_tapha_a_s', $ajouter_article_tapha);
+                                    // nom de la table
+    }
+    // EDITION DES ARTICLES
+
+    public function edition_article_update( Request $request, $id)
+    {
+        $file = $request->file('photo');
+        $file->move('images_article',$file->getClientOriginalName());
+        $file_name=$file->getClientOriginalName();
+
+
+        $ajouter = ajouter_article_taphaA::find($id);
+        $ajouter->photo = $file_name;
+        $ajouter->titre = $request->input('titre');
+        $ajouter->contenu = $request->input('contenu');
+        $ajouter->created_at = $request->input('created_at');
+        $ajouter->save();
+       return redirect('/afficheArticle')->with('message','L\'article a étè bien modifié !');
+    }
+
+    
+   
+    //    Supprimer un article 
+    public function  suppression_article($id){
+    $ajouter_article_tapha = ajouter_article_taphaA::findOrFail($id);
+    $ajouter_article_tapha->delete();
+
+    return redirect('/afficheArticle')->with('message','L\'article a étè bien supprimé !');
+
+   }
+
       
-   
-    //     $file = $request->file('imagevm');
-    //     $file->move('imagesepreuve',$file->getClientOriginalName());
-    //     $file_name=$file->getClientOriginalName();
-   
-    //     $inserer = new formation_devfullphp();
-    //     $inserer->titre = $request->input('titre');
-    //     $inserer->consigne = $request->input('consigne');
-    //     $inserer->video = $request->input('video');
-    //     $inserer->lienvc = $request->input('lienvc');
-    //     $inserer->sujetvm = $request->input('sujetvm');
-    //     $inserer->lienvm = $request->input('lienvm');
-    //     $inserer->imagevm = $file_name;
-    //     $inserer->save();
-    //     return redirect('index_u')->with('messageC','L\'ancien mot de passe a étè bien changé !');
-          
-    // }
 }
