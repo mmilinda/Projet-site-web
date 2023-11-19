@@ -9,14 +9,13 @@
     <div class="werentlorem"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, totam?</p></div>
   </div>
 </section>
-
 <section class="section5 section5_article">
         <div class="Read_our_blog">
           <p><strong>Read our blog</strong></p>
         </div>
      <div class="swiperA-wrapperA">
       @foreach($ajouter_article_tapha_a_s as $affiche)
-          <div class="cardA ">
+          <div class="cardA">
               <div class="cardA_image">
                   <img src="images_article/{{$affiche->photo}}" alt="">
               </div><br>
@@ -40,17 +39,27 @@
             
             </div>
             <span class="footer_article">
-                  <a href="edition_article_blog/{{$affiche->id}}" class="btn btn-primary text-light">Editer</a>
-                  <form action="article-supprimer/{{$affiche->id}}" method="post">
-                                  {{csrf_field()}}
-                                  {{method_field('DELETE')}}
-                        <button type="submit" class="btn btn-danger">Supprimer </button>
-                  </form>
+                @guest
+                    @if (Route::has('login'))
+                    @endif
+                    @if (Route::has('register'))
+                      
+                    @endif
+                @else
+                    @if(Auth::user()->type_user == 'admin')
+                    <a href="edition_article_blog/{{$affiche->id}}" class="btn btn-primary text-light">Editer</a>
+                        <form action="article-supprimer/{{$affiche->id}}" method="post">
+                                        {{csrf_field()}}
+                                        {{method_field('DELETE')}}
+                              <button type="submit" class="btn btn-danger">Supprimer </button>
+                        </form>
+                        @endif
+                @endguest   
             </span>
           </div>
           @endforeach
         </div> 
-    </section><br><br><br>
+    </section><br><br><br><br>
 @include('footer')
 <style>
   .section5_article{

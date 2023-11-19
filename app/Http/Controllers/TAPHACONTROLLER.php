@@ -5,6 +5,15 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\ajouter_article_taphaA;
 use Illuminate\Http\Request;
 use App\Models;
+
+use App\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+
+
+
 class TAPHACONTROLLER extends Controller
 {
 
@@ -75,6 +84,11 @@ class TAPHACONTROLLER extends Controller
     return redirect('/afficheArticle')->with('message','L\'article a étè bien supprimé !');
 
    }
-
-      
+// Déconnexion
+   public function logoutaction($user, $value=true)
+   {
+      Session::flash($user);
+      Auth:: logout();
+      return redirect('login');
+   }
 }

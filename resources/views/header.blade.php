@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,10 +40,21 @@
                     <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/landlord">Landloards</a></li>
                     <li class="navbar-item" style="display:flex; justify-content:center;">
-                      <a class="navbar-link blog" id="blog"  href="/afficheArticle">Blog <span class="arrow_blog"><i class="fa fa-angle-right"></i></span></a>
+                      <a class="navbar-link blog" id="blog"  href="/afficheArticle">Blog <span class="arrow_blog"></span></a>
                       <ul class="ajout_article">
                         <li>
-                          <a href="/formulaire_ajout_articke"  style="list-style:none;">Ajouter un article</a>
+                        @guest
+                            @if (Route::has('login'))
+                            @endif
+                            @if (Route::has('register'))
+                             
+                            @endif
+                        @else
+                            @if(Auth::user()->type_user == 'admin')
+                        <a href="/formulaire_ajout_articke"  style="list-style:none;">Ajouter un article</a>
+                            @endif
+                           
+                        @endguest                
                         </li>
                       </ul>
                     </li>
@@ -50,8 +63,25 @@
                     <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li>
                     <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
-                    <li class="navbar-item"><a class="navbar-link" href="/Signin">Sign Up</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/LogIn">Login</a></li>
+
+                          @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item  navbar-item">
+                                    <a class="nav-link " href="{{ route('login') }}">{{ __('Conexion') }}</a>
+                                </li>
+                            @endif
+                            @if (Route::has('register'))
+                                <li class="nav-item navbar-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
+                                </li>
+                            @endif
+                        @else
+                        <li class="nav-item dropdown  navbar-item">
+                                                <a href="/logout" class="btn btn-danger">Déconnexion</a>                  
+                                    {{ Auth::user()->prenom}}                                     
+                                </div>
+                            </li>                     
+                        @endguest
                 </div>
             </div>
             <button type="button" class="nav-toggler togglers" id="togglers">
