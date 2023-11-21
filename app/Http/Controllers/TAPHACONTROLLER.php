@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
 
 
 
@@ -20,6 +22,9 @@ class TAPHACONTROLLER extends Controller
 // affichage des articles 
     public function affiche_article_control(Request $request)
     {
+
+      //   $string= "Lorem ipsum dolor sit amet consectetur: adipisicing elit. ";
+      //   (str::of($string)->words(words:5, end:'lire plus'));
         $ajouter_article_tapha = ajouter_article_taphaA::all();
         return view('blog')->with('ajouter_article_tapha_a_s', $ajouter_article_tapha);
                                     // nom de la table
@@ -31,7 +36,7 @@ class TAPHACONTROLLER extends Controller
         $request->validate([
            'photo'=>'required',
            'titre'=>'required',
-           'contenu' => 'required',
+           'contenu' => ['required', 'string', 'max:2000'],
         ]);
       
    
@@ -56,8 +61,8 @@ class TAPHACONTROLLER extends Controller
         return view('edition-Article')->with('ajouter_article_tapha_a_s', $ajouter_article_tapha);
                                     // nom de la table
     }
-    // EDITION DES ARTICLES
 
+    // EDITION DES ARTICLES
     public function edition_article_update( Request $request, $id)
     {
         $file = $request->file('photo');
@@ -91,4 +96,12 @@ class TAPHACONTROLLER extends Controller
       Auth:: logout();
       return redirect('login');
    }
+
+     // affichage le contenu des articles pour edition
+     public function  view_article_show(Request $request, $id)
+     {
+         $ajouter_article_tapha = ajouter_article_taphaA::findOrFail($id);
+         return view('affiche_contenu_article')->with('ajouter_article_tapha_a_s', $ajouter_article_tapha);
+                                                      // nom de la table
+     }
 }

@@ -9,7 +9,7 @@
                 <div class="col-lg-6 col-md-10 col-sm-12">
                     <div class="form-box px-5">
                     <form method="POST" action="{{Route('form_ajout_article.file')}}" enctype="multipart/form-data">
-                        @csrf>
+                        @csrf
                             <h2 class="text-center">Ajouter un artcle</h2>
                             <br>
                             <input type="file" name="photo" placeholder="photo" class="form-control mb-3">     

@@ -79,7 +79,6 @@
                         <li class="nav-item dropdown  navbar-item">
                                                 <a href="/logout" class="btn btn-danger">Déconnexion</a>                  
                                     {{ Auth::user()->prenom}}                                     
-                                </div>
                             </li>                     
                         @endguest
                 </div>

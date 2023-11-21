@@ -1,798 +1,4 @@
 
-
-@include('header')
-<!DOCTYPE html>
-<!-- <html lang="en">
-<head> -->
-    <!-- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"> -->
-
-    <style>
-        .imag-grid{
-            --gap: 16px;
-            --num-cols: 4;
-            --row-height: 300px;
-
-            box-sizing: border-box;
-            padding: var(--gap);
-            
-            display: grid;
-            grid-template-columns: repeat(var(--num-cols), 1fr);
-            grid-auto-rows: var(--row-height);
-            gap: var(--gap);
-        }
-        .imag-grid >img{
-            width: 100%;
-            height: 100%;
-            object-fit:cover;
-        }
-        .imag-grid-col-2{
-            grid-column: span 2;
-        }
-        .imag-grid-row-2{
-            grid-row: span 2;
-        }
-        .property{
-            gap:100px;
-        }
-        /*Responsivité */
-        @media screen and (max-width: 1024px) {
-            .imag-grid{
-                --num-cols:2;
-                --row-height: 200px;
-            }
-            iframe{
-                width:auto;
-                justify-content: center;
-            }
-        }
-        h1{
-            text-align: center;
-            justify-content: center;
-        }
-        .i{
-            display: flex;
-        }
-        .clearfix{
-            margin: 10px;
-        }
-        .l{
-            display: flex;
-            justify-content: space-between;
-        }
-        .l1{
-            display: flex;
-        }
-        .l2{
-            display: flex;
-        }
-
-    </style>
-<!-- </head>
-<body> -->
-<!-- Grille d'image -->
-<div class="imag-grid">
-    <img class="imag-grid-col-2 imag-grid-row-2" src="assets\img\p1.png" alt="gallery">
-    <img src="assets\img\p2.png" alt="gallery">
-    <img src="assets\img\p3.png" alt="gallery">
-    <img src="assets\img\p4.png" alt="gallery">
-    <img src="assets\img\p5.png" alt="gallery">
-</div><br>
-
-<!-- Rhoncus suspendisse -->
-
-<div class="clearfix">
-   <section class="section_Guest_details property">
-        <div>
-            <div>
-                <h2 class="a">Rhoncus suspendisse</h2>
-                <p>London, Notthing Hill</p><br>
-            </div>
-            <div class="">
-                <i class="bi bi-usb-mini-fill"></i>
-                <p>2 bedroom</p>
-                <i class="bi bi-usb-mini-fill"></i>
-                <p>2 bath</p>
-                <p>500 sq.ft|City view | 3rd floor | Elevator</p>
-            </div>
-        </div>
-        <div class="card2_guest_details">
-            <div class="image_guest_details">
-                <img src="image/Rectangle 228.png" alt="">
-            </div><br>
-            <div class="part1_guest_details">
-                 <div class="ctn_part1_guest_details">
-                        <div>
-                            <div>
-                                <p>Move in</p>                  
-                                <span><img src="image/Vector (9).png" alt=""> 31.12.2021</span>
-                            </div>
-                        </div><br>
-                        <div>
-                            <div>
-                                <span><img src="image/eva_people-fill.png" alt=""> Guests 1</span>
-                            </div>
-                        </div><br><br>
-                        <div>
-                            <p>All utilities are included</p>
-                        </div>
-                  </div>    
-                    <div>
-                        <div>
-                            <p>Move out</p>
-                        </div>
-                        <span><img src="image/Vector (9).png" alt=""> 31.02.2022</span>
-                    </div>        
-            </div><br>
-            <div class="card3_guest_details">
-                <div>
-                    <div>
-                        <p>Average monthy rent</p>
-                    </div>
-                    <div>
-                        <span><strong>Pay upon booking</strong> <img src="image/Vector (10).png" alt=""></span>
-                    </div><br>
-                    <div>
-                        <div>
-                           <span>Total costs <img src="image/Vector (10).png" alt=""></span>
-                        </div>
-                            <a href="">Show more</a>
-                    </div>
-                </div>
-                <div class="prices_guest_details">
-                    <div>
-                        <div>
-                            <p>£3700</p>
-                        </div>
-                        <p>incl. VAT</p>
-                    </div>
-                    <div>
-                        <div>
-                            <p><strong>£3989.23</strong></p>
-                        </div>
-                        <p>incl. VAT</p>
-                    </div>
-                    <div>
-                        <div>
-                            <p>£4001.70</p>
-                        </div>                          
-                        <p>incl. VAT</p>
-                    </div>
-                </div>
-            </div>
-            <div class="maincontainer_footer_guests">
-                <div class="Payment_timeline_guest">
-                    <p><strong>Payment timeline</strong></p>
-                </div>
-                
-                    <div class="footer_guest_detail">
-                        <div class="time_line_img_guest">
-                            <img src="image/Timeline.png" alt="">
-                        </div>
-                        <div class="lastpart_guest_footer">
-                            <div class="Reserve_Due_After_Receive">
-                                <div>
-                                    <div>
-                                        <p>Reserve this apaptment</p>
-                                    </div>
-                                    <p>Due now</p>
-                                </div>
-                                <div>
-                                    <div>
-                                        <p>After move-out</p>
-                                    </div>
-                                    <span>Receive your £400.00 <img src="image/Vector (10).png" alt=""></span>
-                                </div>
-                            </div> 
-                            <div>
-                                <p>£4001.70</p>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-  </section>
-  <br><br>
-  <h2>Description</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, distinctio architecto recusandae praesentium earum optio hic accusamus expedita nobis at reiciendis labore illo! Illo odio omnis optio voluptatem dignissimos cupiditate sunt libero. Totam fugit aliquid mollitia suscipit, sunt beatae, ullam magnam doloribus nulla vitae atque numquam possimus dolorem asperiores quasi iste necessitatibus esse, delectus praesentium. Labore excepturi amet vitae officiis.
-  </p><br>
-  <h3>In sed</h3>
-  <p>
-     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui iure nemo laborum, eveniet voluptatibus hic rem iste non minus magni pariatur magnam adipisci ut! Labore soluta earum nostrum magnam nihil.
-  </p><br>
-  <h3>Adipiscing risus, fermentum</h3>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum consequatur facere dignissimos odit amet, veritatis sequi. Repellendus dignissimos numquam ratione?
-  </p>
-
-
-</div>
-<style>
-    .mainmili{
-        gap:200px;
-    }
-    @media screen and (max-width:500px){
-        .mainmili{
-        display:flex;
-        justify-content:center;
-        flex-direction:column;
-        gap:20px;
-    } 
-
-    }
-</style>
-<!-- Partie icône-->
-<h1>Amenities</h1><br>
-<div class="container text-center">
-  <div class="row mainmili align-items-start">
-    <div class="col">
-        <div class="i">
-            <p>
-                TV <br>
-                Flatscreen TV
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-        <div class="i">
-            <p>
-                Fireplace
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-        <div class="i">
-            <p>
-                Phone
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-        <div class="i">
-            <p>
-                Work desk  <br>
-                With computer
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-    </div>
-    <div class="col">
-    <div class="i">
-            <p>
-                Fridge
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-        <div class="i">
-            <p>
-                Kettle
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-        <div class="i">
-            <p>
-                Coffee machine
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-        <div class="i">
-            <p>
-                Dishes
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-    </div>
-    <div class="col">
-    <div class="i">
-            <p>
-                Washing machine
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-        <div class="i">
-            <p>
-               Dryer
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-        <div class="i">
-            <p>
-                Iron
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-        <div class="i">
-            <p>
-                Wardrobe
-            </p>
-            <i class="bi bi-tv"></i>
-        </div>
-    </div>
-  </div>
-</div>
-
-<!-- Partie neighbourhood -->
-<h1>Neighbourhood</h1><br>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias officia, reprehenderit laborum amet quae voluptate quas incidunt. Tenetur, dolorum iure.</p>
-<p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore illum inventore eaque pariatur accusantium iste dolore praesentium dolorum, officiis animi sunt recusandae esse quisquam unde eligendi maiores. Reprehenderit quasi quos sint non aliquam quas eum minima laboriosam id earum. Quisquam!
-</p>
-<!-- Carte de localisation -->
-<h1>Location</h1><br>
-<div>
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.0267746379027!2d-17.467222726752027!3d14.711077974365988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec173e83be0d14b%3A0x1717e5fee409822b!2sDefar%20Sci!5e0!3m2!1sfr!2ssn!4v1699632457184!5m2!1sfr!2ssn" width="1300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div><br><br><br>
-<!-- Policy details --><!-- -->
-<h1>Policy details</h1>
-<br><br><br>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-@include('footer')
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/14b44e0e2e.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-        <style>
-            .k{
-                padding-left:5px;
-
-            }
-            .t{
-                padding-left:5px;
-            }
-            .r{
-                padding-left: 5px;
-            }
-            .s{
-                padding-left: 5px;
-            }
-        </style>
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown link
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid mt-2">
-        <div class="row align-items-stretch">
-            <div class="col-lg-7 col-md-12">
-                <img src="{{ asset('assets/img/im1.png') }}" alt="" class="img-fluid custom-height" style="height:480px;">
-            </div>
-            <div class="col-lg-5 col-md-12">
-                <div class="row col-xs-6">
-                    <div class="col-md-6">
-                        <img src="{{ asset('assets/img/im2.png') }}" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-md-6">
-                        <img src="{{ asset('assets/img/im3.png') }}" alt="" class="img-fluid">
-                    </div>
-                </div>
-                <div class="row mt-2 col-xs-6">
-                    <div class="col-md-6">
-                        <img src="{{ asset('assets/img/im4.png') }}" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-md-6">
-                        <img src="{{ asset('assets/img/im5.png') }}" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-lg-6">
-                <h1>Rhoncus suspendus</h1>
-                <div class="di">
-                    <p>London, Nottling Hill</p>
-                </div>
-                <div class="d-flex">
-                    <div class="k"><img src="{{ asset('assets/imgicone/chambre.png') }}" width="15" alt="" class="img-fluid"></div>
-                    <div class="k">2 bedroom</div>
-                    <div class="k"><img src="{{ asset('assets/imgicone/bath.png') }}" width="15" alt="" class="img-fluid"> 2 bath</div>
-                    <div class="k">500 sq ft | City view| 3rd floor | Elevator</div>
-                </div>
-                <div class="mt-2">
-                    <h3 class="mb-2">Description</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione numquam deleniti minima
-                            labore nam, inventore illo ipsa commodi accusantium ex ducimus corporis est, delectus iusto
-                            quos dignissimos molestias provident iste. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Ratione numquam deleniti minima labore nam, inventore illo ipsa commodi
-                            accusantium ex.
-                        </p>
-                </div>
-                <div class="mt-2">
-                    <h4 class="mb-2">In sed</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione numquam deleniti minima
-                            labore nam, inventore illo ipsa commodi accusantium ex ducimus corporis est, delectus iusto
-                            quos dignissimos molestias provident iste.
-                        </p>
-                </div>
-                <div class="mt-2">
-                    <h4 class="mb-2">Adipiscing risus, fermentum</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione numquam deleniti minima
-                            labore nam, inventore illo ipsa commodi accusantium ex ducimus corporis est, delectus iusto
-                            quos dignissimos molestias provident iste.
-                        </p>
-                </div>
-
-            </div>
-            <div class="col-lg-6 bg-light">
-                <div class="mt-3">
-                    <div class="text-center">
-                        <h2 class="align-items-center mb-5">E3990 / Month</h2>
-                    </div>
-
-                    <div class="row mx-5">
-                        <div class="col-lg-6">
-
-                            <p>Move in</p>
-                            
-                            <button class="bg-white w-10 border-0 rounded-top rounded-bottom"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"> 31.12.2021</button>
-                            <div class="my-4">
-                                <p><img src="{{ asset('assets/imgicone/guest.png') }}" alt="" width="20"> Guests + 1 -</p>
-
-                            </div>
-                            <p class="my-4">All utilities are included</p>
-                            <p class="my-4">Average monthy rent</p>
-                            <p class="my-4">Pay upon booking</p>
-                            <p class="my-4">total costs</p>
-                            <p class="my-4">Show more</p>
-                        </div>
-                        <div class="col-lg-6">
-                            <p>Move out</p>
-                            <!--<p class="bg-white" style="border-radius: 26%;"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"></p>-->
-                            <button class="bg-white w-10 border-0 rounded-top rounded-bottom"><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20">31.02.2022</button>
-
-                            <div class="mt-5 pl-3">
-                            <div>
-                            <p class="fw-bold">E3700</p>
-                            <p>incl.VAT</p>
-                            
-                            <div>
-                            <p class="fw-bold">E3989.23</p>
-                            <p>incl.VAT</p>
-                            </div>
-                            <div>
-                            <p class="fw-bold">E4001.70</p>
-                            <p>incl.VAT</p>
-                            </div>
-
-                            </div>
-                          
-                            
-
-                            
-                            
-                        </div>
-                    </div>
-                    <div class="text-center mt-4">
-
-                        <button type="submit" class="btn btn-success">Continue booking</button>
-
-                    </div>
-
-                </div>
-                <div class="row mx-5 text-center">
-                    <p>When you book this apartment, your reservation will be confirmed instantly </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-5">
-            <div class="text-center">
-                <h1>Amenities</h1>
-            </div>
-            <div class="row w-100 mt-4 mx-5">
-                <div class="col-lg-4 d-flex">
-                <div class="t">
-                    <p>Tv</p>
-                    <p>Flatscreen TV</p>
-                    <p>Fireplace</p>
-                    <p>Phone</p>
-                    <p>Work desk</p>
-                    <p>With computer</p>
-                </div>
-                <div class="t">
-                <p><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"></p>
-                <p><img src="{{ asset('assets/imgicone/fireplace.png') }}" alt="" width="20"></p>
-                <p><img src="{{ asset('assets/imgicone/calendrier.png') }}" alt="" width="20"></p>
-                <p><img src="{{ asset('assets/imgicone/workdesk.png') }}" alt="" width="20"></p>
-               
-                    <!--<p><i class="fa-solid fa-tv"></i></p>
-                    <p><i class="fa-solid fa-bridge-water"></i></p>
-                    <p><i class="fa-solid fa-phone"></i></p>
-                    <p><i class="fa-solid fa-desktop"></i></p>-->
-                </div>
-
-                </div>
-                <div class="col-lg-4 d-flex">
-                <div class="r ">
-                    <p>Fridge</p>
-                    <p>Kettle</p>
-                    <p>Coffee machine</p>
-                    <p>Dishes</p>
-                </div>
-                <div class="r">
-                <p><img src="{{ asset('assets/imgicone/fridge.png') }}" alt="" width="20"></p>
-                <p><img src="{{ asset('assets/imgicone/kettle.png') }}" alt="" width="20"></p>
-                <p><img src="{{ asset('assets/imgicone/coffeemachine.png') }}" alt="" width="20"></p>
-                <p><img src="{{ asset('assets/imgicone/dishes.png') }}" alt="" width="20"></p>
-                    <!--<p><i class="fa-solid fa-bridge-water"></i></p>
-                    <p><i class="fa-solid fa-bridge-water"></i></p>
-                    <p><i class="fa-solid fa-mug-hot"></i></p>
-                    <p><i class="fa-solid fa-mug-saucer"></i></p>-->
-                    
-                </div>
-
-                </div>
-                
-                <div class="col-lg-4 d-flex">
-
-                <div class="s">
-                    <p>Washing machine</p>
-                    <p>Dryer</p>
-                    <p>Iron</p>
-                    <p>Wardrobe</p>
-                </div>
-                <div class="s">
-                <p><img src="{{ asset('assets/imgicone/washingmachine.png') }}" alt="" width="20"></p>
-                <p><img src="{{ asset('assets/imgicone/dryer.png') }}" alt="" width="20"></p>
-                <p><img src="{{ asset('assets/imgicone/iron.png') }}" alt="" width="20"></p>
-                <p><img src="{{ asset('assets/imgicone/wardrobe.png') }}" alt="" width="20"></p>
-                    <!--<p><i class="fa-solid fa-bath"></i></p>
-                    <p><i class="fa-solid fa-bath"></i></p>
-                    <p><i class="fa-solid fa-bath"></i></p>
-                    <p><i class="fa-solid fa-bath"></i></p>-->
-                </div>
-
-                </div>
-               
-              
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="text-center my-4">
-                <h1>Neighbourhood</h1>
-            </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit dolore necessitatibus iusto, qui inventore in totam! Consequuntur quaerat modi suscipit ad architecto consequatur accusamus. Minus hic nulla corrupti dicta. Eos!.
-            </p>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi fugiat reprehenderit fugit laboriosam. Vero reiciendis sint enim nihil et amet eius dignissimos neque rerum quisquam labore error, suscipit culpa tempora.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ducimus beatae, fugiat nostrum voluptatem iste corrupti dolorum, qui, labore voluptas eveniet eligendi assumenda illum odio. Voluptas debitis illo suscipit id?
-            </p>
-        </div>
-        <div class="row mt-5">
-            <div class="text-center my-3">
-                <h1>Location</h1>
-            </div>
-            <div id="map" style="height: 400px;"></div>
-            
-        </div>
-        <div class="row mt-5">
-             <div class="text-center">
-                <h1>Policy detail</h1>
-            </div>
-            <div class="col-lg-4">
-                <div class="mt-3">
-                    <div class="">
-                        <h2 class="align-items-center mb-5">House rules</h2>
-                    </div>
-                    
-                    <div>
-                        <p><img src="{{ asset('assets/imgicone/chekintime.png') }}" alt="" width="20"> Checkin time</p>
-                    </div>
-                    <div>
-                        <p> <img src="{{ asset('assets/imgicone/chekintime.png') }}" alt="" width="20"> Checkout time</p>
-                    </div>
-                    <div>
-                        <p><img src="{{ asset('assets/imgicone/smoking.png') }}" alt="" width="20"> No smoking</p>
-                    </div>
-                    <div>
-                        <p><img src="{{ asset('assets/imgicone/noped.png') }}" alt="" width="20"> No pets</p>
-                    </div>
-                    <div>
-                        <p><img src="{{ asset('assets/imgicone/party.png') }}" alt="" width="20"> No parties or events</p>
-                    </div>
-
-                   
-                  
-
-                </div>
-                     
-               
-                
-
-            </div>
-            <div class="col-lg-4">
-                <div class="mt-3">
-                    <div class="">
-                        <h2 class="align-items-center mb-5">Cancellation Policy</h2>
-                    </div>
-                    <div>
-                        <p><img src="{{ asset('assets/imgicone/chekintime.png') }}" alt="" width="20"> Free Cancellation up to 24hrs</p>
-                        <p>before chekin</p>
-                    </div>
-
-                   
-                    
-
-                </div>
-                
-            </div>
-            <div class="col-lg-4">
-                <div class="mt-3">
-                    <div class="">
-                        <h2 class="align-items-center mb-5">Health & Safty</h2>
-                    </div>
-
-                    <div>
-                        <p> <img src="{{ asset('assets/imgicone/chekintime.png') }}" alt="" width="20"> Cleaner in accordance with our</p>
-                        <p>COVID safe cleaning policy</p>
-                    </div>
-                    
-
-                </div>
-                
-            </div>
-        </div>
-    </div>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<!-- Ajouter le script de l'API Google Maps -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-
-<script>
-    // Fonction d'initialisation de la carte
-    function initMap() {
-        // Coordonnées pour le centrage de la carte (par exemple, le centre de Paris)
-        var myLatLng = { lat: 48.8566, lng: 2.3522 };
-
-        // Créer une carte avec le centre défini et le niveau de zoom
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: myLatLng,
-            zoom: 12 // Ajustez le niveau de zoom selon vos besoins
-        });
-
-        // Ajouter un marqueur pour indiquer un emplacement spécifique
-        var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            title: 'Hello World!'
-        });
-    }
-</script>
-
-
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-   <!-- <div class="row mb-3">
-                            <label for="prenom" class="col-md-4 col-form-label text-md-end">{{ __('Prenom') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus>
-
-                                @error('prenom')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="nom" class="col-md-4 col-form-label text-md-end">{{ __('Nom') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="Nom" type="text" class="form-control @error('Nom') is-invalid @enderror" name="Nom" value="{{ old('Nom') }}" required autocomplete="Nom" autofocus>
-
-                                @error('Nom')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="telephone" class="col-md-4 col-form-label text-md-end">{{ __('Téléphone') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="telephone" type="number" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" required autocomplete="telephone">
-
-                                @error('telephone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> -->
-
-                        // 'prenom' => ['required', 'string', 'max:255'],
-                        // 'nom' => ['required', 'string', 'max:255'],
-                        // 'telephone' => ['required', 'string', 'max:15', 'min:10'],
-
-
-                        // 'prenom' => $data['prenom'],
-                        // 'nom' => $data['nom'],
-                        // 'telephone' => $data['telephone'],
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1019,28 +225,28 @@
         </div>
     </section>
 <script>
-    
-// Rotation of the togglers bars
-//   const navToggler = document.querySelector(".nav-toggler");
-//   navToggler.addEventListener("click", navToggle);
-//   function navToggle(){
-//     navToggler.classList.toggle("active");
+    // Rotation of the togglers bars
+  const navToggler = document.querySelector(".nav-toggler");
+  navToggler.addEventListener("click", navToggle);
+  function navToggle(){
+    navToggler.classList.toggle("active");
    
-//   }
+  }
   // dropdown The menu in the media query
-//   let togglers = document.querySelector(".togglers");
-//                 togglers.onclick = function(){    
-//                 navBar2r = document.querySelector(".ullia");
-//                 navBar2r.classList.toggle("activermenu")
-//                 card = document.querySelector(".card1section1");
-//                 card.classList.toggle("activecard")
-//               }; 
+  let togglers = document.querySelector(".togglers");
+                togglers.onclick = function(){    
+                navBar2r = document.querySelector(".ullia");
+                navBar2r.classList.toggle("activermenu")
+                card = document.querySelector(".card1section1");
+                card.classList.toggle("activecard")
+              }; 
               
     
-//     var input = document.querySelector("#phone");
-//     window.intlTelInput(input, {
-//         utilsScript: "assets/build/js/utils.js"
-//     });
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+        utilsScript: "assets/build/js/utils.js"
+    });
+
 </script>
      <!--=============== SWIPER JS ===============-->
    <script src="assets/js/swiper-bundle.min.js"></script>
@@ -1069,7 +275,7 @@
         background-color:#F2F0F2;
     }
     .contenu_article p{
-        text-align:center;
+        /* text-align:center; */
         flex-wrap:wrap;
     }
     .ajout_article{
@@ -1654,6 +860,7 @@ height: 278px;
  }
  @media screen and (max-width:908px){
         .container_article{
+          
             width: 500px;
     }
     .contenu_article img{
@@ -2077,13 +1284,6 @@ flex-wrap:wrap;
     }
   }
   @media screen and (max-width:660px){
-    .container_article{
-            width: 300px;
-    }
-    .contenu_article img{
-        width: 300px;
-    }
-    }
     .ullia{
       position:absolute;
     display:flex;
@@ -2243,6 +1443,13 @@ flex-wrap:wrap;
   }
  }
  @media screen and (max-width:500px){
+    .container_article{
+          
+          width: 400px;
+  }
+  .contenu_article img{
+      width: 400px;
+  }
   .ullia{
     position:absolute;
   display:flex;
@@ -2275,6 +1482,13 @@ flex-wrap:wrap;
  
  
   @media screen and (max-width:412px){
+    .container_article{
+          
+          width: 350px;
+  }
+  .contenu_article img{
+      width: 350px;
+  }
   .ullia{
     position:absolute;
   display:flex;
@@ -2345,6 +1559,13 @@ flex-wrap:wrap;
   } 
 
   @media screen and (max-width:360px){
+    .container_article{
+          
+          width: 300px;
+  }
+  .contenu_article img{
+      width: 300px;
+  }
   .ullia{
     position:absolute;
   display:flex;
@@ -2431,6 +1652,13 @@ flex-wrap:wrap;
   }
   } 
   @media screen and (max-width:280px){
+    .container_article{
+          
+          width: 250px;
+  }
+  .contenu_article img{
+      width: 250px;
+  }
   .ullia{
     position:absolute;
   display:flex;

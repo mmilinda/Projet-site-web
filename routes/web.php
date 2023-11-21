@@ -86,4 +86,7 @@ Route::get('/proper', function () {
 //Déconnexion :
 Route::get('/logout',[App\Http\Controllers\TAPHACONTROLLER::class,'logoutaction']);
 
+// afficher le contenu des blogs
+Route::get('/view_article/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'view_article_show']);
+
 
