@@ -11,7 +11,12 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+<<<<<<< HEAD
         "jquery": "^3.7.1",
         "swiper": "^11.0.4"
+=======
+        "bootstrap": "^5.3.2",
+        "bootstrap-icons": "^1.11.1"
+>>>>>>> 9e1ec36f89644268c91ac503f9924b90550044ac
     }
 }

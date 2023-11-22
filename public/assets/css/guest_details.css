@@ -1,6 +1,39 @@
+
+.Total_charges{
+    margin-top: 8px;
+}
+.price_checkout{
+    line-height: 15px;
+    margin-top:10px;
+}
+.footer_checkout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+}
+.Booking_review p{
+   font-size: 30px;
+}
+.RUM_checkout{
+    display: flex;
+    gap: 200px;
+}
+.maincontaier_checkout{
+    display: flex;
+    flex-direction: column;
+}
+.booking_guest_detail p{
+    font-size: 30px;
+}
+.maincontainer_book{
+    width: 400px;
+    margin-left: 200px;
+}
 .section_Guest_details{
     display: flex;
     justify-content: center;
+    margin-top: 40px;
 }
 .maincontainer_Guest_details{
     display: flex;
@@ -82,6 +115,9 @@ padding: 10px;
         flex-wrap: wrap-reverse;
         gap: 100px;
     }
+    .RUM_checkout{
+        gap: 100px;
+    }
 }
 @media screen and (max-width:360px) {
     .maincontainer_Guest_details{
@@ -108,6 +144,6 @@ padding: 10px;
     
     }
     .Payment_timeline_guest{
-        margin-left: 35px;
+        margin-left: 20px;
     }
 }

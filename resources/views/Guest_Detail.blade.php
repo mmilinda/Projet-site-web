@@ -143,8 +143,29 @@
             </div>
         </div>
     </div>
+    <br><br><br>
 </section>
 <br><br><br>
+    <div class="maincontainer_book">
+        <div class="booking_guest_detail">
+            <p><strong>Payment method</strong></p>
+        </div>
+        <div>
+            <select name="" id="" class="inputtext_guest_details">
+                <option value="">Dakar</option>
+                <option value="">Dakar</option>
+                <option value="">Dakar</option>
+                <option value="">Dakar</option>
+                <option value="">Dakar</option>
+            </select>
+        </div>
+        <div><br>
+            <p>By clicking "Book" below, I have read and agreed to the <a href="">key contract terms, cancellation policy and apartment & building rules</a> , and to pay the total amount shown.</p> 
+        </div>
+        <div>
+            <button class="btn btn-success rounded-pill">Book</button>
+        </div>
+    </div><br><br><br><br>
    
 <link rel="stylesheet" href="assets/build/css/intlTelInput.css" />
          

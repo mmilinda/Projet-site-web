@@ -3,14 +3,12 @@
 <section class="section">
 
 </section>
-</body>
 <div>
 <section class="section1" >
   <div class="card1section1" id="card1section1">
     <div class="werent"><p>We rent your property</p></div>
     <div class="werentlorem"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, totam?</p></div>
   </div>
-
 </section>
 </div>
 <div class="barrecherche">
