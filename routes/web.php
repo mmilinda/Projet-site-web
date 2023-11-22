@@ -12,7 +12,9 @@ use App\Http\Controllers\LandlordController;
 | be assigned to the "web" middleware group. Make something great!
 |*/
 Auth::routes();
-
+Route::get('/', function () {
+    return view('/homepage');
+});
 
 Route::group(['middleware' => ['auth','admin']], function(){
     // Affiche formulaire d'ajout article
