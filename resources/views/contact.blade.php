@@ -10,31 +10,35 @@
                 <p><strong>What would you like to contact us about?</strong></p>
             </div>
             <div class="groupe_input_contact">
+                <form action="contact-contact" method="POST"  enctype="multipart/form-data">
+                @csrf
                 <div class="radio_contact">
                     <div>
-                    <span><input type="radio" name="" id=""> I'm a Customer</span>
+                    <span><input type="radio" name="un" value="I'm a Customer" id=""> I'm a Customer</span>
                     </div>
                     <div>
-                    <span><input type="radio" name="" id=""> I'm a Landlord</span>
+                    <span><input type="radio" name="un" value="I'm a Landlord" id=""> I'm a Landlord</span>
                     </div>
                     <div>
-                    <span><input type="radio" name="" id=""> Something else</span>
+                    <span><input type="radio" name="un" value="Something else" id=""> Something else</span>
                     </div>
                 </div><br>
                 <div class="groupe_input_text">
                     <div>
-                        <input type="text" name="" id="" placeholder="Name">
+                        <input type="text" name="nom" id="" placeholder="Name">
                     </div><br>
                     <div>
-                        <input type="text" name="" id="" placeholder="Email">
+                        <input type="text" name="email" id="" placeholder="Email">
                     </div><br>
                     <div>
-                    <input id="phone" name="phone" type="tel" placeholder="Phone number">   
+                    <input id="phone" name="tel" type="number" placeholder="Phone number">   
                     </div><br>
                     <div>
-                        <textarea class="message_contact" name="" id="" cols="30" rows="3" placeholder="Message"></textarea>
+                        <textarea class="message_contact" name="message" id="" cols="30" rows="3" placeholder="Message"></textarea>
                     </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
                 </div>
+                </form>
             </div>
         </div>
         <div class="left_part_contact">
@@ -97,6 +101,9 @@
                 </div>
             </div>
             <!-- media query -->
+
+           
+
 </section><br><br><br>
 <link rel="stylesheet" href="assets/build/css/intlTelInput.css" />
 
