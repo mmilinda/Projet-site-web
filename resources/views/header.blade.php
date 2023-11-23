@@ -62,6 +62,18 @@
                     <li class="navbar-item"><a class="navbar-link" href="/booking">Booking</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li>
+                    @guest
+                            @if (Route::has('login'))
+                            @endif
+                            @if (Route::has('register'))
+                             
+                            @endif
+                        @else
+                            @if(Auth::user()->type_user == 'admin')
+                    <li class="navbar-item"><a class="navbar-link" href="/message"><i class="fa-solid fa-bell"></i></a></li>
+                      @endif
+                           
+                    @endguest 
                     <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
 
                           @guest
