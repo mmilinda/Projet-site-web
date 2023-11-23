@@ -14,6 +14,9 @@ use App\Models\contact;
 |*/
 Auth::routes();
 
+Route::get('/', function () {
+    return view('/homepage');
+});
 
 Route::group(['middleware' => ['auth','admin']], function(){
     // Affiche formulaire d'ajout article
@@ -83,6 +86,12 @@ Route::get('/LogIn', function () {
 Route::get('/proper', function () {
     return view('/proper');
 });
+// Notification
+Route::get('/message', function () {
+    return view('/message');
+});
+Route::get('/message',[App\Http\Controllers\MessageController::class,'contact']);
+
 
 //Déconnexion :
 Route::get('/logout',[App\Http\Controllers\TAPHACONTROLLER::class,'logoutaction']);
