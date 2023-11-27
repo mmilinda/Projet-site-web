@@ -24,6 +24,7 @@
                   <div class="ctn_text_cardA">
                       <div class="text1_cardA">
                         <p><strong>{{$affiche->titre}}</strong></p>
+                        <p><strong>{{$affiche->nom}}</strong></p>
                       </div>
                       <div class="text2_cardA">
                       <p>{{ Illuminate\Support\Str::of($affiche->contenu)->words(5)}}</p><br>

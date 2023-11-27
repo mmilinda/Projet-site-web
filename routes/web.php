@@ -64,9 +64,7 @@ Route::get('/landlord', function () {
     return view('/projet.landlord');
 });
 
-Route::get('/booking', function () {
-    return view('booking');
-});
+
 
 Route::get('/Signin', function () {
     return view('SignIn');
@@ -142,3 +140,15 @@ Route::post('/contact-contact', function ()
     $contact->save();
     return redirect('/contact')->with('message','L\'message bien envoyer !');   
  });
+
+
+ //  affichage des chambres disponible à louer
+// Route::get('/booking',[App\Http\Controllers\TAPHACONTROLLER::class,'roomsshow_date']);
+ Route::get('/booking',[App\Http\Controllers\TAPHACONTROLLER::class,'roomsshow']);
+
+
+
+
+
+
+

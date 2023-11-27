@@ -14,13 +14,15 @@
 <div class="barrecherche">
       <div class="selectcity">
         <i class="fa fa-search"></i>
-        <select name="" id="" placeholder="Select a City" class="select">
-          <option value="">Select a City</option>
-          <option value="">Ouakam</option>
-          <option value="">Almadie</option>
-          <option value="">Scat Urbam</option>
-          <option value="">Mermouz</option>
-        </select>
+        <select name="search" id="" placeholder="Select a City" class="select">
+                <option value="">Select a City</option>
+                <option value="Ouakam">Ouakam</option>
+                <option value="Almadie">Almadie</option>
+                <option value="Scat Urbam">Scat Urbam</option>
+                <option value="Mermouz">Mermouz</option>
+                <option value="Medina">Medina</option>
+                <option value="Dakar-Sacré-Coeur">Sacré-Coeur</option>
+            </select>
       </div>
       <div class="movements">
        <div class="mvin">

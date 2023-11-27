@@ -1,3 +1,97 @@
+ 
+ /*  booking*/
+.container_filter{
+  display: flex;
+  gap: 35px;
+}
+ .filter{
+  width: 15px;
+  color: #ffff;
+ }
+ .filterb{
+  width: 15px;
+ background-color: #ffff;
+ }
+.great_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+ .room_card{
+  display: flex;
+  justify-content: center;
+ 
+ }
+ .search_by{
+  display: flex;
+ 
+ }
+ .alert_search_result{
+  display: flex;
+  margin-left: 100px;
+  margin-top: -30px;
+  
+ }
+ .fa-times{
+  cursor: pointer;
+ }
+ .container_search_by{
+  display: flex;
+  gap: 10px;
+ }
+ .fliter_card{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+ }
+ .fliter_items{
+  display: flex;
+  gap: 20px;;
+ }
+ .maincontainer_rooms{
+  display: flex;
+  flex-direction:row;
+  gap: 50px;
+  flex-wrap: wrap;
+
+ }
+ .group_card{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+ }
+ .maincontainer_room_card{
+  display: flex;
+  align-items: center;
+  flex-direction:row;
+  gap: 10px;
+  background-color: #F2F0F2;
+  height: 31vh;
+
+ }
+ .text_conatiner_card{
+  width: 350px;
+ }
+ .text_lineA_card{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+ }
+.btn_text{
+  display: flex;
+  align-items: center;
+  gap:7px;
+}
+.bed_bath_wifi{
+  display: flex;
+  flex-direction:row;
+  gap: 10px;
+}
+
+
+
  /* FOOTER */
 
  .display_none_footer{
@@ -484,8 +578,9 @@ height: 278px;
     align-items:center;
   }
   .movements input{
-  
-   width: 30px;
+    cursor: pointer;
+    font-size: 20px;
+   width:30px;
    opacity:0;
   }
   .movements{
@@ -514,7 +609,7 @@ height: 278px;
     gap: 20px;
     border: 3px solid green;
     padding: 5px;
-    width: 800px;
+    width: 850px;
     border-radius: 30px;
     margin-left:20%;
     margin-top:-30px;
@@ -522,6 +617,7 @@ height: 278px;
   select{
     border:none;
     font-size: 20px;
+    width:200px;
   }
  
   .parti3{

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,4 +20,6 @@ class MessageController extends Controller
 
     
 }
+
+
 
