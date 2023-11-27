@@ -9,33 +9,38 @@
             <div>
                 <p><strong>What would you like to contact us about?</strong></p>
             </div>
-            <div class="groupe_input_contact">
-                <div class="radio_contact">
-                    <div>
-                    <span><input type="radio" name="" id=""> I'm a Customer</span>
-                    </div>
-                    <div>
-                    <span><input type="radio" name="" id=""> I'm a Landlord</span>
-                    </div>
-                    <div>
-                    <span><input type="radio" name="" id=""> Something else</span>
-                    </div>
-                </div><br>
-                <div class="groupe_input_text">
-                    <div>
-                        <input type="text" name="" id="" placeholder="Name">
+            <form action="/contact-contact" method="post">
+                @method('POST')
+                @csrf
+                <div class="groupe_input_contact">
+                    <div class="radio_contact">
+                        <div>
+                        <span><input type="radio" name="un" id=""> I'm a Customer</span>
+                        </div>
+                        <div>
+                        <span><input type="radio" name="un" id=""> I'm a Landlord</span>
+                        </div>
+                        <div>
+                        <span><input type="radio" name="un" id=""> Something else</span>
+                        </div>
                     </div><br>
-                    <div>
-                        <input type="text" name="" id="" placeholder="Email">
-                    </div><br>
-                    <div>
-                    <input id="phone" name="phone" type="tel" placeholder="Phone number">   
-                    </div><br>
-                    <div>
-                        <textarea class="message_contact" name="" id="" cols="30" rows="3" placeholder="Message"></textarea>
+                    <div class="groupe_input_text">
+                        <div>
+                            <input type="text" name="nom" id="" placeholder="Name">
+                        </div><br>
+                        <div>
+                            <input type="text" name="email" id="" placeholder="Email">
+                        </div><br>
+                        <div>
+                        <input id="phone" name="tel" type="tel" placeholder="Phone number">   
+                        </div><br>
+                        <div>
+                            <textarea class="message_contact" name="message" id="" cols="30" rows="3" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Send</button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
         <div class="left_part_contact">
             <div class="left_part_contact_text">
