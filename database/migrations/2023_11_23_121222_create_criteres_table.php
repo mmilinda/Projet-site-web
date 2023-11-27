@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('criteres', function (Blueprint $table) {
             $table->id();
-            $table->string('prenom');
             $table->string('nom');
-            $table->integer('telephone');
-            $table->string('email')->unique();
-            $table->string('type_profil')->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('email');
+            $table->integer('numero_tel');// Utiliser 'integer' pour un nombre entier
+            $table->integer('nombre_chambre');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('criteres');
     }
 };

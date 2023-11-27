@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ajout_article_tapha', function (Blueprint $table){ 
-            $table->bigIncrements('id');
-            $table->string('photo');
-            $table->string('titre');
-            $table->string('contenu');
-            $table->string('created_at');
-            $table->string('update_at'); 
+        Schema::create('cities', function (Blueprint $table) {
+            $table->id();
+            $table->string('nomcity');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('cities');
     }
 };
