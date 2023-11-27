@@ -110,27 +110,7 @@ Route::get('/contact', function () {
 
 Route::post('/contact-contact', function () 
 {
-    // $reservationsEmail = 'reservations@theflexliving.com';
-    // $reservationsPhone = '0203 307 4477';
-
-    // $landlordsEmail = 'supply@theflexliving.com';
-    // $landlordsPhone = '0203 307 4477';
-
-    // $maintenanceEmail = 'maintenance@theflexliving.com';
-    // $maintenancePhone = '0203 307 4477';
-    // $request->validate([
-    //     'un'=>'required',
-    //     'nom'=>'required',
-    //     'email'=>'required',
-    //     'tel'=>'required',
-    //     'message' => ['required', 'string', 'max:2000'],
-    // ]);
-
-
-    // $file = $request->file('photo');
-    // $file->move('images_article',$file->getClientOriginalName());
-    // $file_name=$file->getClientOriginalName();
-
+    
     $contact = new contact();
     $contact->un = request('un');
     $contact->nom = request('nom');

@@ -52,7 +52,10 @@
                 <img src="image/Rectangle 228.png" alt="">
             </div><br>
             <div class="part1_guest_details">
-                 <div class="ctn_part1_guest_details">
+
+                <!-- formulaire pour récupérer les données de la bd -->
+
+                <div class="ctn_part1_guest_details">
                         <div>
                             <div>
                                 <p>Move in</p>                  

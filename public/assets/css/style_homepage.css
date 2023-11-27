@@ -633,7 +633,7 @@ height: 278px;
     margin-left:5%;
   }
  }
- @media screen and (max-width:891px){
+ @media screen and (max-width:1006px){
 
   .contact_footer{
     display:none;
@@ -699,7 +699,7 @@ height: 278px;
   justify-content:center;
   align-items:center;
   flex-direction:column;
-   margin-left:-460px;
+   margin-left:-450px;
   margin-top:-137%;
   background-color:white;
   width:98%;
@@ -713,7 +713,7 @@ height: 278px;
   justify-content:center;
   align-items:center;
   flex-direction:column;
-   margin-left:-460px;
+   margin-left:-490px;
   margin-top:6%;
   background-color:white;
   width:98%;

@@ -111,80 +111,52 @@
         <div class="alert"><strong>{{ $booking_rooms->total() }} result for "{{request()->input('filter')}}"</strong></div>
         @endif
     </div>
-    <div class="room_card">
-        
-        <div class="maincontainer_rooms">
-            <div class="group_card">
-            @foreach($booking_rooms as $affiches)
-                <div class="maincontainer_room_card">
-                    <div>
-                        <img src="/room_images/{{$affiches->photo_rooms}}" alt="">
-                    </div>
-                    <div class="text_conatiner_card">
+    <a href="/Guest_Detail">
+        <div class="room_card">
+            <div class="maincontainer_rooms">
+                <div class="group_card">
+                @foreach($booking_rooms as $affiches)
+                    <div class="maincontainer_room_card">
                         <div>
-                            <p><strong>{{$affiches->titre}}: {{$affiches->city}}</strong></p>
+                            <img src="/room_images/{{$affiches->photo_rooms}}" alt="">
                         </div>
-                            <div class="bed_bath_wifi">
-                                <div class="text_lineA_card">
-                                        <img src="/room_images/fluent_bed-24-filled.png" alt="">
-                                        <div>{{$affiches->how_many_rooms}} bedroom</div>
-                                </div>
-                                <div class="text_lineA_card">
-                                        <img src="/room_images/Vector (24).png" alt="">
-                                        <div>{{$affiches->how_many_bath}} bath</div>
-                                </div>
-                                <div class="text_lineA_card">
-                                        <img src="/room_images/Group (4).png" alt="">
-                                        <div>{{$affiches->wifi}}</div>
-                                </div>
+                        <div class="text_conatiner_card">
+                            <div>
+                                <p><strong>{{$affiches->titre}}: {{$affiches->city}}</strong></p>
                             </div>
-                        <div class="">
-                            <p>{{$affiches->City_view}} {{$affiches->number_of_floor}} {{$affiches->elevator}}  {{$affiches->parking}}  </p>
-                        </div>
-                        <div class="btn_text">
-                        <button class="btn btn-success rounded-pill">Available {{$affiches->date_of_availability}}</button>
-                        <div>from <strong>£{{$affiches->price}}</strong>/month</div>
+                                <div class="bed_bath_wifi">
+                                    <div class="text_lineA_card">
+                                            <img src="/room_images/fluent_bed-24-filled.png" alt="">
+                                            <div>{{$affiches->how_many_rooms}} bedroom</div>
+                                    </div>
+                                    <div class="text_lineA_card">
+                                            <img src="/room_images/Vector (24).png" alt="">
+                                            <div>{{$affiches->how_many_bath}} bath</div>
+                                    </div>
+                                    <div class="text_lineA_card">
+                                            <img src="/room_images/Group (4).png" alt="">
+                                            <div>{{$affiches->wifi}}</div>
+                                    </div>
+                                </div>
+                            <div class="">
+                                <p>{{$affiches->City_view}} {{$affiches->number_of_floor}} {{$affiches->elevator}}  {{$affiches->parking}}  </p>
+                            </div>
+                            <div class="btn_text">
+                            <button class="btn btn-success rounded-pill">Available {{$affiches->date_of_availability}}</button>
+                            <div>from <strong>£{{$affiches->price}}</strong>/month</div>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
-            </div>
-            <div class="room_map">
-            <div>
-                <img src="/room_images/Map_card.png" alt="">
-            </div>
+                <div class="room_map">
+                <div>
+                    <img src="/room_images/Map_card.png" alt="">
+                </div>
+                </div>
             </div>
         </div>
-      </div>
+      </a>
 </section>
-<!-- <div class="container-card_room">
-@if(request()->input('city'))
-        <div class="alert alert-danger">{{ $booking_rooms->total() }} résultat disponible pour cette recherche </div>
-    
-    @elseif(request()->input('date'))
-        <div class="alert alert-danger">{{ $booking_rooms->total() }} résultat disponible pour cette recherche </div>
-    @elseif(request()->input('guest'))
-    <div class="alert alert-danger">{{ $booking_rooms->total() }} résultat disponible pour cette recherche </div>
-    @endif
-    <div class="rooms">
-        @foreach($booking_rooms as $affiches)
-        <div style=" background-color:red; height:90vh; width:300px">
-        <p>{{$affiches->titre}}</p>
-        <p>City: {{$affiches->city}}</p>
-        <p>ROOM: {{$affiches->how_many_rooms}}</p>
-        <p>Guests: {{$affiches->number_of_guest}}</p>
-        <p>BATH: {{$affiches->how_many_bath}}</p>
-        <p>CITY VIEW: {{$affiches->City_view}}</p>
-        <p>{{$affiches->number_of_floor}}Floor</p>
-        <p>ELEVATOR: {{$affiches->elevator}}</p>
-        <p>PARKING: {{$affiches->parking}}</p>
-        <p>AVAILABLE: {{$affiches->date_of_availability}}</p>
-        <p>Price: {{$affiches->price}}</p>
-        </div>
-        <br><br>
-        @endforeach
-   
-    </div>
-</div> -->
 <br><br><br>
 @include('footer')

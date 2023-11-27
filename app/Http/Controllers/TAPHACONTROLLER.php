@@ -147,7 +147,7 @@ public function roomsshow(Request $request){
          ->orwhere('elevator', 'like', "%$rooms_filter%" )
          ->orwhere('wifi', 'like', "%$rooms_filter%" )->paginate(5);  
          return view('booking')->with('booking_rooms',$results_filter_view);
-      }
+      } 
       else{
          $allrooms =  booking_rooms::all();
        return view('booking')->with('booking_rooms', $allrooms);

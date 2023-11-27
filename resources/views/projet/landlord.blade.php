@@ -9,6 +9,9 @@
     <title>Hello, world!</title>
 
 <style>
+    .main{
+        height:140vh;
+    }
      .timeline_section{
         height:250vh;
      }
@@ -28,9 +31,9 @@
 .form-box{
     background-color:rgba(255,255,255, 0.8);
     width:556px;
-    height:540px;
-    margin-top:101px;
-    margin-bottom:81px;
+    height:650px;
+    margin-top:230px;
+    margin-bottom:10px;
     /* padding: 12px, 10px, 12px, 10px; */
     border-radius: 20px;
     border:1px solid white;
@@ -385,9 +388,35 @@
                                 </div>
                             </div>
                             <div class="text mb-3">
-                                <input type="text" name="" placeholder="# of bedroom*" class="form-control mb-3">
+                                <input type="number" name="" placeholder="# of bedroom*" class="form-control mb-3">
                             </div>
                             <br>
+                            <div class="text mb-3">
+                                <span>Bath</span>
+                                 <input type="checkbox" name="bath" placeholder="" class="" style="">
+                                 <span>Wifi</span>
+                                 <input type="checkbox" name="wifi" placeholder="" class="" style="">
+                                 <span>City view</span>
+                                 <input type="checkbox" name="city_view" placeholder="" class="" style="">
+                                 <span>Elevator</span>
+                                 <input type="checkbox" name="elevator" placeholder="" class="" style="">
+                                 <span>Parking</span>
+                                 <input type="checkbox" name="parking" placeholder="" class="" style="">
+                            </div><br>
+                            <div class="text mb-3">
+                                <span>Level:</span>
+                                 <span>RC</span>
+                                 <input type="radio" name="level" placeholder="" class="" style="">
+                                 <span>1st</span>
+                                 <input type="radio" name="level" placeholder="" class="" style="">
+                                 <span>2nd</span>
+                                 <input type="radio" name="level" placeholder="" class="" style="">
+                                 <span>3rd</span>
+                                 <input type="radio" name="level" placeholder="" class="" style="">
+                                 <span>4th</span>
+                                 <input type="radio" name="level" placeholder="" class="" style="">
+                            </div><br>
+
                             <div class="div col-12">
                                 <button type="submit" class=" button btn btn-success">Submit</button>
                             </div> 
