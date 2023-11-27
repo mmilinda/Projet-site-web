@@ -96,18 +96,11 @@ Route::get('/logout',[App\Http\Controllers\TAPHACONTROLLER::class,'logoutaction'
 // afficher le contenu des blogs
 Route::get('/view_article/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'view_article_show']);
 
-// Controller Contact
-
-
-// Route::post('/contact-contact', [App\Http\Controllers\ContactController::class, 'showContactPage'])->name('contact');
-
-//  Route::post('/contact-contact', 'ContactController@showContactPage')->name('contact');
-
-
+//affichage contact
 Route::get('/contact', function () {
     return view('/contact');
 });
-
+//Envoi formaulaire contact
 Route::post('/contact-contact', function () 
 {
     
@@ -122,8 +115,7 @@ Route::post('/contact-contact', function ()
  });
 
 
- //  affichage des chambres disponible à louer
-// Route::get('/booking',[App\Http\Controllers\TAPHACONTROLLER::class,'roomsshow_date']);
+ //  affichage des chambres disponible à louer par la barre de recheche
  Route::get('/booking',[App\Http\Controllers\TAPHACONTROLLER::class,'roomsshow']);
 
 
