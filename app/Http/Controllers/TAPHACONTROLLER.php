@@ -153,41 +153,19 @@ public function roomsshow(Request $request){
        return view('booking')->with('booking_rooms', $allrooms);
  
       }
-
-     
-            // ->orwhere('number_of_guest', 'like', "%$rooms%")
-            // ->orwhere('date_of_availability', 'like', "%$rooms_date%")
-     
-
-
-      // if($request->filled('search')){
-//    $rooms = booking_rooms::search($request->search)->get();
-
-// }else {
-//    $rooms = booking_rooms::paginate(8);
-// }
-
-//    return view('booking', compact('rooms'));
-// }
    
 }
 
-      // affichage des chambres disponible à louer 
-      // public function roomsshow_date(Request $request){
-      //    $rooms_date = request()->input('date');
-      //    $rooms = request()->input('city');
-       
 
-         // $results_date_of_availability = booking_rooms::where('date_of_availability', 'like', "%$rooms_date%")->paginate(5);
-         // $results = booking_rooms::where('city', 'like', "%$rooms%")->paginate(5);
-               // ->orwhere('number_of_guest', 'like', "%$rooms%")
-               
-        
-               // ->paginate(5);
-         
-   //       return view('booking')->with('booking_rooms', $results_date_of_availability);
-   //       return view('booking')->with('booking_rooms', $results);   
-   // }
+  // affichage du guest detail
+  public function  Guest_Detail_show(Request $request, $id)
+  {
+      $guest_detail = booking_rooms::findOrFail($id);
+      return view('Guest_Detail')->with('booking_rooms', $guest_detail);
+                                                // nom de la table
+  }
+
+   
  }
 
 

@@ -111,11 +111,12 @@
         <div class="alert"><strong>{{ $booking_rooms->total() }} result for "{{request()->input('filter')}}"</strong></div>
         @endif
     </div>
-    <a href="/Guest_Detail">
+   
         <div class="room_card">
             <div class="maincontainer_rooms">
                 <div class="group_card">
                 @foreach($booking_rooms as $affiches)
+                <a href="role_Guest_Detail/{{$affiches->id}}">
                     <div class="maincontainer_room_card">
                         <div>
                             <img src="/room_images/{{$affiches->photo_rooms}}" alt="">
@@ -147,6 +148,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                     @endforeach
                 </div>
                 <div class="room_map">
@@ -156,7 +158,7 @@
                 </div>
             </div>
         </div>
-      </a>
+      
 </section>
 <br><br><br>
 @include('footer')

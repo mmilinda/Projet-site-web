@@ -43,11 +43,6 @@ Route::group(['middleware' => ['auth','admin']], function(){
 });
  //  affichage de la page des articles
  Route::get('/afficheArticle',[App\Http\Controllers\TAPHACONTROLLER::class,'affiche_article_control']);
-    
-
-Route::get('/Guest_Detail', function () {
-    return view('/Guest_Detail');
-});
 
 Route::get('/header', function () {
     return view('/header');
@@ -115,9 +110,32 @@ Route::post('/contact-contact', function ()
  });
 
 
+
+
  //  affichage des chambres disponible à louer par la barre de recheche
  Route::get('/booking',[App\Http\Controllers\TAPHACONTROLLER::class,'roomsshow']);
 
+
+ Route::get('/role_Guest_Detail/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'Guest_Detail_show']);
+
+// Route::get('/Guest_Detail', function () {
+//     return view('/Guest_Detail');
+// });
+
+//  Route::post('/Guest_Detail', function () 
+//  {
+     
+//      $contact = new contact();
+//      $contact->un = request('un');
+//      $contact->nom = request('nom');
+//      $contact->email = request('email');
+//      $contact->tel = request('tel');
+//      $contact->message = request('message');;
+//      $contact->save();
+//      return redirect('/contact')->with('message','L\'message bien envoyer !');   
+//   });
+ 
+ 
 
 
 

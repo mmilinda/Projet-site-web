@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('tel');
             $table->string('message');
+            $table->string('created_at');
+            $table->string('updated_at');
         });
     }
 
