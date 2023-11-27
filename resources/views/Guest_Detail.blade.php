@@ -1,49 +1,70 @@
-@include('header')
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
 
-   
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
+@include('header')
 <section class="section_Guest_details">
     <div class="maincontainer_Guest_details">
-        <div >
+
+        <div>
              <div class="title_Guest_Details">
                  <p><strong>Guest details</strong></p>
              </div>
-             <div>
-                <div class="inputtext_guest_details">
-                    <input type="text" placeholder="First name">
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text"  placeholder="Last name">
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text"  placeholder="Email">
-                </div><br>
-                <div class="inputtext_guest_details">
-                <input id="phone" name="phone" type="tel" />
+
+             @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
                 </div>
-             </div><br>
+            @endif
+            <form action="/Guest_Detail" method="POST">
+                @csrf
+                <div class="inputtext_guest_details">
+                    <input type="text" placeholder="First name" name="first_name" required>
+                </div><br>
+                <div class="inputtext_guest_details">
+                    <input type="text" placeholder="last name" name="last_name" required>
+                </div><br>
+                <div class="inputtext_guest_details">
+                    <input type="text"  placeholder="Email" name="email" required>
+                </div><br>
+                <div class="inputtext_guest_details">
+                <input id="phone" name="phone" type="text" required>
+                </div>
+                <br>
+
              <div>
                 <div class="Purpose_of_stay">
                     <p><strong>Purpose of stay</strong></p>
                 </div>
                 <div>
-                    <span><input type="radio"> Business Travel/ Work</span><br>
-                    <span><input type="radio"> Moving to this city or country</span><br>
-                    <span><input type="radio"> Holiday</span><br>
-                    <span><input type="radio"> Other</span><br>
+                <span><input type="radio" name="Purpose" value="Business Travel/ Work" required>Business Travel/ Work</span><br>
+                <span><input type="radio" name="Purpose" value="Moving to this city or country" required> Moving to this city or country</span><br>
+                <span><input type="radio" name="Purpose" value="Holiday" required> Holiday</span><br>
+                <span><input type="radio" name="Purpose" value="Other" required> Other</span><br>
                 </div><br>
                 <div class="inputtext_guest_details">
-                    <input type="text" placeholder="Name of Employer/ Organisaition">
+                    <input type="text" placeholder="Name of Employer/ Organisaition" name="Name_of_Employer_Organisaition" required>
                 </div>
              </div><br>
              <div  class="behalf_of_someone">
                 <div>
-                   <span><input type="checkbox" name="" id="" > I’m booking on behalf of someone else</span>
+                   <span><input type="checkbox" name="I_m_booking_on_behalf_of_someone_else"id="" required> I’m booking on behalf of someone else</span>
                 </div><br>
                 <div class="inputtext_guest_details">
-                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Name" name="name" required>
                 </div><br>
                 <div class="inputtext_guest_details">
-                    <input type="text" placeholder="Email of the guest">
+                    <input type="text" placeholder="Email of the guest" name="email_of_the_guest" required>
                 </div>
              </div>
         </div>
@@ -55,25 +76,28 @@
                  <div class="ctn_part1_guest_details">
                         <div>
                             <div>
-                                <p>Move in</p>                  
+                                <p>Move in</p>
+                                <br>
                                 <span><img src="image/Vector (9).png" alt=""> 31.12.2021</span>
+                                <br>
                             </div>
                         </div><br>
                         <div>
                             <div>
                                 <span><img src="image/eva_people-fill.png" alt=""> Guests 1</span>
                             </div>
+                            <br>
                         </div><br><br>
                         <div>
                             <p>All utilities are included</p>
                         </div>
-                  </div>    
+                  </div>
                     <div>
                         <div>
                             <p>Move out</p>
                         </div>
                         <span><img src="image/Vector (9).png" alt=""> 31.02.2022</span>
-                    </div>        
+                    </div>
             </div><br>
             <div class="card3_guest_details">
                 <div>
@@ -106,7 +130,7 @@
                     <div>
                         <div>
                             <p>£4001.70</p>
-                        </div>                          
+                        </div>
                         <p>incl. VAT</p>
                     </div>
                 </div>
@@ -115,7 +139,7 @@
                 <div class="Payment_timeline_guest">
                     <p><strong>Payment timeline</strong></p>
                 </div>
-                
+
                     <div class="footer_guest_detail">
                         <div class="time_line_img_guest">
                             <img src="image/Timeline.png" alt="">
@@ -132,9 +156,10 @@
                                     <div>
                                         <p>After move-out</p>
                                     </div>
+                                    <br>
                                     <span>Receive your £400.00 <img src="image/Vector (10).png" alt=""></span>
                                 </div>
-                            </div> 
+                            </div>
                             <div>
                                 <p>£4001.70</p>
                             </div>
@@ -142,6 +167,8 @@
                 </div>
             </div>
         </div>
+        <i class="fa fa-users"></i>
+
     </div>
     <br><br><br>
 </section>
@@ -151,24 +178,30 @@
             <p><strong>Payment method</strong></p>
         </div>
         <div>
-            <select name="" id="" class="inputtext_guest_details">
-                <option value="">Dakar</option>
-                <option value="">Dakar</option>
-                <option value="">Dakar</option>
-                <option value="">Dakar</option>
-                <option value="">Dakar</option>
+
+            <select name="paiement" id="" class="inputtext_guest_details">
+
+                <option value="" class="">Orange Money</option>
+
+                <option value="Wave">Wave</option>
+                <option value="PayPal">PayPal</option>
+                <option value="Master Card">Master Card</option>
+                <option value="Visa">Visa</option>
             </select>
+
+            @if(!('paiement') && input(paiment) == 'Wave');
+          <div><p>lllllllllllllll</p></div>
+        @endif
         </div>
         <div><br>
-            <p>By clicking "Book" below, I have read and agreed to the <a href="">key contract terms, cancellation policy and apartment & building rules</a> , and to pay the total amount shown.</p> 
+            <p>By clicking "Book" below, I have read and agreed to the <a href="">key contract terms, cancellation policy and apartment & building rules</a> , and to pay the total amount shown.</p>
         </div>
-        <div>
-            <button class="btn btn-success rounded-pill">Book</button>
-        </div>
+        <button type="submit" class="btn btn-success">Book</button>
     </div><br><br><br><br>
-   
+    </form>
+
 <link rel="stylesheet" href="assets/build/css/intlTelInput.css" />
-         
+
 
 
     @include('footer')

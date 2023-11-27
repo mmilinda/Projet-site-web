@@ -8,18 +8,18 @@ use App\Models;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-
-
+use Symfony\Contracts\Service\Attribute\Required;
 
 
 class TAPHACONTROLLER extends Controller
 {
 
-// affichage des articles 
+// affichage des articles
     public function affiche_article_control(Request $request)
     {
 
@@ -32,14 +32,14 @@ class TAPHACONTROLLER extends Controller
 
     public function ajouter_article_controller(Request $request)
     {
-       
+
         $request->validate([
            'photo'=>'required',
            'titre'=>'required',
            'contenu' => ['required', 'string', 'max:2000'],
         ]);
-      
-   
+
+
         $file = $request->file('photo');
         $file->move('images_article',$file->getClientOriginalName());
         $file_name=$file->getClientOriginalName();
@@ -49,7 +49,7 @@ class TAPHACONTROLLER extends Controller
         $ajouter->titre = $request->input('titre');
         $ajouter->contenu = $request->input('contenu');
         $ajouter->save();
-        return redirect('/afficheArticle')->with('message','L\'article a étè bien ajouter !');   
+        return redirect('/afficheArticle')->with('message','L\'article a étè bien ajouter !');
     }
 
 
@@ -79,9 +79,9 @@ class TAPHACONTROLLER extends Controller
        return redirect('/afficheArticle')->with('message','L\'article a étè bien modifié !');
     }
 
-    
-   
-    //    Supprimer un article 
+
+
+    //    Supprimer un article
     public function  suppression_article($id){
     $ajouter_article_tapha = ajouter_article_taphaA::findOrFail($id);
     $ajouter_article_tapha->delete();
@@ -104,4 +104,5 @@ class TAPHACONTROLLER extends Controller
          return view('affiche_contenu_article')->with('ajouter_article_tapha_a_s', $ajouter_article_tapha);
                                                       // nom de la table
      }
+
 }
