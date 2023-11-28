@@ -362,33 +362,60 @@
             <div class="row col-sm-12 justify-content-end">
                 <div class="col-lg-6 col-md-10 col-sm-12">
                     <div class="form-box px-5">
-                        <form action="" method="post">
+                        <div class="row">
+                        @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+                        </div>
+                        <form action="{{route('store_critere')}}" method="post">
+                        @csrf
                             <h2 class="text-center">Earn more from your <br>property,do less</h2>
                             <p class="text-center">Find out if your property meets our criteria</p>
-                            <input type="text" name="" placeholder="Name*" class="form-control mb-3">     
-                            <input type="text" name="" placeholder="Email*" class="form-control mb-3">    
-                            <input type="text" name="" placeholder="Phone number*" class="form-control mb-3">      
+                            <input type="text" name="nom" placeholder="Nom" class="form-control mb-3" required>     
+                            <input type="text" name="email" placeholder="Email" class="form-control mb-3" required>    
+                            <input type="number" name="numero_tel" placeholder="Numero tel" class="form-control mb-3" required>      
                             <h5>Property details</h5>
                             <div class="row">
                                 <div class="col">
-                                    <select class="form-select mb-3 text-secondary">
-                                        <option>City*</option>
-                                        <option value="town-1">town-1</option>
-                                        <option value="town-2">town-2</option>
-                                        <option value="town-3">town-3</option>
-                                    </select>
+                                
+                                  <label for="citi" class="form-label">City</label>
+                                  <select name="citi_id" class="form-select mb-3 text-secondary" id="citi_id" required>
+                                    @foreach ($cities as $citi)
+                                    
+                                    <option value="{{ $citi->id }}">{{ $citi->nomcity }}</option>
+                                     @endforeach
+                                     </select>
+                                  
                                 </div>
+
                                 <div class="col">
-                                    <select class="form-select mb-3 text-secondary">
-                                        <option>Area*</option>
-                                        <option value="">zone-1</option>
-                                        <option value="">zone-2</option>
-                                        <option value="">zone-3</option>
-                                    </select> 
+                                
+                                <label for="area" class="form-label">Area</label>
+                                  <select name="area_id" class="form-select mb-3 text-secondary" id="area_id" required>
+                                    @foreach ($areas as $area)
+                                    
+                                    <option value="{{ $area->id }}">{{ $area->nomarea }}</option>
+                                     @endforeach
+                                     </select>
+                                  
                                 </div>
+
+                               
                             </div>
                             <div class="text mb-3">
+<<<<<<< HEAD
                                 <input type="number" name="" placeholder="# of bedroom*" class="form-control mb-3">
+=======
+                                <input type="number" name="nombre_chambre" placeholder="Nombre de chambre" class="form-control mb-3" required>
+>>>>>>> 39945241939c011d9996139068b2e7bec38286ad
                             </div>
                             <br>
                             <div class="text mb-3">

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\LandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandlordController;
 use App\Models\contact;
@@ -55,9 +57,9 @@ Route::get('/checkoutpageA', function () {
 Route::get('/contact', function () {
     return view('/contact');
 });
-Route::get('/landlord', function () {
+/*Route::get('/landlord', function () {
     return view('/projet.landlord');
-});
+});*/
 
 
 
@@ -85,6 +87,31 @@ Route::get('/message', function () {
 Route::get('/message',[App\Http\Controllers\MessageController::class,'contact']);
 
 
+Route::group(['middleware' => ['auth','admin']], function(){
+Route::get('/cities',[LandController::class,'showcities'])->name('cities');
+Route::post('/store_cities', [LandController::class, 'store_cities'])->name('store_cities');
+Route::get('/areas',[AreaController::class,'showareas'])->name('areas');
+Route::post('/store_areas', [AreaController::class, 'store_areas'])->name('store_areas');
+
+//Route::get('/landlord',[LandController::class,'showlandlord'])->name('showlandlord');
+
+
+
+Route::get('/liste_critere', [LandController::class, 'liste_critere'])->name('liste_critere');
+
+Route::delete('/critere/supprimer/{id}', [LandController::class, 'supprimer_critere'])->name('critere.supprimer');
+
+Route::get('/liste_area', [LandController::class, 'liste_area'])->name('liste_area');
+
+Route::delete('/area/supprimer/{id}', [LandController::class, 'supprimer_area'])->name('area.supprimer');
+
+
+Route::get('/liste_citi', [LandController::class, 'liste_citi'])->name('liste_citi');
+
+Route::delete('/citi/supprimer/{id}', [LandController::class, 'supprimer_citi'])->name('citi.supprimer');
+});
+Route::get('/landlord',[LandController::class,'showlandlord'])->name('showlandlord');
+Route::post('/store_critere', [LandController::class, 'store_critere'])->name('store_critere');
 //Déconnexion :
 Route::get('/logout',[App\Http\Controllers\TAPHACONTROLLER::class,'logoutaction']);
 

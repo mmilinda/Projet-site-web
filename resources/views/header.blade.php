@@ -38,7 +38,23 @@
             <div class="menuheadera" >
                 <div class="ullia">
                     <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/landlord">Landloards</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('showlandlord')}}">Landloards</a></li>
+                    @guest
+                            @if (Route::has('login'))
+                            @endif
+                            @if (Route::has('register'))
+                             
+                            @endif
+                        @else
+                            @if(Auth::user()->type_user == 'admin')
+
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('cities')}}">city</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('areas')}}">area</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('liste_critere')}}">liste critere</a></li>
+                    @endif
+                           
+                        @endguest  
+
                     <li class="navbar-item" style="display:flex; justify-content:center;">
                       <a class="navbar-link blog" id="blog"  href="/afficheArticle">Blog <span class="arrow_blog"></span></a>
                       <ul class="ajout_article">

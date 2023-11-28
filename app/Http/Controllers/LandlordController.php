@@ -12,4 +12,6 @@ class LandlordController extends Controller
         return view('projet.landlord');
     }
 
+    
+
 }
