@@ -7,6 +7,11 @@
             <div class="Booking_review">
                 <p><strong>Booking review</strong></p>
             </div>
+            <?php
+            $a= $_GET['first_name'];
+            echo $a;
+
+            ?>
             <div class="grouprumcheckout">
                 <div>
                     <div class="RUM_checkout">

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('criteres', function (Blueprint $table) {
-            $table->unsignedBigInteger('area_id')->nullable();
-            $table->foreign('area_id')->references('id')->on('areas');
-        });
+        // Schema::table('criteres', function (Blueprint $table) {
+        //     $table->unsignedBigInteger('area_id')->nullable();
+        //     $table->foreign('area_id')->references('id')->on('areas');
+        // });
     }
 
     /**
@@ -22,9 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('criteres', function (Blueprint $table) {
-            $table->dropForeign(['area_id']); // Supprimer la clé étrangère
-            $table->dropColumn('area_id'); // Supprimer la colonne video_id
-        });
+        // Schema::table('criteres', function (Blueprint $table) {
+        //     $table->dropForeign(['area_id']); // Supprimer la clé étrangère
+        //     $table->dropColumn('area_id'); // Supprimer la colonne video_id
+        // });
     }
 };

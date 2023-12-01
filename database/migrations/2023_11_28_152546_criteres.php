@@ -23,33 +23,33 @@ return new class extends Migration
 
        
     // });
-    // Schema::create('criteres', function (Blueprint $table) {
-    //     $table->id();
-    //     $table->string('nom');
-    //     $table->string('email');
-    //     $table->integer('numero_tel');
-    //     $table->integer('nombre_chambre');
-    //     $table->string('photo');
-    //     $table->string('type_property');
-    //     $table->bouble('price');
-    //     $table->integer('bath');
-    //     $table->string('wifi');
-    //     $table->string('city_view');
-    //     $table->string('elevator');
-    //     $table->string('parking');
-    //     $table->string('level');
-    //     $table->string('date_of_availability');
-    //     $table->timestamps();
+    Schema::create('criteres', function (Blueprint $table) {
+        $table->id();
+        $table->string('nom');
+        $table->string('email');
+        $table->integer('numero_tel');// Utiliser 'integer' pour un nombre entier
+        $table->integer('nombre_chambre');
+        $table->string('photo');
+        $table->string('type_property');
+        $table->float('price');
+        $table->integer('bath');
+        $table->string('wifi');
+        $table->string('city_view');
+        $table->string('elevator');
+        $table->string('parking');
+        $table->string('level');
+        $table->string('date_of_availability');
+        $table->timestamps();
 
 
         
-    // });
+    });
    
 }
 public function down(): void
 {
     //
-    // Schema::dropIfExists('criteres');
+    Schema::dropIfExists('criteres');
 }
 
  };

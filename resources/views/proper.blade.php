@@ -41,7 +41,6 @@
 </head>
 
 <body>
-
 <header class="header">
     <div>
       <div>
@@ -52,15 +51,77 @@
             <div class="menuheadera" >
                 <div class="ullia">
                     <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/landlord">Landloards</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/property">Property</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('showlandlord')}}">Landloards</a></li>
+                    @guest
+                            @if (Route::has('login'))
+                            @endif
+                            @if (Route::has('register'))
+                             
+                            @endif
+                        @else
+                            @if(Auth::user()->type_user == 'admin')
+
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('cities')}}">city</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('areas')}}">area</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('liste_critere')}}">liste critere</a></li>
+                    @endif
+                           
+                        @endguest  
+
+                    <li class="navbar-item" style="display:flex; justify-content:center;">
+                      <a class="navbar-link blog" id="blog"  href="/afficheArticle">Blog <span class="arrow_blog"></span></a>
+                      <ul class="ajout_article">
+                        <li>
+                        @guest
+                            @if (Route::has('login'))
+                            @endif
+                            @if (Route::has('register'))
+                             
+                            @endif
+                        @else
+                            @if(Auth::user()->type_user == 'admin')
+                        <a href="/formulaire_ajout_articke"  style="list-style:none;">Ajouter un article</a>
+                            @endif
+                           
+                        @endguest                
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="navbar-item"><a class="navbar-link" href="/proper">Property</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/booking">Booking</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li> -->
+                    @guest
+                            @if (Route::has('login'))
+                            @endif
+                            @if (Route::has('register'))
+                             
+                            @endif
+                        @else
+                            @if(Auth::user()->type_user == 'admin')
+                    <li class="navbar-item"><a class="navbar-link" href="/message"><i class="fa-solid fa-bell"></i></a></li>
+                      @endif
+                           
+                    @endguest 
                     <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
-                    <li class="navbar-item"><a class="navbar-link" href="/Signin">Sign Up</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/LogIn">Login</a></li>
+
+                          @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item  navbar-item">
+                                    <a class="nav-link " href="{{ route('login') }}">{{ __('Conexion') }}</a>
+                                </li>
+                            @endif
+                            @if (Route::has('register'))
+                                <li class="nav-item navbar-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
+                                </li>
+                            @endif
+                        @else
+                        <li class="nav-item dropdown  navbar-item">
+                                                <a href="/logout" class="btn btn-danger">Déconnexion</a>                  
+                                    {{ Auth::user()->prenom}}                                     
+                            </li>                     
+                        @endguest
                 </div>
             </div>
             <button type="button" class="nav-toggler togglers" id="togglers">

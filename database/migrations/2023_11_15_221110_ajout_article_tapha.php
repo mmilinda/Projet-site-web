@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
 return new class extends Migration
 {
     /**
@@ -11,25 +9,28 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-    //     Schema::create('contacts', function (Blueprint $table) {
-    //         $table->id();
-    //         $table->string('un');
-    //         $table->string('nom');
-    //         $table->string('email')->unique();
-    //         $table->string('tel');
+    //     Schema::create('ajout_article_tapha', function (Blueprint $table){ 
+    //         $table->bigIncrements('id');
+    //         $table->string('photo');
+    //         $table->string('titre');
+    //         $table->string('contenu');
     //         $table->string('created_at');
-    //         $table->string('updated_at'); 
+    //         $table->string('update_at'); 
+
+       
     // });
     // Schema::create('cities', function (Blueprint $table) {
     //     $table->id();
     //     $table->string('nomcity');
     //     $table->timestamps();
     // });
- }
+      
+}
 
 public function down(): void
-{
-    // Schema::dropIfExists('cities');
-}
+    {
+        //
+        // Schema::dropIfExists('cities');
+    }
+
 };

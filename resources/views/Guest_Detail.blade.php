@@ -1,3 +1,4 @@
+
 <!-- <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,7 +14,9 @@
 </body>
 </html> -->
 
-
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,47 +132,48 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <form action="/Guest_Detail" method="POST">
-                @csrf
-                <div class="inputtext_guest_details">
-                    <input type="text" placeholder="First name" name="first_name" required>
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text" placeholder="last name" name="last_name" required>
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text"  placeholder="Email" name="email" required>
-                </div><br>
-                <div class="inputtext_guest_details">
-                <input id="phone" name="phone" type="text" required>
-                </div>
-                <br>
+            <form action="/checkoutpageA" method="get">
+                  @csrf
+                  <div class="inputtext_guest_details">
+                      <input type="text" placeholder="First name" name="first_name" required>
+                  </div><br>
+                  <div class="inputtext_guest_details">
+                      <input type="text" placeholder="last name" name="last_name" required>
+                  </div><br>
+                  <div class="inputtext_guest_details">
+                      <input type="text"  placeholder="Email" name="email" required>
+                  </div><br>
+                  <div class="inputtext_guest_details">
+                  <input id="phone" name="phone" type="text" required>
+                  </div>
+                  <br>
 
-             <div>
-                <div class="Purpose_of_stay">
-                    <p><strong>Purpose of stay</strong></p>
-                </div>
                 <div>
-                <span><input type="radio" name="Purpose" value="Business Travel/ Work" required>Business Travel/ Work</span><br>
-                <span><input type="radio" name="Purpose" value="Moving to this city or country" required> Moving to this city or country</span><br>
-                <span><input type="radio" name="Purpose" value="Holiday" required> Holiday</span><br>
-                <span><input type="radio" name="Purpose" value="Other" required> Other</span><br>
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text" placeholder="Name of Employer/ Organisaition" name="Name_of_Employer_Organisaition" required>
-                </div>
-             </div><br>
-             <div  class="behalf_of_someone">
-                <div>
-                   <span><input type="checkbox" name="I_m_booking_on_behalf_of_someone_else"id="" required> I’m booking on behalf of someone else</span>
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text" placeholder="Name" name="name" required>
-                </div><br>
-                <div class="inputtext_guest_details">
-                    <input type="text" placeholder="Email of the guest" name="email_of_the_guest" required>
-                </div>
-             </div>
+                  <div class="Purpose_of_stay">
+                      <p><strong>Purpose of stay</strong></p>
+                  </div>
+                  <div>
+                  <span><input type="radio" name="Purpose" value="Business Travel/ Work" required>Business Travel/ Work</span><br>
+                  <span><input type="radio" name="Purpose" value="Moving to this city or country" required> Moving to this city or country</span><br>
+                  <span><input type="radio" name="Purpose" value="Holiday" required> Holiday</span><br>
+                  <span><input type="radio" name="Purpose" value="Other" required> Other</span><br>
+                  </div><br>
+                  <div class="inputtext_guest_details">
+                      <input type="text" placeholder="Name of Employer/ Organisaition" name="Name_of_Employer_Organisaition" required>
+                  </div>
+              </div><br>
+              <div  class="behalf_of_someone">
+                  <div>
+                    <span><input type="checkbox" name="I_m_booking_on_behalf_of_someone_else"id="" required> I’m booking on behalf of someone else</span>
+                  </div><br>
+                  <div class="inputtext_guest_details">
+                      <input type="text" placeholder="Name" name="name" required>
+                  </div><br>
+                  <div class="inputtext_guest_details">
+                      <input type="text" placeholder="Email of the guest" name="email_of_the_guest" required>
+                  </div>
+              </div>
+           <!-- </form> -->
         </div>
         <div class="card2_guest_details">
             <div class="image_guest_details">
@@ -184,13 +188,13 @@
                             <div>
                                 <p>Move in</p>
                                 <br>
-                                <span><img src="/image/Vector (9).png" alt=""> {{$booking_rooms->date_of_availability}}</span>
+                                <span><img src="/image/Vector (9).png" alt=""> {{$Critere->date_of_availability}}</span>
                                 <br>
                             </div>
                         </div><br>
                         <div>
                             <div>
-                                <span><img src="/image/eva_people-fill.png" alt=""> Guests {{$booking_rooms->how_many_rooms}}</span>
+                                <span><img src="/image/eva_people-fill.png" alt=""> Guests {{$Critere->nombre_chambre}}</span>
                             </div>
                             <br>
                         </div><br><br>
@@ -202,7 +206,11 @@
                         <div>
                             <p>Move out</p>
                         </div>
-                        <span><img src="/image/Vector (9).png" alt=""> {{$booking_rooms->move_out}}</span>
+                        <span><img src="/image/Vector (9).png" alt="">
+                        <?php
+                        echo $_SESSION['move-out_guest']['move-out'];
+                        ?>
+                         </span>
                     </div>
             </div><br>
             <div class="card3_guest_details">
@@ -226,15 +234,15 @@
                             <p>
                             <?php
                             $pourcentage = 8;
-                            $paiement_reservation = $pourcentage * $booking_rooms['price'] / 100;
-                            echo '£' .$booking_rooms['price'] - $paiement_reservation;
+                            $paiement_reservation = $pourcentage * $Critere['price'] / 100;
+                            echo '£' .$Critere['price'] - $paiement_reservation;
                             ?></p>
                         </div>
                         <p>incl. VAT</p>
                     </div>
                     <div>
                         <div>
-                            <p><strong>£{{$booking_rooms->price}}</strong></p>
+                            <p><strong>£{{$Critere->price}}</strong></p>
                         </div>
                         <p>incl. VAT</p>
                     </div>
@@ -243,8 +251,8 @@
                             <p>
                             <?php
                             $pourcentage_total = 10;
-                            $paiement_reservation_total = $pourcentage_total * $booking_rooms['price'] / 100;
-                            echo '£' .$booking_rooms['price'] + $paiement_reservation_total;
+                            $paiement_reservation_total = $pourcentage_total * $Critere['price'] / 100;
+                            echo '£' .$Critere['price'] + $paiement_reservation_total;
                             ?></p>
                         </div>
                         <p>incl. VAT</p>
@@ -277,7 +285,7 @@
                                         
                                     <?php
                             $pourcentage_reçu = 11;
-                            $paiement_reservation_reçu = $pourcentage_reçu * $booking_rooms['price'] / 100;
+                            $paiement_reservation_reçu = $pourcentage_reçu * $Critere['price'] / 100;
                             echo '£' .$paiement_reservation_reçu;
                             ?> <img src="/image/Vector (10).png" alt=""></span>
                                 </div>
@@ -285,7 +293,7 @@
                             <div>
                                 <p>
                                     <?php
-                            echo '£' .$booking_rooms['price'] + $paiement_reservation_total;
+                            echo '£' .$Critere['price'] + $paiement_reservation_total;
                             ?></p>
                             </div>
                     </div>
@@ -310,21 +318,13 @@
             echo('slt');
            }
            ?>
-            <form action="" method="post">
             <select name="paiement" id="" class="inputtext_guest_details">
-
                 <option value="" class="">Orange Money</option>
-
                 <option value="Wave" type="submit"name="Wave">Wave</option>
                 <option value="PayPal">PayPal</option>
                 <option value="Master Card">Master Card</option>
                 <option value="Visa">Visa</option>
-            </select>
-            </form>
-
-       
-          <div><p>lllllllllllllll</p></div>
-       
+            </select>       
         </div>
         <div><br>
             <p>By clicking "Book" below, I have read and agreed to the <a href="">key contract terms, cancellation policy and apartment & building rules</a> , and to pay the total amount shown.</p>

@@ -1,5 +1,18 @@
+<?php 
+session_start();
+?>
 @include('header')
+
+
 <br><br>
+
+           <?php
+                // ( isset($_POST['nom']) and isset($_POST['description']) and isset($_POST['prix'])  and isset($_POST['nombre']) and isset($_POST['imageproduit'])   and empty($nom) and empty($description) and empty($prix) and empty($nombre) and empty($imageproduit)   and !empty($nom) and !empty($description) and !empty($prix) and !empty($nombre) and !empty($imageproduit)) {
+                // if (isset($_GET['submit']) and empty($_GET['move-out'])) {
+                //     echo'You must choose a move out date';
+                // }
+                ?>
+                 
 <form action="/booking" method="get">
         @method('get')
         <!-- <input type="text" placeholder="city" name="search" value="{{ request()->search ?? '' }}">
@@ -9,13 +22,14 @@
         <div class="selectcity">
             <i class="fa fa-search"></i>
             <select name="city" id="" value="{{ request()->city ?? '' }}" placeholder="Select a City" class="select">
-                <option value="">Select a City</option>
-                <option value="Ouakam" >Ouakam</option>
-                <option value="Almadie">Almadie</option>
-                <option value="Scat Urbam">Scat Urbam</option>
-                <option value="Mermouz">Mermouz</option>
-                <option value="Medina">Medina</option>
-                <option value="Dakar-Sacré-Coeur">Sacré-Coeur</option>
+                <option value="">Select a city</option>
+                <option value="DAKAR">DAKAR</option>
+                <option value="SAINT-LOUIS" >SAINT-LOUIS</option>
+                <option value="KOLDA">KOLDA</option>
+                <option value="ZIGUINCHOR">ZIGUINCHOR</option>
+                <option value="THIES">THIES</option>
+                <option value="KAOLACK">KAOLACK</option>
+                <option value="LOUGA">LOUGA</option>
             </select>
         </div>
         <div class="movements">
@@ -27,14 +41,14 @@
             
         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
         <div  class="mvout">
-                <span class="move-out">move-out</span><input type="date" name="" id="" class="inputmo">
+                <span class="move-out">move-out</span><input type="date" name="move-out" id="" class="inputmo">
         </div> 
         </div>
         <div class="parti3">
             <div class="guest" style=" display:flex; flex-direction:colunm; gap:3px; align-items:center;">
                 <i class="fa fa-users"></i>
                 <span>Guests</span>
-                <input type="number" name="guest" value="{{ request()->guest ?? '' }}" style="width:40px; display:flex; flex-direction:colunm; justify-content:center; align-items:center;">
+                <input type="number" name="guest" value="" style="width:40px; display:flex; flex-direction:colunm; justify-content:center; align-items:center;">
             </div>
             <div class="bouttonrecherche">
             <button type="submit" class="btn btn-primary rounded-pill">Search</button>
@@ -44,7 +58,7 @@
 <br><br>
 <div class="great_container">
     <div>
-        <button class="btn btn-success container_filter rounded-pill">
+        <button class="btn btn-success container_filter rounded-pill " >
             <div>More filters</div>
                 <select name="filter" id="" class="filter bg-success">
                     <option value=""></option>
@@ -84,12 +98,12 @@
        </div>
        @endif    
     </div>
-    <div class="search_by">
-       <div class="container_search_by">
+    <div class="search_by" >
+       <div class="container_search_by card_property">
             <span><strong>Search by:</strong></span>
             <span class="Availability text-success">Availability</span>
             <select name="" id="" class="filterb">
-                @foreach($booking_rooms as $affiches)
+                @foreach($Critere as $affiches)
                 <option value="">{{$affiches->date_of_availability}}</option>
                 @endforeach
             </select>
@@ -100,55 +114,117 @@
    
 <section>
     <div class="alert_search_result">
+    @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+        @if (session('fail'))
+            <div class="alert alert-danger">
+                {{ session('fail') }}
+            </div>
+        @endif
+                      
         @if(request()->input('city'))
-            <div class="alert"><strong>{{ $booking_rooms->total() }} result for "{{request()->input('city')}}" </strong></div>
+            <div class="alert"><strong>{{ $Critere->total() }} result for "{{request()->input('city')}}" </strong></div>
         
         @elseif(request()->input('date'))
-            <div class="alert"><strong>{{ $booking_rooms->total() }} result for "{{request()->input('date')}}"</strong> </div>
+            <div class="alert"><strong>{{$Critere->total() }} result for "{{request()->input('date')}}"</strong> </div>
         @elseif(request()->input('guest'))
-        <div class="alert"><strong>{{ $booking_rooms->total() }} result for "{{request()->input('guest')}} guest"</strong></div>
+        <div class="alert"><strong>{{ $Critere->total() }} result for "{{request()->input('guest')}} guest"</strong></div>
         @elseif(request()->input('filter'))
-        <div class="alert"><strong>{{ $booking_rooms->total() }} result for "{{request()->input('filter')}}"</strong></div>
+        <div class="alert"><strong>{{ $Critere->total() }} result for "{{request()->input('filter')}}"</strong></div>
         @endif
+       
+        <?php
+        // if (isset($_POST['submit'])) {
+        if(isset($_GET['move-out']) and !empty($_GET['move-out']))
+        {
+          $move_out=$_GET['move-out'];
+        }else{
+          echo '<div class="alert alert-danger">At least you must choose a move out date and click on search</div>';
+        }
+    // }
+        ?>
+        <!-- <div class="card_property">dddd</div>
+        <a href=""class="card_property">card_property</a>
+        <div class="condition">
+            <div class="alert alert-danger ">At least you must choose a move out date and click on search</div>
+        </div> -->
+
     </div>
-   
+        <?php
+         GLOBAL $move_out;
+         if (isset($_GET['move-out'])) {
+            $move_out=$_GET['move-out'];
+            
+        $_SESSION['move-out_guest'] = 
+        [
+          "move-out"=>$_GET["move-out"],        
+        ];
+         }
+     
+        ?>
+        
         <div class="room_card">
             <div class="maincontainer_rooms">
                 <div class="group_card">
-                @foreach($booking_rooms as $affiches)
-                <a href="role_Guest_Detail/{{$affiches->id}}">
-                    <div class="maincontainer_room_card">
+                @foreach($Critere as $affiches)
+                <a href="
+                      <?php
+                        if(isset($_GET['move-out']) and !empty($_GET['move-out'])){    
+                        $move_out=$_GET['move-out'];
+                        ?>
+                        role_Guest_Detail/{{$affiches->id}}
+                        <?php }else{
+                            // echo '<div class="alert alert-danger">You must choose a move out date</div>';
+                        }?>" class="card_property">
+                        <div class="maincontainer_room_card">
                         <div>
-                            <img src="/room_images/{{$affiches->photo_rooms}}" alt="">
+                            <img src="/images_property/{{$affiches->photo}}" alt="">
                         </div>
                         <div class="text_conatiner_card">
                             <div>
-                                <p><strong>{{$affiches->titre}}: {{$affiches->city}}</strong></p>
+                                <p><strong>{{$affiches->type_property}}</strong></p>
+                            </div>
+                            <div>
+                                <p><strong>{{$affiches->city}}: {{$affiches->area }}</strong></p>
                             </div>
                                 <div class="bed_bath_wifi">
                                     <div class="text_lineA_card">
-                                            <img src="/room_images/fluent_bed-24-filled.png" alt="">
-                                            <div>{{$affiches->how_many_rooms}} bedroom</div>
+                                        <img src="/room_images/fluent_bed-24-filled.png" alt="">
+                                        <div>{{$affiches->nombre_chambre}} bedroom</div>
                                     </div>
                                     <div class="text_lineA_card">
-                                            <img src="/room_images/Vector (24).png" alt="">
-                                            <div>{{$affiches->how_many_bath}} bath</div>
+                                        <img src="/room_images/Vector (24).png" alt="">
+                                        <div>{{$affiches->bath}} bath</div>
                                     </div>
                                     <div class="text_lineA_card">
-                                            <img src="/room_images/Group (4).png" alt="">
-                                            <div>{{$affiches->wifi}}</div>
+                                        <img src="/room_images/Group (4).png" alt="">
+                                        <div>{{$affiches->wifi}}</div>
                                     </div>
                                 </div>
                             <div class="">
-                                <p>{{$affiches->City_view}} {{$affiches->number_of_floor}} {{$affiches->elevator}}  {{$affiches->parking}}  </p>
+                                <p>{{$affiches->city_view}} {{$affiches->level}} {{$affiches->elevator}}  {{$affiches->parking}}  </p>
                             </div>
                             <div class="btn_text">
                             <button class="btn btn-success rounded-pill">Available {{$affiches->date_of_availability}}</button>
                             <div>from <strong>£{{$affiches->price}}</strong>/month</div>
                             </div>
                         </div>
+                        <div>
                     </div>
+                    </div>
+                    <p class="owner bg-danger text-light">The owner: {{$affiches->nom}}; {{$affiches->email}}; {{$affiches->numero_tel}}</p>
                     </a>
+                    <div class="edit_suppimer" style="display:flex; gap:5px; margin-top:-10px;">
+                        <a href="edite_property_rol/{{$affiches->id}}" class="btn btn-primary">Editer</a> 
+                        <form method="POST" action="{{ route('critere.supprimer', $affiches->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </div><br>
                     @endforeach
                 </div>
                 <div class="room_map">
@@ -157,8 +233,24 @@
                 </div>
                 </div>
             </div>
-        </div>
-      
+        </div>    
 </section>
+<style>
+.condition{
+    display:none;
+}
+.condition.activealert{
+    display:block;
+} 
+</style>
+        
 <br><br><br>
+    <script>
+    const ddd = document.querySelector(".card_property");
+    const condition = document.querySelector('.condition');
+    ddd.addEventListener('click', ()=> {
+        condition.classList.add('activealert');
+
+    });
+    </script>
 @include('footer')

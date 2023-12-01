@@ -10,7 +10,7 @@
 
 <style>
     .main{
-        height:140vh;
+        height:200vh;
     }
      .timeline_section{
         height:250vh;
@@ -31,8 +31,8 @@
 .form-box{
     background-color:rgba(255,255,255, 0.8);
     width:556px;
-    height:650px;
-    margin-top:230px;
+    height:185vh;
+    margin-top:100%;
     margin-bottom:10px;
     /* padding: 12px, 10px, 12px, 10px; */
     border-radius: 20px;
@@ -375,7 +375,7 @@
     </div>
 @endif
                         </div>
-                        <form action="{{route('store_critere')}}" method="post">
+                        <form action="{{route('store_critere')}}" method="post" enctype="multipart/form-data">
                         @csrf
                             <h2 class="text-center">Earn more from your <br>property,do less</h2>
                             <p class="text-center">Find out if your property meets our criteria</p>
@@ -387,10 +387,10 @@
                                 <div class="col">
                                 
                                   <label for="citi" class="form-label">City</label>
-                                  <select name="citi_id" class="form-select mb-3 text-secondary" id="citi_id" required>
+                                  <select name="city" class="form-select mb-3 text-secondary" id="citi_id" required>
                                     @foreach ($cities as $citi)
                                     
-                                    <option value="{{ $citi->id }}">{{ $citi->nomcity }}</option>
+                                    <option value="{{ $citi->nomcity }}">{{ $citi->nomcity }}</option>
                                      @endforeach
                                      </select>
                                   
@@ -399,10 +399,10 @@
                                 <div class="col">
                                 
                                 <label for="area" class="form-label">Area</label>
-                                  <select name="area_id" class="form-select mb-3 text-secondary" id="area_id" required>
+                                  <select name="area" class="form-select mb-3 text-secondary" id="area_id" required>
                                     @foreach ($areas as $area)
                                     
-                                    <option value="{{ $area->id }}">{{ $area->nomarea }}</option>
+                                    <option value="{{ $area->nomarea}}">{{ $area->nomarea }}</option>
                                      @endforeach
                                      </select>
                                   
@@ -410,40 +410,112 @@
 
                                
                             </div>
-                            <div class="text mb-3">
-<<<<<<< HEAD
-                                <input type="number" name="" placeholder="# of bedroom*" class="form-control mb-3">
-=======
+                            <div class="text">
                                 <input type="number" name="nombre_chambre" placeholder="Nombre de chambre" class="form-control mb-3" required>
->>>>>>> 39945241939c011d9996139068b2e7bec38286ad
                             </div>
-                            <br>
-                            <div class="text mb-3">
-                                <span>Bath</span>
-                                 <input type="checkbox" name="bath" placeholder="" class="" style="">
-                                 <span>Wifi</span>
-                                 <input type="checkbox" name="wifi" placeholder="" class="" style="">
-                                 <span>City view</span>
-                                 <input type="checkbox" name="city_view" placeholder="" class="" style="">
-                                 <span>Elevator</span>
-                                 <input type="checkbox" name="elevator" placeholder="" class="" style="">
-                                 <span>Parking</span>
-                                 <input type="checkbox" name="parking" placeholder="" class="" style="">
-                            </div><br>
-                            <div class="text mb-3">
+                            
+                            <div class="row"> 
+                                <!-- <div class="col">                             -->
+                                    <span>Property picture</span>
+                                    <input type="file" name="photo" class="form-control mb-3" required>
+                                <!-- </div>   -->
+                               <span>Property type </span><br>
+                                <input type="text" name="type_property" placeholder="room/appartement/conference room" class="form-control mb-3" required>
+                               <!-- <span>Availability</span><br>
+                                <input type="text" name="date_of_availability" placeholder="date of availability" class="form-control mb-3"> -->
+                                <div class="col">     
+                                    <label for="price" class="form-label">Price in £</label>
+                                    <input type="number" name="price" value="" placeholder="£......" class="form-control mb-3" required>
+                                </div>
+                            
+                                <!-- <span></span> -->
+                                <div class="col">
+                                    <label for="bath" class="form-label">how many Bath</label>
+                                    <select name="bath" id=""  class="form-select mb-3 text-secondary" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                 <!-- <input type="number" name="bath" value="" placeholder="" class="" style="width:40px; border:non;" class="form-control mb-2"> -->
+                                 <!-- <span>Wifi</span> -->
+                                 <!-- <input type="checkbox" name="wifi" value="wifi" placeholder="" class="" style=""> -->
+                                 <div class="col">
+                                    <label for="wifi" class="form-label">Wifi</label>
+                                    <select name="wifi" id="" class="form-select mb-3 text-secondary" required>
+                                        <option value="Wifi">Yes</option>
+                                        <option value="No wifi">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                 <!-- <span>City view</span>
+                                 <input type="checkbox" name="city_view" value="city view" placeholder="" class="" style=""> -->
+                                 <div class="">
+                                    <label for="city_view" class="form-label">City view</label>
+                                    <select name="city_view" id="" class="form-select mb-3 text-secondary" required>
+                                        <option value="City view">Yes</option>
+                                        <option value="No city view">No</option>
+                                    </select>
+                                </div>
+                                 <!-- <span>Elevator</span>
+                                 <input type="checkbox" name="elevator" value="elevator" placeholder="" class="" style=""> -->
+                                 <div class="">
+                                    <label for="elevator" class="form-label">Elevator</label>
+                                    <select name="elevator" id="" class="form-select mb-3 text-secondary" required>
+                                        <option value="Elevator">Yes</option>
+                                        <option value="No elevator">No</option>
+                                    </select>
+                                </div>
+                                 <!-- <span>Parking</span>
+                                 <input type="checkbox" name="parking" value="parking" placeholder="" class="" style=""> -->
+                                 <div class="col">
+                                    <label for="parking" class="form-label">Parking</label>
+                                    <select name="parking" id="" class="form-select mb-3 text-secondary" required>
+                                        <option value="Parking">Yes</option>
+                                        <option value="No parking">No</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="parking" class="form-label">Floor</label>
+                                    <select name="level" id="" class="form-select mb-3 text-secondary" required>
+                                        <option value="1st">1st</option>
+                                        <option value="2nd">2nd</option>
+                                        <option value="3rd">3rd</option>
+                                        <option value="4th">4th</option>
+                                        <option value="5th">5th</option>
+                                        <option value="6th">6th</option>
+                                        <option value="7th">7th</option>
+                                        <option value="8th">8th</option>
+                                        <option value="9th">9th</option>
+                                        <option value="10th">10th</option>
+                                        <option value="11th">11th</option>
+                                        <option value="12th">12th</option>
+                                    </select>
+                                </div>
+                                
+                            
+                            <!-- <div class="text mb-3">
                                 <span>Level:</span>
                                  <span>RC</span>
-                                 <input type="radio" name="level" placeholder="" class="" style="">
+                                 <input type="radio" name="level" value="RC" placeholder="" class="" style="">
                                  <span>1st</span>
-                                 <input type="radio" name="level" placeholder="" class="" style="">
+                                 <input type="radio" name="level" value="1st" placeholder="" class="" style="">
                                  <span>2nd</span>
-                                 <input type="radio" name="level" placeholder="" class="" style="">
+                                 <input type="radio" name="level" value="2nd" placeholder="" class="" style="">
                                  <span>3rd</span>
-                                 <input type="radio" name="level" placeholder="" class="" style="">
+                                 <input type="radio" name="level" value="3rd" placeholder="" class="" style="">
                                  <span>4th</span>
-                                 <input type="radio" name="level" placeholder="" class="" style="">
-                            </div><br>
+                                 <input type="radio" name="level" value="4th" placeholder="" class="" style=""> -->
+                            <!-- </div> -->
 
+                                <div class="col">
+                                    <label for="available" class="form-label">Available</label>
+                                    <input type="date" value="" name="date_of_availability"class="form-control mb-3" required>
+                                </div>
+                            </div><br><br>
                             <div class="div col-12">
                                 <button type="submit" class=" button btn btn-success">Submit</button>
                             </div> 

@@ -1,8 +1,6 @@
 @include ('header')
 <br><br>
-@foreach($contacts as $notifications)
 
-@endforeach
 <table class="table">
   <thead>
     <tr>
@@ -14,6 +12,7 @@
     </tr>
   </thead>
   <tbody>
+  @foreach($contacts as $notifications)
     <tr>
       <th scope="row">{{$notifications->un}}</th>
       <td>{{$notifications->nom}}</td>
@@ -21,7 +20,10 @@
       <td>{{$notifications->tel}}</td>
       <td>{{$notifications->message}}</td>
     </tr>
+    @endforeach
   </tbody>
-</table><br><br><br><br>
+</table>
+
+<br><br><br><br>
 
 @include ('footer')

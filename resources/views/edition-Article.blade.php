@@ -10,7 +10,7 @@
                     <div class="form-box px-5">
                     <form method="POST" action="/edition_article_blogA/{{$ajouter_article_tapha_a_s->id}}" 
                     enctype="multipart/form-data">                        <!--nom de la table-->
-                        @csrf>
+                        @csrf
                             <h2 class="text-center">Editer un artcle</h2>
                             <br>
                             <input type="file" name="photo" placeholder="photo" class="form-control mb-3" value="{{$ajouter_article_tapha_a_s->photo}}">     

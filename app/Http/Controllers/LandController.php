@@ -49,31 +49,88 @@ public function showlandlord()
 {
     $validator = Validator::make($request->all(), [
         'nom' => 'required|string|max:255',
-        'email' => 'required|email|max:255', // Utilisez 'email' au lieu de 'url' pour valider une adresse e-mail
-        'numero_tel' => 'required|numeric', // Assurez-vous que le numéro de téléphone est un nombre
-        'citi_id' => 'required|exists:cities,id', // Assurez-vous que citi_id existe dans la table 'citis'
-        'area_id' => 'required|exists:areas,id',
+        'email' => 'required|email|max:255', 
+        'numero_tel' => 'required|numeric', 
+        'city' => 'required',
+        'area' => 'required',
         'nombre_chambre'=>'required',
-         // Assurez-vous que area_id existe dans la table 'areas'
+        'photo'=>'required',
+        'type_property'=>'required',
+        'price'=>'required',
+        'bath'=>'required',
+        'wifi'=>'required',
+        'city_view'=>'required',
+        'elevator'=>'required',
+        'parking'=>'required',
+        'level'=>'required',
+        'date_of_availability'=>'required',
     ]);
 
     if ($validator->fails()) {
         return redirect()->back()->withErrors($validator)->withInput();
     }
 
+    $file = $request->file('photo');
+    $file->move('images_property',$file->getClientOriginalName());
+    $file_name=$file->getClientOriginalName();
     $critere = new Critere();
     $critere->nom = $request->nom;
     $critere->email = $request->email;
     $critere->numero_tel = $request->numero_tel;
-    $critere->citi_id = $request->citi_id;
-    $critere->area_id = $request->area_id;
+    $critere->city = $request->city;
+    $critere->area = $request->area;
     $critere->nombre_chambre=$request->nombre_chambre;
+    $critere->photo = $file_name;
+    $critere->type_property=$request->input('type_property');
+    $critere->price=$request->input('price');
+    $critere->bath=$request->input('bath');
+    $critere->wifi=$request->input('wifi');
+    $critere->city_view=$request->input('city_view');
+    $critere->elevator=$request->input('elevator');
+    $critere->parking=$request->input('parking');
+    $critere->level=$request->input('level');
+    $critere->date_of_availability=$request->input('date_of_availability');
     $critere->save();
 
     // Si vous avez besoin de gérer le téléchargement de la vidéo, vous pouvez le faire ici.
 
     return redirect()->back()->with('success', 'Enregistrement effetué avec succès');
 }
+
+public function edite_property_update(Request $request, $id)
+{
+    $file = $request->file('photo');
+    $file->move('images_property',$file->getClientOriginalName());
+    $file_name=$file->getClientOriginalName();
+
+    // $critere = Critere::find($id);
+    // $critere->nom = $request->input('nom');
+    // $critere->email = $request->input('email');
+    // $critere->numero_tel = $request->input('numero_tel');
+    // $critere->city = $request->input('city');
+    // $critere->area = $request->input('area');
+    // $critere->nombre_chambre=$request->input('nombre_chambre');
+    $critere = Critere::find($id);
+    $critere->nom = $request->nom;
+    $critere->email = $request->email;
+    $critere->numero_tel = $request->numero_tel;
+    $critere->city = $request->city;
+    $critere->area = $request->area;
+    $critere->nombre_chambre=$request->nombre_chambre;
+    $critere->photo = $file_name;
+    $critere->type_property=$request->input('type_property');
+    $critere->price=$request->input('price');
+    $critere->bath=$request->input('bath');
+    $critere->wifi=$request->input('wifi');
+    $critere->city_view=$request->input('city_view');
+    $critere->elevator=$request->input('elevator');
+    $critere->parking=$request->input('parking');
+    $critere->level=$request->input('level');
+    $critere->date_of_availability=$request->input('date_of_availability');
+    $critere->save();
+    // Si vous avez besoin de gérer le téléchargement de la vidéo, vous pouvez le faire ici.
+    return redirect('booking')->with('success', 'Modification effetuée avec succès');
+   }
 
 public function liste_critere(){
 
@@ -92,12 +149,12 @@ public function supprimer_critere($id)
     $critere = Critere::find($id);
 
     if (!$critere) {
-        return redirect()->route('liste_critere')->with('error', 'Critere non trouvée.');
+        return redirect('booking')->with('error', 'Critere non trouvée.');
     }
 
     $critere->delete();
 
-    return redirect()->route('liste_critere')->with('fail', 'Critere supprimée avec succès.');
+    return redirect('booking')->with('fail', 'Propritée supprimée avec succès.');
 }
 
 public function liste_area()

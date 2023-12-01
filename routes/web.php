@@ -5,6 +5,7 @@ use App\Http\Controllers\LandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandlordController;
 use App\Models\contact;
+use App\Models\reservation;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,9 @@ Auth::routes();
 Route::get('/', function () {
     return view('/homepage');
 });
-
+Route::get('/exo', function () {
+    return view('/exo');
+});
 Route::group(['middleware' => ['auth','admin']], function(){
     // Affiche formulaire d'ajout article
     Route::get('/formulaire_ajout_articke', function () {
@@ -27,6 +30,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
     
     // envoi du formulaire
     Route::post('/ajouter_article',[App\Http\Controllers\TAPHACONTROLLER::class,'ajouter_article_controller'])->name('form_ajout_article.file');
+    
     
     
    
@@ -141,31 +145,50 @@ Route::post('/contact-contact', function ()
 
  //  affichage des chambres disponible à louer par la barre de recheche
  Route::get('/booking',[App\Http\Controllers\TAPHACONTROLLER::class,'roomsshow']);
-
+ //affichage de la liste des cities 
+//  Route::get('/booking',[App\Http\Controllers\TAPHACONTROLLER::class,'affichage_city']);
 
  Route::get('/role_Guest_Detail/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'Guest_Detail_show']);
 
-// Route::get('/Guest_Detail', function () {
-//     return view('/Guest_Detail');
-// });
+ //Affichage pout editer les properties
+ Route::get('/edite_property_rol/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'edite_property_show']);
+ Route::post('critere/{id}', [LandController::class, 'edite_property_update']);
+//  Route::get('/edite_property_rol/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'edite_property_cities']);
 
-//  Route::post('/Guest_Detail', function () 
-//  {
-     
-//      $contact = new contact();
-//      $contact->un = request('un');
-//      $contact->nom = request('nom');
-//      $contact->email = request('email');
-//      $contact->tel = request('tel');
-//      $contact->message = request('message');;
-//      $contact->save();
-//      return redirect('/contact')->with('message','L\'message bien envoyer !');   
-//   });
+
+
+
+Route::post('/Guest_Detail', function()
+{
+    $reservation = new Reservation();
+    $reservation->first_name = request('first_name');
+    $reservation->last_name = request('last_name');
+    $reservation->email = request('email');
+    $reservation->phone = request('phone');
+    // $reservation->purpose = request('Purpose');
+    // $reservation->Name_of_Employer_Organisaition = request('Name_of_Employer_Organisaition');
+    // $reservation->I_m_booking_on_behalf_of_someone_else = request('I_m_booking_on_behalf_of_someone_else');
+    // $reservation->name = request('name');
+    // $reservation->email_of_the_guest = request('email_of_the_guest');
+    $reservation->save();
+    return redirect('/checkoutpageA')->with('status', 'Votre reservation a bien été enregistrée');
+});
+
+
+ // Edition d'article
+//  Route::get('/edition_article_blog/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'edition_article_blog_show']);
+//  Route::post('/edition_article_blogA/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'edition_article_update']);
  
+
+
+
  
+// Route::post('/critere_property',[App\Http\Controllers\TAPHACONTROLLER::class,'critere_traitement']);
 
+ 
+// Route::post('/Critere',[App\Http\Controllers\TAPHACONTROLLER::class,'property_controller'])->name('property.file');
 
-
+// Route::post('/ajouter_article',[App\Http\Controllers\TAPHACONTROLLER::class,'ajouter_article_controller'])->name('form_ajout_article.file');
 
 
 

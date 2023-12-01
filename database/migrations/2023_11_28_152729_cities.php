@@ -21,15 +21,15 @@ return new class extends Migration
     //         $table->string('created_at');
     //         $table->string('updated_at'); 
     // });
-    // Schema::create('cities', function (Blueprint $table) {
-    //     $table->id();
-    //     $table->string('nomcity');
-    //     $table->timestamps();
-    // });
+    Schema::create('cities', function (Blueprint $table) {
+        $table->id();
+        $table->string('nomcity');
+        $table->timestamps();
+    });
  }
 
 public function down(): void
 {
-    // Schema::dropIfExists('cities');
+    Schema::dropIfExists('cities');
 }
 };

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('cities', function (Blueprint $table) {
-            $table->unsignedBigInteger('critere_id')->nullable();; // Colonne pour la clé étrangère
-            $table->foreign('critere_id')->references('id')->on('criteres'); // Définition de la clé étrangère
-        });
+        // Schema::table('cities', function (Blueprint $table) {
+        //     $table->unsignedBigInteger('critere_id')->nullable();; // Colonne pour la clé étrangère
+        //     $table->foreign('critere_id')->references('id')->on('criteres'); // Définition de la clé étrangère
+        // });
     }
 
     /**
@@ -22,9 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('cities', function (Blueprint $table) {
-            $table->dropForeign(['critere_id']); // Supprimer la clé étrangère
-            $table->dropColumn('critere_id'); // Supprimer la colonne cours_id
-        });
+        // Schema::table('cities', function (Blueprint $table) {
+        //     $table->dropForeign(['critere_id']); // Supprimer la clé étrangère
+        //     $table->dropColumn('critere_id'); // Supprimer la colonne cours_id
+        // });
     }
 };
