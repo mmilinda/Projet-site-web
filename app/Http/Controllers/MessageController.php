@@ -19,6 +19,24 @@ class MessageController extends Controller
                                     // nom de la table
     }
 
+    public function index()
+    {
+        $contacts = contact::all();
+        return view('contacts.index', compact('contacts'));
+    }
+
+    public function destroy($id)
+    {
+        // Trouver l'élément à supprimer dans la base de données
+        $notifications = contact::findOrFail($id);
+
+        // Effectuer l'action de suppression
+        $notifications->delete();
+
+        // Rediriger avec un message (facultatif)
+        return redirect()->route('contacts.index')->with('success', 'L\'élément a été supprimé avec succès.');
+    }
+
     
 }
 
