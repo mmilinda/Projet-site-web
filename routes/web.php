@@ -12,6 +12,12 @@ use App\Models\contact;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |*/
+use App\Http\Controllers\MessageController;
+
+Route::get('/contacts', [MessageController::class, 'index'])->name('contacts.index');
+Route::delete('/contacts/{id}', [MessageController::class, 'destroy'])->name('contacts.destroy');
+
+
 Auth::routes();
 Route::get('/', function () {
     return view('/homepage');
