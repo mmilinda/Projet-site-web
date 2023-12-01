@@ -12,18 +12,18 @@ use Illuminate\Http\Request;
 class MessageController extends Controller
 {
     // affichage des articles pour edition
-    public function  contact(Request $request)
+    public function  index(Request $request)
     {
         $message = contact::all();
         return view('message')->with('contacts', $message);
                                     // nom de la table
     }
 
-    public function index()
-    {
-        $contacts = contact::all();
-        return view('contacts.index', compact('contacts'));
-    }
+    // public function index()
+    // {
+    //     $contacts = contact::all();
+    //     return view('contacts.index', compact('contacts'));
+    // }
 
     public function destroy($id)
     {

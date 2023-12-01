@@ -22,9 +22,14 @@
       <td>{{$notifications->email}}</td>
       <td>{{$notifications->tel}}</td>
       <td>{{$notifications->message}}</td>
-
-      <td><button class="btn btn-primary" type="submit" 
-      onclick="return confirm('Voulez-vous vraiment supprimer cet élément ?')">Delete</button></td>
+      <td>
+        <form action="{{ route('contacts.destroy', $notifications->id) }}" method="post">
+        @csrf
+        @method('Delete')
+        <button class="btn btn-primary" type="submit" 
+        onclick="return confirm('Voulez-vous vraiment supprimer cet élément ?')">Delete</button>
+        </form>
+      </td>
 
     </tr>
 
