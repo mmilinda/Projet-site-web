@@ -4,6 +4,7 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\LandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandlordController;
+use App\Models\contact;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,9 @@ use App\Http\Controllers\LandlordController;
 | be assigned to the "web" middleware group. Make something great!
 |*/
 Auth::routes();
-
+Route::get('/', function () {
+    return view('/homepage');
+});
 
 Route::group(['middleware' => ['auth','admin']], function(){
     // Affiche formulaire d'ajout article
@@ -76,14 +79,20 @@ Route::get('/homepage', function () {
 Route::get('/LogIn', function () {
     return view('LogIn');
      });
-Route::get('/property', function () {
-    return view('property');
+// Route::get('/property', function () {
+//     return view('property');
 
-});
+// });
 
 Route::get('/proper', function () {
     return view('/proper');
 });
+// Notification
+Route::get('/message', function () {
+    return view('/message');
+});
+Route::get('/message',[App\Http\Controllers\MessageController::class,'contact']);
+
 
 Route::group(['middleware' => ['auth','admin']], function(){
 Route::get('/cities',[LandController::class,'showcities'])->name('cities');
@@ -116,4 +125,47 @@ Route::get('/logout',[App\Http\Controllers\TAPHACONTROLLER::class,'logoutaction'
 // afficher le contenu des blogs
 Route::get('/view_article/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'view_article_show']);
 
+// Controller Contact
 
+
+// Route::post('/contact-contact', [App\Http\Controllers\ContactController::class, 'showContactPage'])->name('contact');
+
+//  Route::post('/contact-contact', 'ContactController@showContactPage')->name('contact');
+
+
+Route::get('/contact', function () {
+    return view('/contact');
+});
+
+Route::post('/contact-contact', function () 
+{
+    // $reservationsEmail = 'reservations@theflexliving.com';
+    // $reservationsPhone = '0203 307 4477';
+
+    // $landlordsEmail = 'supply@theflexliving.com';
+    // $landlordsPhone = '0203 307 4477';
+
+    // $maintenanceEmail = 'maintenance@theflexliving.com';
+    // $maintenancePhone = '0203 307 4477';
+    // $request->validate([
+    //     'un'=>'required',
+    //     'nom'=>'required',
+    //     'email'=>'required',
+    //     'tel'=>'required',
+    //     'message' => ['required', 'string', 'max:2000'],
+    // ]);
+
+
+    // $file = $request->file('photo');
+    // $file->move('images_article',$file->getClientOriginalName());
+    // $file_name=$file->getClientOriginalName();
+
+    $contact = new contact();
+    $contact->un = request('un');
+    $contact->nom = request('nom');
+    $contact->email = request('email');
+    $contact->tel = request('tel');
+    $contact->message = request('message');;
+    $contact->save();
+    return redirect('/contact')->with('message','L\'message bien envoyer !');   
+ });
