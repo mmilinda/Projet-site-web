@@ -236,6 +236,9 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
                        
                        @if (Route::has('login'))
                             @endif
+                            @if (Route::has('register'))
+                             
+                            @endif
                         @else
                             @if(Auth::user()->type_user == 'admin')
                     <p class="owner bg-danger text-light">The owner: {{$affiches->nom}}; {{$affiches->email}}; {{$affiches->numero_tel}}</p>

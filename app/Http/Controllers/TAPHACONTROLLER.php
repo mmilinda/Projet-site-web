@@ -227,6 +227,7 @@ public function edite_property_cities(Request $request)
            'email_of_the_guest'=>'required',
            'move_out'=>'required',
            'method_paiement'=>'required',
+           'numero_transaction'=>'required',
         ]);
       
    
@@ -253,6 +254,7 @@ public function edite_property_cities(Request $request)
         $reservation->email_of_the_guest = $request->input('email_of_the_guest');
         $reservation->move_out = $request->input('move_out');
         $reservation->method_paiement = $request->input('method_paiement');
+        $reservation->numero_transaction = $request->input('numero_transaction');
         $reservation->save();
         return redirect('/booking')->with('success','Votre réservation a été bien prise en compte !');   
     }

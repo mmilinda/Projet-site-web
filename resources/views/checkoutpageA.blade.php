@@ -104,8 +104,18 @@ session_start();
     </div>
   </header>
 
-   
 <section class="section_Guest_details">
+    <?php  
+    if (isset($_POST['submit'])) {
+
+      $_SESSION['verify_property_exist'] = 
+      [
+        "property_id"=>$_GET["property_id"],        
+      ];  
+  var_dump($_SESSION['verify_property_exist']["property_id"]);
+    }  
+    
+    ?>
     <div class="maincontainer_Guest_details">
        <div class="maincontaier_checkout">
             <form action="{{route('envoi_final')}}" method="post" enctype="multipart/form-data">
@@ -185,6 +195,8 @@ session_start();
                     </div><br>
                 </div>
                       <!-- Property_id -->
+                     
+                      
                     <input type="hidden" placehooder="property_id" value="<?=$_GET['property_id']?>" name="property_id">
                         <!-- The client's informations -->
                     <input type="hidden" placehooder="first_name" value="<?=$_GET['first_name']?>" name="first_name">
@@ -199,6 +211,95 @@ session_start();
                     <input type="hidden" placeholder="move out" name="move_out" value="<?=$_SESSION['move-out_guest']['move-out']?>">
                     <input type="hidden" placeholder="Email of the guest" name="method_paiement" value="<?=$_GET['paiement']?>">
                     <div class="footer_checkout">
+                      <div>
+                        <?php
+                        if ($_GET['paiement'] == "Wave" or $_GET['paiement'] == "Orange Money" or $_GET['paiement'] == "Free Money" or $_GET['paiement'] == "PayPal") {
+                       
+                        if($_GET['paiement'] == "Wave") {
+
+                        ?>
+                        <div class="wave" style="background-color:#F2F0F2; display:flex; flex-direction:row;justify-content:center; width:460px; gap: 5px;">
+                            <img src="/image/wave-senegal-mobile-money.png" style="width:135px; height:30vh;" alt="">
+                            <div style="display:flex; flex-direction:column;justify-content:center;">
+                                <div class="" >
+                                    <span>Veillez-envoyer la somme de <strong class="text bg-danger text-light"> <?=$Total?><br> par Wave </strong>sur ce numéro: </span>
+                                    <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 821 55 30</strong></div>
+                                </div>
+                                <!-- <div>
+                                  <lable class="form-lable">Ensuit veillez-entrez le numéro de référence de la transaction </lable><br>
+                                  <input type="text" placeholder="ref........." class="form-control " required>
+                                </div> -->
+                            </div>
+                        </div>
+                        <?php
+                         
+                        }elseif ($_GET['paiement'] == "Orange Money") {
+                          # code...
+                        
+                        ?>
+                        <div class="orange" style="background-color:#F2F0F2; display:flex; flex-direction:row;justify-content:center; width:460px; gap: 5px;">
+                            <img src="/image/ico-orange_money.png" style="width:135px; height:30vh;" alt="">
+                            <div style="display:flex; flex-direction:column;justify-content:center;">
+                                <div class="" >
+                                    <span>Veillez-envoyer la somme de <strong class="text bg-danger text-light"> <?=$Total?><br> par Orange Money </strong>sur ce numéro: </span>
+                                    <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 821 55 30</strong></div>
+                                </div>
+                                <!-- <div>
+                                  <lable class="form-lable">Ensuit veillez-entrez le numéro de référence de la transaction </lable><br>
+                                  <input type="text" placeholder="ref........." class="form-control " required>
+                                </div> -->
+                            </div>
+                        </div>
+                        <?php
+                         
+                        }elseif ($_GET['paiement'] == "Free Money") {
+                          # code...
+                        
+                        ?>
+                        <div class="free" style="background-color:#F2F0F2; display:flex; flex-direction:row;   justify-content:center; width:460px; gap: 5px;">
+                            <img src="/image/imgonline-com-ua-resize-Vd3fVrxQKg5Gqi.jpg" style="width:135px; height:20vh;" alt="">
+                            <div style="display:flex; flex-direction:column;justify-content:center;">
+                                <div class="" >
+                                    <span>Veillez-envoyer la somme de <strong class="text bg-danger text-light"> <?=$Total?><br> par Free money </strong>sur ce numéro: </span>
+                                    <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 821 55 30</strong></div>
+                                </div>
+                                <!-- <div>
+                                  <lable class="form-lable">Ensuit veillez-entrez le numéro de référence de la transaction </lable><br>
+                                  <input type="text" placeholder="ref........." class="form-control " required>
+                                </div> -->
+                            </div>
+                        </div>
+                        <?php
+                         
+                        }elseif ($_GET['paiement'] == "PayPal") {
+                          # code...
+                    
+                        ?>
+                        <div class="paypal" style="background-color:#F2F0F2; display:flex; flex-direction:row;   justify-content:center; width:460px; gap: 5px;">
+                            <img src="/image/paypal.jpg" style="width:135px; height:30vh;" alt="">
+                            <div style="display:flex; flex-direction:column;justify-content:center;">
+                                <div class="" >
+                                    <span>Veillez-envoyer la somme de <strong class="text bg-danger text-light"> <?=$Total?><br> par Paypal </strong>sur ce mail: </span>
+                                    <div class="bg-danger text-light" style="width: 139px;"><strong>flexliving@gmail.com</strong></div>
+                                </div>
+                                <!-- <div>
+                                  <lable class="form-lable">Ensuit veillez-entrez le numéro de la transaction </lable><br>
+                                  <input type="text" placeholder="........." class="form-control " required>
+                                </div> -->
+                            </div>
+                        </div>
+                        <?php
+                        }
+                        ?>
+                        <div>
+                        <lable class="form-lable">Ensuit veillez-entrez le numéro de la transaction </lable><br>
+                        <input type="text" placeholder="........." class="form-control " name="numero_transaction" required>
+                      </div>
+                      <?php
+                      }
+                        ?>
+                      </div>
+                      <br>
                     <div>
                         <button type="submit" class="btn btn-success">Confirm and pay</button>
                     </div>
@@ -285,8 +386,7 @@ session_start();
             <div class="maincontainer_footer_guests">
                 <div class="Payment_timeline_guest">
                     <p><strong>Payment timeline</strong></p>
-                </div>
-                
+                </div>     
                     <div class="footer_guest_detail">
                         <div class="time_line_img_guest">
                             <img src="/image/Timeline.png" alt="">
@@ -314,7 +414,7 @@ session_start();
                                 <p><?php
                                    echo '£' .$Critere['price'] + $paiement_reservation_total;
                                 ?></p>
-                            </div>
+                          </div>
                     </div>
                 </div>
             </div>
@@ -325,7 +425,128 @@ session_start();
 <br><br><br> 
 <link rel="stylesheet" href="assets/build/css/intlTelInput.css" />
 
-@include('footer')
+<script src="/assets/build/js/intlTelInput.js"></script>
+
+<section class="footer">
+       <div class="maincontainer_footer">
+             <div class="col1_footer">
+                  <div class="logo_footer">
+                       <a href=""><img src="/image/logo.png" alt=""></a>
+                  </div>
+                  <div class="contact_footer">
+                      <div class="tel_footer">
+                        <p>Contact number: 02033074477</p>
+                      </div>
+                      <div class="reseauxfooter">
+                          <div>
+                              <a href=""><img src="/image/Group.png" alt=""></a>
+                          </div>
+                          <div>
+                              <a href=""><img src="/image/eva_facebook-fill.png" alt=""></a>
+                          </div>
+                          <div>
+                              <a href=""><img src="/image/eva_twitter-fill.png" alt=""></a>
+                          </div>
+                      </div>
+                      <div class="copy_right_footer">
+                        <p>© 2021 Flex Living</p>
+                      </div>
+                  </div>
+             </div>
+             <div class="col_footer">
+                  <div class="title_col2_footer">
+                      <div class="title">
+                          <p><strong>Company</strong></p>
+                      </div>
+                  </div>
+                  <div class="textcol2_footer">
+                      <div >
+                          <p><a href="">Home</a></p>
+                      </div>
+                      <div>
+                          <p><a href="">About Us</p></a>
+                      </div>
+                      <div>
+                          <p><a href="">Our Team</p></a>
+                      </div>
+                  </div>
+             </div>
+             <div class="col_footer">
+                  <div class="title_col3_footer">
+                      <div class="title">
+                          <p><strong>Guests</strong></p>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <p><a href="">Blog</a></p>
+                      </div>
+                      <div>
+                          <p><a href="">FAQ</p></a>
+                      </div>
+                      <div>
+                          <p><a href="">Career</p></a>
+                      </div>
+                  </div>
+             </div>
+             <div class="col_footer col4_footer">
+                  <div class="title_col4_footer">
+                      <div class="title">
+                          <p><strong>Provacy</strong></p>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <p><a href="">Teams of Service</a></p>
+                      </div>
+                      <div>
+                          <p><a href="">Privacy Policy</p></a>
+                      </div>
+                  </div>
+             </div>
+             <div class="col5_footer">
+                  <div class="title_col4_footer">
+                      <p><strong>Stay up to date</strong></p>
+                  </div>
+                  <div class="title">
+                      <p><a href="">Be the first to know br about our newest apartments</a></p>
+                  </div>
+                  <div>
+                      <input type="text" placeholder="Email address">
+                  </div>
+                  <div><br>
+                     <button type="submit" class="btn btn-success rounded-pill">Subscribe</button>
+                  </div>
+             </div>
+                 <div class="display_none_footer">
+                      <div>
+                        <p><a href="">Contact number: 02033074477</a></p>
+                      </div>
+                      <div class="reseau_footer">
+                          <div>
+                            <a href=""><img src="/image/Group.png" alt=""></a>
+                          </div>
+                          <div>
+                            <a href=""><img src="/image/eva_facebook-fill.png" alt=""></a>
+                          </div>
+                          <div>
+                              <a href=""><img src="/image/eva_twitter-fill.png" alt=""></a>
+                          </div>
+                      </div>
+                      <div class="copyright_footer">
+                        <p>© 2021 Flex Living</p>
+                      </div>
+                 </div>
+        </div>
+    </section>
+
+     <!--=============== SWIPER JS ===============-->
+   <script src="assets/js/swiper-bundle.min.js"></script>
+
+<!--=============== MAIN JS ===============-->
+<script src="assets/js/main.js"></script>
+<script src="/JStapha/jstapha.js"></script>
+
 
     <style>
       /* Guest_detail */

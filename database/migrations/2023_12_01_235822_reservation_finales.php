@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('email_of_the_guest');
             $table->string('move_out');
             $table->string('method_paiement');
+            $table->string('numero_transaction');
             $table->timestamps();   
         });
         
