@@ -408,7 +408,7 @@
             </div>
             <div class="col">
             <label for="area" class="form-label">Area</label>
-                <input name="area" class="form-control mb-3 text-secondary" value="{{$Critere->area}}" id="area_id" required placeholder="area in small">
+                <input name="area" class="form-control mb-3 text-secondary" value="{{$Critere->area}}" id="area_id" required placeholder="area in small letter">
             </div>
         </div>
         <div class="text">

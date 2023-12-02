@@ -426,8 +426,7 @@
                                 <div class="col">     
                                     <label for="price" class="form-label">Price in £</label>
                                     <input type="number" name="price" value="" placeholder="£......" class="form-control mb-3" required>
-                                </div>
-                            
+                                </div>    
                                 <!-- <span></span> -->
                                 <div class="col">
                                     <label for="bath" class="form-label">how many Bath</label>

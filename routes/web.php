@@ -54,9 +54,9 @@ Route::get('/header', function () {
     return view('/header');
 });
 
-Route::get('/checkoutpageA', function () {
-    return view('/checkoutpageA');
-});
+// Route::get('/checkoutpageA', function () {
+//     return view('/checkoutpageA');
+// });
 
 Route::get('/contact', function () {
     return view('/contact');
@@ -155,6 +155,15 @@ Route::post('/contact-contact', function ()
  Route::post('critere/{id}', [LandController::class, 'edite_property_update']);
 //  Route::get('/edite_property_rol/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'edite_property_cities']);
 
+Route::get('/checkoutpageA', function () {
+    return view('/checkoutpageA');
+});
+// Route::post('rol_checkoutpageA/{id}', [LandController::class, 'rol_checkoutpageA_show']);
+//Affichage des données de la réservation du client dans la page checkout
+Route::get('/rol_checkoutpageA/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'rol_checkoutpageA_show']);
+Route::get('/rol_checkoutpageA/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'rol_checkoutpageA_show'])->name('checkoutpageA');
+
+
 
 
 
@@ -174,21 +183,11 @@ Route::post('/Guest_Detail', function()
     return redirect('/checkoutpageA')->with('status', 'Votre reservation a bien été enregistrée');
 });
 
+// Envoi de données pour la réservation 
+Route::post('/envoi_final', [App\Http\Controllers\TAPHACONTROLLER::class, 'envoi_final'])->name('envoi_final');
 
- // Edition d'article
-//  Route::get('/edition_article_blog/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'edition_article_blog_show']);
-//  Route::post('/edition_article_blogA/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'edition_article_update']);
- 
+// Route::post('/store_critere', [LandController::class, 'store_critere'])->name('store_critere');
 
-
-
- 
-// Route::post('/critere_property',[App\Http\Controllers\TAPHACONTROLLER::class,'critere_traitement']);
-
- 
-// Route::post('/Critere',[App\Http\Controllers\TAPHACONTROLLER::class,'property_controller'])->name('property.file');
-
-// Route::post('/ajouter_article',[App\Http\Controllers\TAPHACONTROLLER::class,'ajouter_article_controller'])->name('form_ajout_article.file');
 
 
 

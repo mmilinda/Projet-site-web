@@ -132,8 +132,9 @@ session_start();
                     {{ session('status') }}
                 </div>
             @endif
-            <form action="/checkoutpageA" method="get">
+            <form action="{{ route('checkoutpageA', $Critere->id) }}" method="get">
                   @csrf
+                  <input type="hidden" placeholder="First name" name="property_id" value="{{$Critere->id}}" required>
                   <div class="inputtext_guest_details">
                       <input type="text" placeholder="First name" name="first_name" required>
                   </div><br>
@@ -147,7 +148,6 @@ session_start();
                   <input id="phone" name="phone" type="text" required>
                   </div>
                   <br>
-
                 <div>
                   <div class="Purpose_of_stay">
                       <p><strong>Purpose of stay</strong></p>
@@ -164,7 +164,7 @@ session_start();
               </div><br>
               <div  class="behalf_of_someone">
                   <div>
-                    <span><input type="checkbox" name="I_m_booking_on_behalf_of_someone_else"id="" required> I’m booking on behalf of someone else</span>
+                    <span><input type="checkbox"  value="I_m_booking_on_behalf_of_someone_else" name="I_m_booking_on_behalf_of_someone_else"id="" > I’m booking on behalf of someone else</span>
                   </div><br>
                   <div class="inputtext_guest_details">
                       <input type="text" placeholder="Name" name="name" required>
@@ -177,7 +177,7 @@ session_start();
         </div>
         <div class="card2_guest_details">
             <div class="image_guest_details">
-                <img src="/image/Rectangle 228.png" alt="">
+                <img src="/images_property/{{$Critere->photo}}" alt="">
             </div><br>
             <div class="part1_guest_details">
 
@@ -198,7 +198,7 @@ session_start();
                             </div>
                             <br>
                         </div><br><br>
-                        <div>
+                         <div>
                             <p>All utilities are included</p>
                         </div>
                   </div>
@@ -210,6 +210,7 @@ session_start();
                         <?php
                         echo $_SESSION['move-out_guest']['move-out'];
                         ?>
+                        <input type="hidden" placeholder="move out" name="move-out" value="<?=$_SESSION['move-out_guest']['move-out']?>">
                          </span>
                     </div>
             </div><br>
@@ -281,21 +282,21 @@ session_start();
                                         <p>After move-out</p>
                                     </div>
                                     <br>
-                                    <span>Receive your 
-                                        
+                                    <span>Receive your                 
                                     <?php
-                            $pourcentage_reçu = 11;
-                            $paiement_reservation_reçu = $pourcentage_reçu * $Critere['price'] / 100;
-                            echo '£' .$paiement_reservation_reçu;
-                            ?> <img src="/image/Vector (10).png" alt=""></span>
+                                      $pourcentage_reçu = 11;
+                                      $paiement_reservation_reçu = $pourcentage_reçu * $Critere['price'] / 100;
+                                      echo '£' .$paiement_reservation_reçu;
+                                    ?> 
+                                  <img src="/image/Vector (10).png" alt=""></span>
                                 </div>
                             </div>
                             <div>
-                                <p>
-                                    <?php
-                            echo '£' .$Critere['price'] + $paiement_reservation_total;
-                            ?></p>
-                            </div>
+                              <p>
+                              <?php
+                                echo '£' .$Critere['price'] + $paiement_reservation_total;
+                                ?></p>
+                          </div>
                     </div>
                 </div>
             </div>
@@ -318,8 +319,9 @@ session_start();
             echo('slt');
            }
            ?>
-            <select name="paiement" id="" class="inputtext_guest_details">
-                <option value="" class="">Orange Money</option>
+            <select name="paiement" id="" class="inputtext_guest_details" required>
+                <option value="Orange Money" class="">Payment method</option>
+                <option value="Orange Money" class="">Orange Money</option>
                 <option value="Wave" type="submit"name="Wave">Wave</option>
                 <option value="PayPal">PayPal</option>
                 <option value="Master Card">Master Card</option>

@@ -1,7 +1,17 @@
 <?php 
+namespace App\Http\Middleware;
+namespace App\Http\Controllers;
 session_start();
+use App\Models\Critere;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Closure;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
+
 ?>
 @include('header')
+
 
 
 <br><br>
@@ -78,6 +88,7 @@ session_start();
             <span>City view</span>
             <i class="fa fa-times"></i>
         </div>
+                    
     @elseif(request()->input('filter') == 'Parking')
         <div class="fliter_card">
           <img src="/room_images/fa-solid_car-alt.png" alt=""> 
@@ -111,47 +122,55 @@ session_start();
     </div>
 </div>
 <br><br>
-   
 <section>
-    <div class="alert_search_result">
-    @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
+    <div class="alert_search_result" style="display:flex; flex-direction:column;">
+        <div style="display:flex; flex-direction:;">
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
         @if (session('fail'))
             <div class="alert alert-danger">
                 {{ session('fail') }}
             </div>
-        @endif
-                      
-        @if(request()->input('city'))
-            <div class="alert"><strong>{{ $Critere->total() }} result for "{{request()->input('city')}}" </strong></div>
-        
-        @elseif(request()->input('date'))
-            <div class="alert"><strong>{{$Critere->total() }} result for "{{request()->input('date')}}"</strong> </div>
-        @elseif(request()->input('guest'))
-        <div class="alert"><strong>{{ $Critere->total() }} result for "{{request()->input('guest')}} guest"</strong></div>
-        @elseif(request()->input('filter'))
-        <div class="alert"><strong>{{ $Critere->total() }} result for "{{request()->input('filter')}}"</strong></div>
-        @endif
-       
-        <?php
-        // if (isset($_POST['submit'])) {
-        if(isset($_GET['move-out']) and !empty($_GET['move-out']))
-        {
-          $move_out=$_GET['move-out'];
-        }else{
-          echo '<div class="alert alert-danger">At least you must choose a move out date and click on search</div>';
-        }
-    // }
+        @endif       
+         <?php
+         $rooms=Critere::where('city', 'like', "%request()->input('city')%")
         ?>
-        <!-- <div class="card_property">dddd</div>
-        <a href=""class="card_property">card_property</a>
-        <div class="condition">
-            <div class="alert alert-danger ">At least you must choose a move out date and click on search</div>
-        </div> -->
-
+        @if(request()->input('city') == $rooms)
+                <p>vjjssjsjsjjsjjsj</p>
+        @endif
+        @if(request()->input('city'))
+            <div class="alert"><strong>{{$Critere->total() }}  result for : "City : {{request()->input('city')}}" </strong></div> 
+        @endif   
+        @if(request()->input('date'))
+            <div class="alert"><strong>"Available: {{request()->input('date')}}"</strong> </div>
+        @endif
+        @if(request()->input('guest'))
+        <div class="alert"><strong>"{{request()->input('guest')}} guest"</strong></div>
+       @endif
+       @if(request()->input('filter'))
+        <div class="alert"><strong>"{{request()->input('filter')}}"</strong></div>
+        @endif
+        </div>  
+        <div>
+            <?php
+            // if (isset($_POST['submit'])) {
+            if(isset($_GET['move-out']) and !empty($_GET['move-out']))
+            {
+            $move_out=$_GET['move-out'];
+            }else{
+            echo '<div class="alert alert-danger" style="width:490px;">At least you must choose a move out date and click on search</div>';
+            }
+        // }
+            ?>
+            <!-- <div class="card_property">dddd</div>
+            <a href=""class="card_property">card_property</a>
+            <div class="condition">
+                <div class="alert alert-danger ">At least you must choose a move out date and click on search</div>
+            </div> -->
+        </div>
     </div>
         <?php
          GLOBAL $move_out;
@@ -163,9 +182,7 @@ session_start();
           "move-out"=>$_GET["move-out"],        
         ];
          }
-     
         ?>
-        
         <div class="room_card">
             <div class="maincontainer_rooms">
                 <div class="group_card">
@@ -208,13 +225,19 @@ session_start();
                                 <p>{{$affiches->city_view}} {{$affiches->level}} {{$affiches->elevator}}  {{$affiches->parking}}  </p>
                             </div>
                             <div class="btn_text">
-                            <button class="btn btn-success rounded-pill">Available {{$affiches->date_of_availability}}</button>
-                            <div>from <strong>£{{$affiches->price}}</strong>/month</div>
+                            <button class="btn btn-success rounded-pill" style="width:300px">Available {{$affiches->date_of_availability}}</button>
+                            <div><strong>£{{$affiches->price}}</strong>/month</div>
                             </div>
                         </div>
                         <div>
                     </div>
                     </div>
+                       @guest
+                       
+                       @if (Route::has('login'))
+                            @endif
+                        @else
+                            @if(Auth::user()->type_user == 'admin')
                     <p class="owner bg-danger text-light">The owner: {{$affiches->nom}}; {{$affiches->email}}; {{$affiches->numero_tel}}</p>
                     </a>
                     <div class="edit_suppimer" style="display:flex; gap:5px; margin-top:-10px;">
@@ -224,7 +247,11 @@ session_start();
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
-                    </div><br>
+                    </div>
+                
+                    @endif
+                    @endguest 
+                    <br>
                     @endforeach
                 </div>
                 <div class="room_map">

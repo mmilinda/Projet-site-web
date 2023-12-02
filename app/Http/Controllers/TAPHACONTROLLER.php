@@ -11,6 +11,7 @@ use App\Models\cities;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Models\booking_rooms;
+use App\Models\reservation_finale;
 
 use App\User;
 // use App\Http\Controllers\Controller;
@@ -57,11 +58,6 @@ class TAPHACONTROLLER extends Controller
         $ajouter->save();
         return redirect('/afficheArticle')->with('message','L\'article a étè bien ajouter !');   
     }
-
-
-  
-
-
 
     // affichage des articles pour edition
     public function  edition_article_blog_show(Request $request, $id)
@@ -113,9 +109,6 @@ class TAPHACONTROLLER extends Controller
          return view('affiche_contenu_article')->with('ajouter_article_tapha_a_s', $ajouter_article_tapha);
                                                       // nom de la table
      }
-
-
-
 
    //   Affichage de city
 
@@ -175,20 +168,6 @@ public function roomsshow(Request $request){
      
        
 }
-// public function  edition_article_blog_show(Request $request, $id)
-//  {
-//      $ajouter_article_tapha = ajouter_article_taphaA::findOrFail($id);
-//      return view('edition-Article')->with('ajouter_article_tapha_a_s', $ajouter_article_tapha);
-//                                  // nom de la table
-//  }
-
-  // affichage du guest detail
-//   public function  affichage_city(Request $request)
-//   {
-//       $guest_detail = Critere::all();
-//       return view('booking')->with('Critere', $guest_detail);
-//                                                 // nom de la table
-//   }
 
   // affichage du guest detail
   public function  Guest_Detail_show(Request $request, $id)
@@ -197,53 +176,6 @@ public function roomsshow(Request $request){
       return view('Guest_Detail')->with('Critere', $guest_detail);
                                                 // nom de la table
   }
-
-
-// return view('projet.landlord',compact('cities','areas'));
-
-// public function edite_property_update(Request $request, $id)
-// {
-//     $file = $request->file('photo');
-//     $file->move('images_property',$file->getClientOriginalName());
-//     $file_name=$file->getClientOriginalName();
-
-//     $critere = Critere::find($id);
-//     $critere->nom = $request->input('nom');
-//     $critere->email = $request->input('email');
-//     $critere->numero_tel = $request->input('numero_tel');
-//     $critere->city = $request->input('city');
-//     $critere->area = $request->input('area');
-//     $critere->nombre_chambre=$request->input('nombre_chambre');
-//     $critere->photo = $file_name;
-//     $critere->type_property=$request->input('type_property');
-//     $critere->price=$request->input('price');
-//     $critere->bath=$request->input('bath');
-//     $critere->wifi=$request->input('wifi');
-//     $critere->city_view=$request->input('city_view');
-//     $critere->elevator=$request->input('elevator');
-//     $critere->parking=$request->input('parking');
-//     $critere->level=$request->input('level');
-//     $critere->date_of_availability=$request->input('date_of_availability');
-//     $critere->save();
-//     // Si vous avez besoin de gérer le téléchargement de la vidéo, vous pouvez le faire ici.
-//     return redirect('afficheArticle')->with('success', 'opération effetuée avec succès');
-//    }
-
-   // public function edition_article_update( Request $request, $id)
-   // {
-   //     $file = $request->file('photo');
-   //     $file->move('images_article',$file->getClientOriginalName());
-   //     $file_name=$file->getClientOriginalName();
-
-
-   //     $ajouter = ajouter_article_taphaA::find($id);
-   //     $ajouter->photo = $file_name;
-   //     $ajouter->titre = $request->input('titre');
-   //     $ajouter->contenu = $request->input('contenu');
-   //     $ajouter->created_at = $request->input('created_at');
-   //     $ajouter->save();
-   //    return redirect('/afficheArticle')->with('message','L\'article a étè bien modifié !');
-   // }
 
    
  // affichage des properties pour l'édition
@@ -262,14 +194,70 @@ public function edite_property_cities(Request $request)
  return view('edite_property')->with('cities', $affiche_cities);
 }
 
-// public function  Guest_Detail_show(Request $request, $id)
-//   {
-//       $guest_detail = Critere::findOrFail($id);
-//       return view('Guest_Detail')->with('booking_rooms', $guest_detail);
-//                                                 // nom de la table
-//   }
- }
 
+ 
+   // affichage du guest detail
+   public function rol_checkoutpageA_show(Request $request, $id)
+   {
+       $guest_detail = Critere::findOrFail($id);
+       return view('checkoutpageA')->with('Critere', $guest_detail);
+                                        // nom de la table
+   }
+
+   
+// Envoi de données pour la reservation 
+ public function envoi_final(Request $request)
+    {  
+      $request->validate([
+           'Rent_per_month'=>'required',
+           'Utilities_per_month'=>'required',
+           'Monthly_subtotal'=>'required',
+           'One_time_cleaning_fee'=>'required',
+           'Total_charges'=>'required',
+           'Total'=>'required',
+           'property_id'=>'required',
+           'first_name'=>'required',
+           'last_name'=>'required',
+           'email'=>'required',
+           'phone'=>'required',
+           'Purpose'=>'required',
+           'Name_of_Employer_Organisaition'=>'required',
+           'I_m_booking_on_behalf_of_someone_else'=>'required',
+           'name'=>'required',
+           'email_of_the_guest'=>'required',
+           'move_out'=>'required',
+           'method_paiement'=>'required',
+        ]);
+      
+   
+      //   $file = $request->file('photo');
+      //   $file->move('images_article',$file->getClientOriginalName());
+      //   $file_name=$file->getClientOriginalName();
+
+        $reservation = new reservation_finale();
+        $reservation->Rent_per_month = $request->input('Rent_per_month');
+        $reservation->Utilities_per_month = $request->input('Utilities_per_month');
+        $reservation->Monthly_subtotal = $request->input('Monthly_subtotal');
+        $reservation->One_time_cleaning_fee = $request->input('One_time_cleaning_fee');
+        $reservation->Total_charges = $request->input('Total_charges');
+        $reservation->Total = $request->input('Total');
+        $reservation->property_id = $request->input('property_id');
+        $reservation->first_name = $request->input('first_name');
+        $reservation->last_name = $request->input('last_name');
+        $reservation->email = $request->input('email');
+        $reservation->phone = $request->input('phone');
+        $reservation->Purpose = $request->input('Purpose');
+        $reservation->Name_of_Employer_Organisaition = $request->input('Name_of_Employer_Organisaition');
+        $reservation->I_m_booking_on_behalf_of_someone_else = $request->input('I_m_booking_on_behalf_of_someone_else');
+        $reservation->name = $request->input('name');
+        $reservation->email_of_the_guest = $request->input('email_of_the_guest');
+        $reservation->move_out = $request->input('move_out');
+        $reservation->method_paiement = $request->input('method_paiement');
+        $reservation->save();
+        return redirect('/booking')->with('success','Votre réservation a été bien prise en compte !');   
+    }
+
+ }
 
 
 
