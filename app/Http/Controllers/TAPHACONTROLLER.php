@@ -8,6 +8,7 @@ use App\Models\Critere;
 use App\Models\City;
 use App\Models\reservation;
 use App\Models\cities;
+use App\Models\contact;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Models\booking_rooms;
@@ -259,6 +260,14 @@ public function edite_property_cities(Request $request)
         return redirect('/booking')->with('success','Votre réservation a été bien prise en compte !');   
     }
 
+
+  // affichage des articles pour edition
+  public function  contact_show(Request $request)
+  {
+      $message = contact::all();
+      return view('message')->with('contacts', $message);
+                                  // nom de la table
+  }
  }
 
 

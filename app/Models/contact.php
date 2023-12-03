@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class contact extends Model
 {
+   
+    use HasFactory;
     protected $filiable=[
        
         'un', 'nom', 'email', 'tel', 'message'

@@ -85,9 +85,9 @@ Route::get('/proper', function () {
     return view('/proper');
 });
 // Notification
-Route::get('/message', function () {
-    return view('/message');
-});
+// Route::get('/message', function () {
+//     return view('/message');
+// });
 Route::get('/message',[App\Http\Controllers\MessageController::class,'contact']);
 
 
@@ -160,7 +160,7 @@ Route::get('/checkoutpageA', function () {
 });
 // Route::post('rol_checkoutpageA/{id}', [LandController::class, 'rol_checkoutpageA_show']);
 //Affichage des données de la réservation du client dans la page checkout
-Route::get('/rol_checkoutpageA/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'rol_checkoutpageA_show']);
+// Route::get('/rol_checkoutpageA/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'rol_checkoutpageA_show']);
 Route::get('/rol_checkoutpageA/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'rol_checkoutpageA_show'])->name('checkoutpageA');
 
 
@@ -187,7 +187,9 @@ Route::post('/Guest_Detail', function()
 Route::post('/envoi_final', [App\Http\Controllers\TAPHACONTROLLER::class, 'envoi_final'])->name('envoi_final');
 
 // Route::post('/store_critere', [LandController::class, 'store_critere'])->name('store_critere');
+Route::delete('/contacts/destroy/{id}', [App\Http\Controllers\MessageController::class, 'supprimer_message'])->name('contacts.destroy');
 
+// Route::delete('/critere/supprimer/{id}', [LandController::class, 'supprimer_critere'])->name('critere.supprimer');
 
 
 

@@ -25,4 +25,12 @@ class HomeController extends Controller
     {
         return view('homepage');
     }
+
+    // public function delete($id)
+    // {
+
+    //     $data=User::find($id);
+    //     $data->forceDelete();
+    //     return redirect()->back();
+    // }
 }
