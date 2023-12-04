@@ -41,6 +41,7 @@
 </head>
 
 <body>
+    
 <header class="header">
     <div>
       <div>
@@ -52,43 +53,16 @@
                 <div class="ullia">
                     <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="{{route('showlandlord')}}">Landloards</a></li>
-                    @guest
-                            @if (Route::has('login'))
-                            @endif
-                            @if (Route::has('register'))
-                             
-                            @endif
-                        @else
-                            @if(Auth::user()->type_user == 'admin')
-
-                    <li class="navbar-item"><a class="navbar-link" href="{{route('cities')}}">city</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="{{route('areas')}}">area</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="{{route('liste_critere')}}">liste critere</a></li>
-                    @endif
-                           
-                        @endguest  
-
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="{{route('liste_critere')}}">liste critere</a></li> -->
                     <li class="navbar-item" style="display:flex; justify-content:center;">
                       <a class="navbar-link blog" id="blog"  href="/afficheArticle">Blog <span class="arrow_blog"></span></a>
-                      <ul class="ajout_article">
-                        <li>
-                        @guest
-                            @if (Route::has('login'))
-                            @endif
-                            @if (Route::has('register'))
-                             
-                            @endif
-                        @else
-                            @if(Auth::user()->type_user == 'admin')
-                        <a href="/formulaire_ajout_articke"  style="list-style:none;">Ajouter un article</a>
-                            @endif
-                           
-                        @endguest                
-                        </li>
-                      </ul>
                     </li>
                     <li class="navbar-item"><a class="navbar-link" href="/proper">Property</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/booking">Booking</a></li>
+                    <li class="navbar-item">
+                      <a class="navbar-link" href="/booking">Booking</a>
+                      <ul class="liste_reservation">
+                      </ul>
+                    </li>
                     <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
                     <!-- <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li> -->
                     @guest
@@ -100,9 +74,21 @@
                         @else
                             @if(Auth::user()->type_user == 'admin')
                     <li class="navbar-item"><a class="navbar-link" href="/message"><i class="fa-solid fa-bell"></i></a></li>
+                    <li class="navbar-item">
+                         <p class="navbar-link Amdmin_Control" href="">Amdmin Control</p>
+                      <ul class="Amdmin_Control_container">
+                        <li class="navbar-item"><a class="navbar-link" href="{{route('cities')}}">Add cities</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="{{route('areas')}}">Add areas</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="/liste_reservation" style="list-style:none;">Liste des réservations<a></li>
+                         <li class="navbar-item"><a href="/formulaire_ajout_articke"  style="list-style:none;">Ajouter un article</a></li>
+                      </ul>
+                    </li>
                       @endif
                            
                     @endguest 
+                    
+                    
+                    
                     <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
 
                           @guest
@@ -541,6 +527,36 @@
 <!-- Ajouter le script de l'API Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 <script src="JStapha/jstapha.js"></script>
+<style>
+.Amdmin_Control{
+      cursor:pointer;
+      color:blue;
+    }
+    .Amdmin_Control_container{
+      position:absolute;
+      display:none;
+      flex-direction:column;
+      margin-top:-18px;
+      background-color:#F2F0F2;
+      padding-right:10px;
+      padding-bottom:10px;
+    }
+    .Amdmin_Control_container.active{
+      display:flex;
+    }
+    .Amdmin_Control_container li:hover{
+      background-color:white;
+      padding:10px;
+      
+    }
+    </style>
+     <script>
+        admin  = document.querySelector(".Amdmin_Control");
+        admin.addEventListener('mouseover', function (){ 
+          appear = document.querySelector(".Amdmin_Control_container");
+          appear.classList.toggle("active");
+        });        
+  </script>
 <script>
     // Fonction d'initialisation de la carte
     function initMap() {

@@ -248,7 +248,7 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
                         <form method="POST" action="{{ route('critere.supprimer', $affiches->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                                <button type="submit" class="btn btn-danger"   onclick="return confirm('Voulez-vous vraiment supprimer cette Proprieté ?')">Supprimer</button>
                         </form>
                     </div>
                 

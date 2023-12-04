@@ -15,13 +15,13 @@
                 <div class="groupe_input_contact">
                     <div class="radio_contact">
                         <div>
-                        <span><input type="radio" name="un" id=""> I'm a Customer</span>
+                        <span><input type="radio" name="un" id="" value="I'm a Customer"> I'm a Customer</span>
                         </div>
                         <div>
-                        <span><input type="radio" name="un" id=""> I'm a Landlord</span>
+                        <span><input type="radio" name="un" id="" value="I'm a Landlord"> I'm a Landlord</span>
                         </div>
                         <div>
-                        <span><input type="radio" name="un" id=""> Something else</span>
+                        <span><input type="radio" name="un" id="" value="Something else"> Something else</span>
                         </div>
                     </div><br>
                     <div class="groupe_input_text">

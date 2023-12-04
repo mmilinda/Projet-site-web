@@ -45,38 +45,27 @@ session_start();
 </head>
 <body>
     
-  <header class="header">
+<header class="header">
     <div>
       <div>
         <ul class="containerheader">
           <div class="logoimage">
-                <a href="/" class="home-link"><img src="/image/Logo.png"  alt=""></a>
+                <a href="/" class="home-link"><img src="image/Logo.png"  alt=""></a>
             </div>
             <div class="menuheadera" >
                 <div class="ullia">
                     <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/landlord">Landloards</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('showlandlord')}}">Landloards</a></li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="{{route('liste_critere')}}">liste critere</a></li> -->
                     <li class="navbar-item" style="display:flex; justify-content:center;">
                       <a class="navbar-link blog" id="blog"  href="/afficheArticle">Blog <span class="arrow_blog"></span></a>
-                      <ul class="ajout_article">
-                        <li>
-                        @guest
-                            @if (Route::has('login'))
-                            @endif
-                            @if (Route::has('register'))
-                             
-                            @endif
-                        @else
-                            @if(Auth::user()->type_user == 'admin')
-                        <a href="/formulaire_ajout_articke"  style="list-style:none;">Ajouter un article</a>
-                            @endif
-                           
-                        @endguest                
-                        </li>
-                      </ul>
                     </li>
                     <li class="navbar-item"><a class="navbar-link" href="/proper">Property</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/booking">Booking</a></li>
+                    <li class="navbar-item">
+                      <a class="navbar-link" href="/booking">Booking</a>
+                      <ul class="liste_reservation">
+                      </ul>
+                    </li>
                     <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
                     <!-- <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li> -->
                     @guest
@@ -88,9 +77,21 @@ session_start();
                         @else
                             @if(Auth::user()->type_user == 'admin')
                     <li class="navbar-item"><a class="navbar-link" href="/message"><i class="fa-solid fa-bell"></i></a></li>
+                    <li class="navbar-item">
+                         <p class="navbar-link Amdmin_Control" href="">Amdmin Control</p>
+                      <ul class="Amdmin_Control_container">
+                        <li class="navbar-item"><a class="navbar-link" href="{{route('cities')}}">Add cities</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="{{route('areas')}}">Add areas</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="/liste_reservation" style="list-style:none;">Liste des réservations<a></li>
+                         <li class="navbar-item"><a href="/formulaire_ajout_articke"  style="list-style:none;">Ajouter un article</a></li>
+                      </ul>
+                    </li>
                       @endif
                            
                     @endguest 
+                    
+                    
+                    
                     <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
 
                           @guest
@@ -119,6 +120,51 @@ session_start();
       </div>
     </div>
   </header>
+
+
+  <style>
+    .Amdmin_Control{
+      cursor:pointer;
+      color:blue;
+    }
+    .Amdmin_Control_container{
+      position:absolute;
+      display:none;
+      flex-direction:column;
+      margin-top:-18px;
+      background-color:#F2F0F2;
+      padding-right:10px;
+      padding-bottom:10px;
+    }
+    .Amdmin_Control_container.active{
+      display:flex;
+    }
+    .Amdmin_Control_container li:hover{
+      background-color:white;
+      padding:10px;
+      
+    }
+    .ajout_article{
+      background-color:#F2F0F2;
+      position:absolute;
+      margin-top:30px;
+      display:flex;  
+    }
+    .liste_reservation{
+      background-color:#F2F0F2;
+      position:absolute;
+      margin-top:20px;
+      display:flex;  
+    }
+    </style>
+
+  <script>
+        admin  = document.querySelector(".Amdmin_Control");
+        admin.addEventListener('mouseover', function (){ 
+          appear = document.querySelector(".Amdmin_Control_container");
+          appear.classList.toggle("active");
+        });        
+  </script>
 <section class="section_Guest_details">
     <div class="maincontainer_Guest_details">
 
@@ -168,10 +214,10 @@ session_start();
                     <span><input type="checkbox"  value="I_m_booking_on_behalf_of_someone_else" name="I_m_booking_on_behalf_of_someone_else"id="" > I’m booking on behalf of someone else</span>
                   </div><br>
                   <div class="inputtext_guest_details">
-                      <input type="text" placeholder="Name" name="name" required>
+                      <input type="text" placeholder="Name" name="name" >
                   </div><br>
                   <div class="inputtext_guest_details">
-                      <input type="text" placeholder="Email of the guest" name="email_of_the_guest" required>
+                      <input type="text" placeholder="Email of the guest" name="email_of_the_guest">
                   </div>
               </div>
            <!-- </form> -->

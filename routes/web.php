@@ -191,5 +191,9 @@ Route::delete('/contacts/destroy/{id}', [App\Http\Controllers\MessageController:
 
 // Route::delete('/critere/supprimer/{id}', [LandController::class, 'supprimer_critere'])->name('critere.supprimer');
 
+//affichage contact
+// Route::get('/liste_reservation', function () {
+//     return view('/liste_reservation');
+// });
 
-
+Route::get('/liste_reservation', [App\Http\Controllers\TAPHACONTROLLER::class, 'liste_reservation_show']);

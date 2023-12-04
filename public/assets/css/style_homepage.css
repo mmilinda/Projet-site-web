@@ -1,4 +1,36 @@
- 
+ /*Liste Reservation */
+ .mc_liste_reservation{
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+  align-items: center;
+  gap: 100px;
+ }
+ .card_liste_reservation{
+  display: flex;
+  justify-content: center;
+  flex-direction:row;
+  gap: 100px;
+  flex-wrap: wrap;
+  background-color: #F2F0F2;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: -1px 9px 40px -12px rgba(0,0,0,1.75);
+  -moz-box-shadow:-1px 9px 40px -12px rgba(0,0,0, 1.75);
+  -webkit-box-shadow:-1px 9px 40px -12px rgba(0,0,0,1.75);
+  
+ }
+ pre{
+   color: white;
+ }
+.titre_listeR{
+  display: flex;
+  justify-content: center;
+  gap: 260px;
+}
+
+
+
  /*  booking*/
 .container_filter{
   display: flex;

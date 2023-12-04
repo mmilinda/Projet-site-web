@@ -154,7 +154,7 @@ public function supprimer_critere($id)
 
     $critere->delete();
 
-    return redirect('booking')->with('fail', 'Propritée supprimée avec succès.');
+    return redirect('booking')->with('fail', 'Proprité supprimée avec succès.');
 }
 
 public function liste_area()

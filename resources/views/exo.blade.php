@@ -38,3 +38,20 @@
     //             card.classList.toggle("activecard")
     //           };
 </script>
+
+
+@if(request()->input('city') == $rooms)
+                <p>vjjssjsjsjjsjjsj</p>
+        @endif
+        @if(request()->input('city'))
+            <div class="alert"><strong>{{$Critere->total() }}  result for : "City : {{request()->input('city')}}" </strong></div> 
+        @endif   
+        @if(request()->input('date'))
+            <div class="alert"><strong>"Available: {{request()->input('date')}}"</strong> </div>
+        @endif
+        @if(request()->input('guest'))
+        <div class="alert"><strong>"{{request()->input('guest')}} guest"</strong></div>
+       @endif
+       @if(request()->input('filter'))
+        <div class="alert"><strong>"{{request()->input('filter')}}"</strong></div>
+        @endif

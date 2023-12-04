@@ -33,6 +33,7 @@ class TAPHACONTROLLER extends Controller
 
       //   $string= "Lorem ipsum dolor sit amet consectetur: adipisicing elit. ";
       //   (str::of($string)->words(words:5, end:'lire plus'));
+      
         $ajouter_article_tapha = ajouter_article_taphaA::all();
         return view('blog')->with('ajouter_article_tapha_a_s', $ajouter_article_tapha);
                                     // nom de la table
@@ -189,11 +190,11 @@ public function roomsshow(Request $request){
 }
 
 //Affichage de la liste des  cities
-public function edite_property_cities(Request $request)
-{
- $affiche_cities = cities::all();
- return view('edite_property')->with('cities', $affiche_cities);
-}
+// public function edite_property_cities(Request $request)
+// {
+//  $affiche_cities = cities::all();
+//  return view('edite_property')->with('cities', $affiche_cities);
+// }
 
 
  
@@ -260,14 +261,13 @@ public function edite_property_cities(Request $request)
         return redirect('/booking')->with('success','Votre réservation a été bien prise en compte !');   
     }
 
+public function liste_reservation_show(Request $request){
 
-  // affichage des articles pour edition
-  public function  contact_show(Request $request)
-  {
-      $message = contact::all();
-      return view('message')->with('contacts', $message);
-                                  // nom de la table
-  }
+   $reservation = reservation_finale::all();
+
+   return view('/liste_reservation')->with('reservation_finales', $reservation);
+   }
+ 
  }
 
 

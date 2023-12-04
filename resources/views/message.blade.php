@@ -10,7 +10,7 @@
       <th scope="col">E-mail</th>
       <th scope="col">Téléphone</th>
       <th scope="col">Message</th>
-      <th scope="col">Bouton</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -26,8 +26,8 @@
         <form action="{{ route('contacts.destroy', $notifications->id) }}" method="post">
         @csrf
         @method('Delete')
-        <button class="btn btn-primary" type="submit" 
-        onclick="return confirm('Voulez-vous vraiment supprimer cet élément ?')">Delete</button>
+        <button class="btn btn-danger" type="submit" 
+        onclick="return confirm('Voulez-vous vraiment supprimer ce message ?')">Delete</button>
         </form>
       </td>
 
