@@ -55,3 +55,7 @@
        @if(request()->input('filter'))
         <div class="alert"><strong>"{{request()->input('filter')}}"</strong></div>
         @endif
+
+
+
+        ALTER TABLE `produits` ADD FOREIGN KEY (`id_categorie`) REFERENCES `categories`(`id_categorie`) ON DELETE CASCADE ON UPDATE CASCADE;

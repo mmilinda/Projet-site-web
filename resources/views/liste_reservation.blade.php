@@ -4,9 +4,6 @@ session_start();
 @include('header')
 <br><br>
 <section class="mc_liste_reservation">
-    <?=
-    $_SESSION['id']['rented_property_id'];
-    ?>
 @foreach($reservation_finales as $affiches)
     <div class="card_liste_reservation">
         <div>
@@ -36,15 +33,6 @@ session_start();
         <div>
             <p><strong>Rented Property</strong></p>
             <span><strong>Property id</strong>: {{$affiches->property_id}}</span><br>
-            <?php
-            // foreach ($reservation_finales as $value) {
-            //          echo $value['id'];
-                
-            //     }
-                $_SESSION['id']=[
-                    'rented_property_id' => $affiches['property_id']
-                  ];
-            ?>
             <span><strong>Move out</strong>: <strong class="btn btn-danger">{{$affiches->move_out}}</strong></span>
         </div>
     </div>

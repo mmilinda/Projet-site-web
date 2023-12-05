@@ -241,7 +241,7 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
                             @endif
                         @else
                             @if(Auth::user()->type_user == 'admin')
-                    <p class="owner bg-danger text-light">The owner: {{$affiches->nom}}; {{$affiches->email}}; {{$affiches->numero_tel}}</p>
+                    <p class="owner bg-danger text-light mt-3">The owner: {{$affiches->nom}}; {{$affiches->email}}; {{$affiches->numero_tel}}</p>
                     </a>
                     <div class="edit_suppimer" style="display:flex; gap:5px; margin-top:-10px;">
                         <a href="edite_property_rol/{{$affiches->id}}" class="btn btn-primary">Editer</a> 
