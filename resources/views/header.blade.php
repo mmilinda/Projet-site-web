@@ -70,7 +70,10 @@
                             @endif
                         @else
                             @if(Auth::user()->type_user == 'admin')
-                    <li class="navbar-item"><a class="navbar-link" href="/message"><i class="fa-solid fa-bell"></i></a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('contacts.index')}}"><i class="fa-solid fa-bell"></i>
+                     <!-- Affichage du nombre de notification -->
+                    ({{ $messageCount ? $messageCount : ''}})
+                  </a></li>
                       @endif
                            
                     @endguest 

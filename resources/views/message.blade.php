@@ -1,6 +1,6 @@
 @include ('header')
 <br><br>
-
+<!-- affichage du nombre de notification dans AppServiceProvider.php -->
 <table class="table">
   <thead>
     <tr>
