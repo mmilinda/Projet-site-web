@@ -11,20 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reservations', function (Blueprint $table) {
-            $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('purpose');
-            $table->string('Name_of_Employer_Organisaition');
-            $table->string('I_m_booking_on_behalf_of_someone_else');
-            $table->string('name');
-            $table->string('email_of_the_guest');
-            $table->timestamps();
+        // Schema::create('reservations', function (Blueprint $table) {
+            // $table->id();
+            // $table->string('first_name');
+            // $table->string('last_name');
+            // $table->string('email');
+            // $table->string('phone');
+            // $table->string('purpose');
+            // $table->string('Name_of_Employer_Organisaition');
+            // $table->string('I_m_booking_on_behalf_of_someone_else');
+            // $table->string('name');
+            // $table->string('email_of_the_guest');
+            // $table->timestamps();
 
-        });
+        // });
     }
 
     /**
