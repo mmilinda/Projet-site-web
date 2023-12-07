@@ -64,15 +64,17 @@
                     <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
 
                           @guest
+                          <div class="connexion_inscription" style="margin-top:-9px; display:flex;">
                             @if (Route::has('login'))
                                 <li class="nav-item  navbar-item">
-                                    <a class="nav-link " href="{{ route('login') }}">{{ __('Conexion') }}</a>
+                                    <a class="nav-link " href="{{ route('login') }}">{{ __('Connexion') }}</a>
                                 </li>
                             @endif
                             @if (Route::has('register'))
                                 <li class="nav-item navbar-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
                                 </li>
+                            </div>
                             @endif
                         @else
                         <li class="nav-item dropdown  navbar-item">
