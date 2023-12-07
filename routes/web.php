@@ -29,11 +29,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
     });
     
     // envoi du formulaire
-    Route::post('/ajouter_article',[App\Http\Controllers\TAPHACONTROLLER::class,'ajouter_article_controller'])->name('form_ajout_article.file');
-    
-    
-    
-   
+    Route::post('/ajouter_article',[App\Http\Controllers\TAPHACONTROLLER::class,'ajouter_article_controller'])->name('form_ajout_article.file');   
     // Edition d'article
     Route::get('/edition_article_blog/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'edition_article_blog_show']);
     Route::post('/edition_article_blogA/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'edition_article_update']);
@@ -54,18 +50,9 @@ Route::get('/header', function () {
     return view('/header');
 });
 
-// Route::get('/checkoutpageA', function () {
-//     return view('/checkoutpageA');
-// });
-
 Route::get('/contact', function () {
     return view('/contact');
 });
-/*Route::get('/landlord', function () {
-    return view('/projet.landlord');
-});*/
-
-
 
 Route::get('/Signin', function () {
     return view('SignIn');
@@ -76,18 +63,11 @@ Route::get('/homepage', function () {
 Route::get('/LogIn', function () {
     return view('LogIn');
      });
-// Route::get('/property', function () {
-//     return view('property');
 
+// Route::get('/proper', function () {
+//     return view('/proper');
 // });
-
-Route::get('/proper', function () {
-    return view('/proper');
-});
-// Notification
-// Route::get('/message', function () {
-//     return view('/message');
-// });
+//Affichage de la page message
 Route::get('/message',[App\Http\Controllers\MessageController::class,'contact']);
 
 
@@ -96,10 +76,6 @@ Route::get('/cities',[LandController::class,'showcities'])->name('cities');
 Route::post('/store_cities', [LandController::class, 'store_cities'])->name('store_cities');
 Route::get('/areas',[AreaController::class,'showareas'])->name('areas');
 Route::post('/store_areas', [AreaController::class, 'store_areas'])->name('store_areas');
-
-//Route::get('/landlord',[LandController::class,'showlandlord'])->name('showlandlord');
-
-
 
 Route::get('/liste_critere', [LandController::class, 'liste_critere'])->name('liste_critere');
 
@@ -140,60 +116,27 @@ Route::post('/contact-contact', function ()
     return redirect('/contact')->with('message','L\'message bien envoyer !');   
  });
 
-
-
-
  //  affichage des chambres disponible à louer par la barre de recheche
  Route::get('/booking',[App\Http\Controllers\TAPHACONTROLLER::class,'roomsshow']);
  //affichage de la liste des cities 
-//  Route::get('/booking',[App\Http\Controllers\TAPHACONTROLLER::class,'affichage_city']);
-
- Route::get('/role_Guest_Detail/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'Guest_Detail_show']);
+//  Route::get('/role_Guest_Detail/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'Guest_Detail_show']);
 
  //Affichage pout editer les properties
  Route::get('/edite_property_rol/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'edite_property_show']);
  Route::post('critere/{id}', [LandController::class, 'edite_property_update']);
 //  Route::get('/edite_property_rol/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'edite_property_cities']);
 
-Route::get('/checkoutpageA', function () {
-    return view('/checkoutpageA');
-});
-// Route::post('rol_checkoutpageA/{id}', [LandController::class, 'rol_checkoutpageA_show']);
-//Affichage des données de la réservation du client dans la page checkout
-// Route::get('/rol_checkoutpageA/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'rol_checkoutpageA_show']);
+//Affichage de la page checkout
 Route::get('/rol_checkoutpageA/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'rol_checkoutpageA_show'])->name('checkoutpageA');
-
-
-
-
-
-Route::post('/Guest_Detail', function()
-{
-    $reservation = new Reservation();
-    $reservation->first_name = request('first_name');
-    $reservation->last_name = request('last_name');
-    $reservation->email = request('email');
-    $reservation->phone = request('phone');
-    // $reservation->purpose = request('Purpose');
-    // $reservation->Name_of_Employer_Organisaition = request('Name_of_Employer_Organisaition');
-    // $reservation->I_m_booking_on_behalf_of_someone_else = request('I_m_booking_on_behalf_of_someone_else');
-    // $reservation->name = request('name');
-    // $reservation->email_of_the_guest = request('email_of_the_guest');
-    $reservation->save();
-    return redirect('/checkoutpageA')->with('status', 'Votre reservation a bien été enregistrée');
-});
-
 // Envoi de données pour la réservation 
 Route::post('/envoi_final', [App\Http\Controllers\TAPHACONTROLLER::class, 'envoi_final'])->name('envoi_final');
-
 // Route::post('/store_critere', [LandController::class, 'store_critere'])->name('store_critere');
 Route::delete('/contacts/destroy/{id}', [App\Http\Controllers\MessageController::class, 'supprimer_message'])->name('contacts.destroy');
-
-// Route::delete('/critere/supprimer/{id}', [LandController::class, 'supprimer_critere'])->name('critere.supprimer');
-
-//affichage contact
-// Route::get('/liste_reservation', function () {
-//     return view('/liste_reservation');
-// });
-
+//Affichage de la Listes des réservations
 Route::get('/liste_reservation', [App\Http\Controllers\TAPHACONTROLLER::class, 'liste_reservation_show']);
+
+Route::get('/rol_proper/{id}', [App\Http\Controllers\TAPHACONTROLLER::class,'proper_show']);
+// Route::get('/view_article/{id}',[App\Http\Controllers\TAPHACONTROLLER::class,'view_article_show']);
+// Route::get('/Guest_Detail/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'guest_detail_show']);
+Route::get('/Guest_Detail/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'guest_detail_show'])->name('Guest_Detail');
+// Route::get('/rol_checkoutpageA/{id}', [App\Http\Controllers\TAPHACONTROLLER::class, 'rol_checkoutpageA_show'])->name('checkoutpageA');

@@ -33,7 +33,8 @@ session_start();
         <div>
             <p><strong>Rented Property</strong></p>
             <span><strong>Property id</strong>: {{$affiches->property_id}}</span><br>
-            <span><strong>Move out</strong>: <strong class="btn btn-danger">{{$affiches->move_out}}</strong></span>
+            <span><strong>Move in</strong>: <strong class="text-success">{{$affiches->move_in}}</strong></span><br>
+            <span><strong>Move out</strong>: <strong class="text-danger">{{$affiches->move_out}}</strong></span>
         </div>
     </div>
     @endforeach

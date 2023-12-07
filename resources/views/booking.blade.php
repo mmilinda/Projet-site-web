@@ -15,71 +15,59 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 
 <br><br>
-
-           <?php
-                // ( isset($_POST['nom']) and isset($_POST['description']) and isset($_POST['prix'])  and isset($_POST['nombre']) and isset($_POST['imageproduit'])   and empty($nom) and empty($description) and empty($prix) and empty($nombre) and empty($imageproduit)   and !empty($nom) and !empty($description) and !empty($prix) and !empty($nombre) and !empty($imageproduit)) {
-                // if (isset($_GET['submit']) and empty($_GET['move-out'])) {
-                //     echo'You must choose a move out date';
-                // }
-                ?>
-                 
-<form action="/booking" method="get">
-        @method('get')
-        <!-- <input type="text" placeholder="city" name="search" value="{{ request()->search ?? '' }}">
-        <button type="submit" class="btn btn-primary no-border-button">Search</button>
-    <br><br> -->
-    <div class="barrecherche">
-        <div class="selectcity">
-            <i class="fa fa-search"></i>
-            <select name="city" id="" value="{{ request()->city ?? '' }}" placeholder="Select a City" class="select">
-                <option value="">Select a city</option>
-                <option value="DAKAR">DAKAR</option>
-                <option value="SAINT-LOUIS" >SAINT-LOUIS</option>
-                <option value="KOLDA">KOLDA</option>
-                <option value="ZIGUINCHOR">ZIGUINCHOR</option>
-                <option value="THIES">THIES</option>
-                <option value="KAOLACK">KAOLACK</option>
-                <option value="LOUGA">LOUGA</option>
-            </select>
-        </div>
-        <div class="movements">
-           
+    <form action="/booking" method="get">
             @method('get')
-                <div class="mvin">
-                        <span class="move-in">move-in</span><input type="date" name="date" id="" placeholder="move-in" class="inputmi">
-                </div>
-            
-        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-        <div  class="mvout">
-                <span class="move-out">move-out</span><input type="date" name="move-out" id="" class="inputmo">
-        </div> 
-        </div>
-        <div class="parti3">
-            <div class="guest" style=" display:flex; flex-direction:colunm; gap:3px; align-items:center;">
-                <i class="fa fa-users"></i>
-                <span>Guests</span>
-                <input type="number" name="guest" value="" style="width:40px; display:flex; flex-direction:colunm; justify-content:center; align-items:center;">
-            </div>
-            <div class="bouttonrecherche">
-            <button type="submit" class="btn btn-primary rounded-pill">Search</button>
-            </div>
-        </div>
-    </div>
-<br><br>
-<div class="great_container">
-    <div>
-        <button class="btn btn-success container_filter rounded-pill " >
-            <div>More filters</div>
-                <select name="filter" id="" class="filter bg-success">
-                    <option value=""></option>
-                    <option value="City view">City view</option>
-                    <option value="Parking">Parking</option>
-                    <option value="Elevator">Elevator</option>
-                    <option value="Wifi">Wifi</option>
+        <div class="barrecherche">
+            <div class="selectcity">
+                <i class="fa fa-search"></i>
+                <select name="city" id="" value="{{ request()->city ?? '' }}" placeholder="Select a City" class="select">
+                    <option value="">Select a city</option>
+                    <option value="DAKAR">DAKAR</option>
+                    <option value="SAINT-LOUIS" >SAINT-LOUIS</option>
+                    <option value="KOLDA">KOLDA</option>
+                    <option value="ZIGUINCHOR">ZIGUINCHOR</option>
+                    <option value="THIES">THIES</option>
+                    <option value="KAOLACK">KAOLACK</option>
+                    <option value="LOUGA">LOUGA</option>
                 </select>
-            </form>
-        </button>
-    </div>
+            </div>
+            <div class="movements">
+            
+                @method('get')
+                    <div class="mvin">
+                            <span class="move-in">move-in</span><input type="date" name="date" id="" placeholder="move-in" class="inputmi">
+                    </div>
+                
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <div  class="mvout">
+                    <span class="move-out">move-out</span><input type="date" name="move-out" id="" class="inputmo">
+            </div> 
+            </div>
+            <div class="parti3">
+                <div class="guest" style=" display:flex; flex-direction:colunm; gap:3px; align-items:center;">
+                    <i class="fa fa-users"></i>
+                    <span>Guests</span>
+                    <input type="number" name="guest" value="" style="width:40px; display:flex; flex-direction:colunm; justify-content:center; align-items:center;">
+                </div>
+                <div class="bouttonrecherche">
+                <button type="submit" class="btn btn-primary rounded-pill">Search</button>
+                </div>
+            </div>
+        </div>
+    <br><br>
+    <div class="great_container">
+        <div>
+            <button class="btn btn-success container_filter rounded-pill " >
+                <div>More filters</div>
+                    <select name="filter" id="" class="filter bg-success">
+                        <option value=""></option>
+                        <option value="City view">City view</option>
+                        <option value="Parking">Parking</option>
+                        <option value="Elevator">Elevator</option>
+                        <option value="Wifi">Wifi</option>
+                    </select>
+            </button>
+        </div>
     </form>
     <div class="fliter_items">
     @if(request()->input('filter') == 'City view')
@@ -156,20 +144,8 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
         </div>  
         <div>
             <?php
-            // if (isset($_POST['submit'])) {
-            if(isset($_GET['move-out']) and !empty($_GET['move-out']))
-            {
-            $move_out=$_GET['move-out'];
-            }else{
-            echo '<div class="alert alert-danger" style="width:490px;">At least you must choose a move out date and click on search</div>';
-            }
-        // }
+           
             ?>
-            <!-- <div class="card_property">dddd</div>
-            <a href=""class="card_property">card_property</a>
-            <div class="condition">
-                <div class="alert alert-danger ">At least you must choose a move out date and click on search</div>
-            </div> -->
         </div>
     </div>
         <?php
@@ -187,22 +163,14 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
             <div class="maincontainer_rooms">
                 <div class="group_card">
                 @foreach($Critere as $affiches)
-                <a href="
-                      <?php
-                        if(isset($_GET['move-out']) and !empty($_GET['move-out'])){    
-                        $move_out=$_GET['move-out'];
-                        ?>
-                        role_Guest_Detail/{{$affiches->id}}
-                        <?php }else{
-                            // echo '<div class="alert alert-danger">You must choose a move out date</div>';
-                        }?>" class="card_property">
+                <a href="rol_proper/{{$affiches->id}}" class="card_property">
                         <div class="maincontainer_room_card">
                         <div>
                             <img src="/images_property/{{$affiches->photo}}" alt="">
                         </div>
                         <div class="text_conatiner_card">
-                            <div>
-                                <p><strong>{{$affiches->type_property}}</strong></p>
+                            <div class="" style="display:flex; align-items:center; ">
+                                <div><strong>{{$affiches->type_property}}</strong></div>
                             </div>
                             <div>
                                 <p><strong>{{$affiches->city}}: {{$affiches->area }}</strong></p>

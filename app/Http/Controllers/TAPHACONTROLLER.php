@@ -198,7 +198,7 @@ public function roomsshow(Request $request){
 
 
  
-   // affichage du guest detail
+   // affichage de la page checkout 
    public function rol_checkoutpageA_show(Request $request, $id)
    {
        $guest_detail = Critere::findOrFail($id);
@@ -227,15 +227,11 @@ public function roomsshow(Request $request){
            'I_m_booking_on_behalf_of_someone_else'=>'required',
            'name'=>'required',
            'email_of_the_guest'=>'required',
+           'move_in'=>'required',
            'move_out'=>'required',
            'method_paiement'=>'required',
            'numero_transaction'=>'required',
         ]);
-      
-   
-      //   $file = $request->file('photo');
-      //   $file->move('images_article',$file->getClientOriginalName());
-      //   $file_name=$file->getClientOriginalName();
 
         $reservation = new reservation_finale();
         $reservation->Rent_per_month = $request->input('Rent_per_month');
@@ -254,19 +250,28 @@ public function roomsshow(Request $request){
         $reservation->I_m_booking_on_behalf_of_someone_else = $request->input('I_m_booking_on_behalf_of_someone_else');
         $reservation->name = $request->input('name');
         $reservation->email_of_the_guest = $request->input('email_of_the_guest');
+        $reservation->move_in = $request->input('move_in');
         $reservation->move_out = $request->input('move_out');
         $reservation->method_paiement = $request->input('method_paiement');
         $reservation->numero_transaction = $request->input('numero_transaction');
         $reservation->save();
         return redirect('/booking')->with('success','Votre réservation a été bien prise en compte !');   
     }
-
-public function liste_reservation_show(Request $request){
-
+//Affichage de la liste des réservations
+public function liste_reservation_show(Request $request)
+{
    $reservation = reservation_finale::all();
-
    return view('/liste_reservation')->with('reservation_finales', $reservation);
-   }
+}
+
+//Affichage du property
+public function proper_show(Request $request, $id)
+{
+    $reservation_property = Critere::findOrFail($id);
+    return view('proper')->with('Critere', $reservation_property);
+}
+
+
  
  }
 

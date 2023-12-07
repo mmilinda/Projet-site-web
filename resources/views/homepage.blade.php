@@ -11,41 +11,46 @@
   </div>
 </section>
 </div>
-<div class="barrecherche">
-      <div class="selectcity">
-        <i class="fa fa-search"></i>
-        <select name="search" id="" placeholder="Select a City" class="select">
-                <option value="">Select a City</option>
-                <option value="Ouakam">Ouakam</option>
-                <option value="Almadie">Almadie</option>
-                <option value="Scat Urbam">Scat Urbam</option>
-                <option value="Mermouz">Mermouz</option>
-                <option value="Medina">Medina</option>
-                <option value="Dakar-Sacré-Coeur">Sacré-Coeur</option>
-            </select>
-      </div>
-      <div class="movements">
-       <div class="mvin">
-            <span class="move-in">move-in</span><input type="date" name="" id="" placeholder="move-in" class="inputmi">
-       </div>
-       <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-       <div  class="mvout">
-            <span class="move-out">move-out</span><input type="date" name="" id="" class="inputmo">
-       </div> 
-    </div>
-    <div class="parti3">
-        <div class="guest">
-            <i class="fa fa-users"></i>
-            <span>Guests</span>
-            <span>+</span>
-            <span>1</span>
-            <span>-</span>
+<form action="/booking" method="get">
+            @method('get')
+        <div class="barrecherche">
+            <div class="selectcity">
+                <i class="fa fa-search"></i>
+                <select name="city" id="" value="{{ request()->city ?? '' }}" placeholder="Select a City" class="select">
+                    <option value="">Select a city</option>
+                    <option value="DAKAR">DAKAR</option>
+                    <option value="SAINT-LOUIS" >SAINT-LOUIS</option>
+                    <option value="KOLDA">KOLDA</option>
+                    <option value="ZIGUINCHOR">ZIGUINCHOR</option>
+                    <option value="THIES">THIES</option>
+                    <option value="KAOLACK">KAOLACK</option>
+                    <option value="LOUGA">LOUGA</option>
+                </select>
+            </div>
+            <div class="movements">
+            
+                @method('get')
+                    <div class="mvin">
+                            <span class="move-in">move-in</span><input type="date" name="date" id="" placeholder="move-in" class="inputmi">
+                    </div>
+                
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <div  class="mvout">
+                    <span class="move-out">move-out</span><input type="date" name="move-out" id="" class="inputmo">
+            </div> 
+            </div>
+            <div class="parti3">
+                <div class="guest" style=" display:flex; flex-direction:colunm; gap:3px; align-items:center;">
+                    <i class="fa fa-users"></i>
+                    <span>Guests</span>
+                    <input type="number" name="guest" value="" style="width:40px; display:flex; flex-direction:colunm; justify-content:center; align-items:center;">
+                </div>
+                <div class="bouttonrecherche">
+                <button type="submit" class="btn btn-primary rounded-pill">Search</button>
+                </div>
+            </div>
         </div>
-        <div class="bouttonrecherche">
-          <button class="btn btn-primary rounded-pill">Search</button>
-        </div>
-    </div>
-</div> 
+    </form>
 <section class="section2">
 <div class="card2">
     <div class="imagecard2">
@@ -211,7 +216,7 @@
                   <p>Expertly designed to create extraordinary spaces with the <br> flexible renter in mind</p>
                 </div>
                 <div class="btn_bgimg_section3A">
-                  <a href="" class="btn btn-success rounded-pill btn_section3A">Start Booking</a>
+                  <a href="booking" class="btn btn-success rounded-pill btn_section3A">Start Booking</a>
                 </div>
             </div>
         </div>

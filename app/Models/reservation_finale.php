@@ -25,6 +25,7 @@ class reservation_finale extends Model
         'I_m_booking_on_behalf_of_someone_else',
         'name',
         'email_of_the_guest',
+        'move_in',
         'move_out',
         'method_paiement',
     ];

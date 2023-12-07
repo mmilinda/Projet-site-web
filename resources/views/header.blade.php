@@ -43,9 +43,9 @@
                     <li class="navbar-item" style="display:flex; justify-content:center;">
                       <a class="navbar-link blog" id="blog"  href="/afficheArticle">Blog <span class="arrow_blog"></span></a>
                     </li>
-                    <li class="navbar-item"><a class="navbar-link" href="/proper">Property</a></li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="/proper">Property</a></li> -->
                     <li class="navbar-item">
-                      <a class="navbar-link" href="/booking">Booking</a>
+                      <!-- <a class="navbar-link" href="/booking">Booking</a> -->
                       <ul class="liste_reservation">
                       </ul>
                     </li>

@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('I_m_booking_on_behalf_of_someone_else');
             $table->string('name');
             $table->string('email_of_the_guest');
+            $table->string('move_in');
             $table->string('move_out');
             $table->string('method_paiement');
             $table->string('numero_transaction');

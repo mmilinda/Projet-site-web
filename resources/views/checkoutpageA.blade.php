@@ -19,11 +19,7 @@ session_start();
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/guest_details.css">
     <link rel="stylesheet" href="assets/css/contact_contact.css">
-
     <link rel="stylesheet" href="assets/css/style_homepage.css">
-<!-- header Bachir -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css">
     <title>Document</title>
 </head>
@@ -40,18 +36,16 @@ session_start();
                 <div class="ullia">
                     <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
                     <li class="navbar-item"><a class="navbar-link" href="{{route('showlandlord')}}">Landloards</a></li>
-                    <!-- <li class="navbar-item"><a class="navbar-link" href="{{route('liste_critere')}}">liste critere</a></li> -->
                     <li class="navbar-item" style="display:flex; justify-content:center;">
                       <a class="navbar-link blog" id="blog"  href="/afficheArticle">Blog <span class="arrow_blog"></span></a>
                     </li>
-                    <li class="navbar-item"><a class="navbar-link" href="/proper">Property</a></li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="/proper">Property</a></li> -->
                     <li class="navbar-item">
-                      <a class="navbar-link" href="/booking">Booking</a>
+                      <!-- <a class="navbar-link" href="/booking">Booking</a> -->
                       <ul class="liste_reservation">
                       </ul>
                     </li>
                     <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
-                    <!-- <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li> -->
                     @guest
                             @if (Route::has('login'))
                             @endif
@@ -71,13 +65,7 @@ session_start();
                       </ul>
                     </li>
                       @endif
-                           
                     @endguest 
-                    
-                    
-                    
-                    <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
-
                           @guest
                             @if (Route::has('login'))
                                 <li class="nav-item  navbar-item">
@@ -91,9 +79,9 @@ session_start();
                             @endif
                         @else
                         <li class="nav-item dropdown  navbar-item">
-                                                <a href="/logout" class="btn btn-danger">Déconnexion</a>                  
+                              <a href="/logout" class="btn btn-danger">Déconnexion</a>                  
                                     {{ Auth::user()->prenom}}                                     
-                            </li>                     
+                        </li>                     
                         @endguest
                 </div>
             </div>
@@ -184,21 +172,21 @@ session_start();
                             </div>
                             <div>
                                 <div>
-                                    <p><?php echo '£'.$Critere['price'] ?></p>
-                                    <input type="hidden" placehooder="Rent per month" value="<?=$Critere['price']?>" name="Rent_per_month">
+                                    <p><?php echo '£'.$_GET['price']?></p>
+                                    <input type="hidden" placehooder="price" value="<?=$_GET['price']?>" name="Rent_per_month">
                                 </div>
                                 <div>
                                     <p><?php
                                 $pourcentage = 8.37;
-                                $paiement_reservation = $pourcentage * $Critere['price'] / 100;
+                                $paiement_reservation = $pourcentage * $_GET['price'] / 100;
                                 echo '£'.$paiement_reservation ;
                                 ?></p>
-                                  <input type="hidden" placehooder="Utilities per month" value="<?=$paiement_reservation?>" name="Utilities_per_month">
+                                  <input type="hidden" placehooder="Utilities_per_month" value="<?=$paiement_reservation?>" name="Utilities_per_month">
                                 </div>
                                 <div>
-                                    <p><?php $Monthly_subtotal = $Critere['price'] + $paiement_reservation;
+                                    <p><?php $Monthly_subtotal = $_GET['price'] + $paiement_reservation;
                                     echo '£'.$Monthly_subtotal ?></p>
-                                    <input type="hidden" placehooder="Monthly subtotal" value="<?=$Monthly_subtotal?>" name="Monthly_subtotal">
+                                    <input type="hidden" placehooder="Monthly_subtotal" value="<?=$Monthly_subtotal?>" name="Monthly_subtotal">
                                 </div>
                             </div>
                         </div>
@@ -218,21 +206,21 @@ session_start();
                         <div class="price_checkout">
                             <div>
                                 <p><?php $pourcentage = 7.35;
-                                $paiement_reservation = $pourcentage * $Critere['price'] / 100;
+                                $paiement_reservation = $pourcentage * $_GET['price'] / 100;
                                 echo '£'.$paiement_reservation ;?>
                                 </p>
-                                <input type="hidden" placehooder="One-time cleaning fee" value="<?=$paiement_reservation?>" name="One_time_cleaning_fee">
+                                <input type="hidden" placehooder="One_time_cleaning_fee" value="<?=$paiement_reservation?>" name="One_time_cleaning_fee">
                             </div>
                             <div>
-                                <p><?php $Total_charge=$Critere['price'] + $paiement_reservation;
+                                <p><?php $Total_charge=$_GET['price'] + $paiement_reservation;
                                  echo '£'.$Total_charge?>
                                  </p>
-                                <input type="hidden" placehooder="Total charges" value="<?=$Total_charge?>" name="Total_charges">
+                                <input type="hidden" placehooder="Total_charges" value="<?=$Total_charge?>" name="Total_charges">
                             </div>
                             <div>
                                 <p><?php $pourcentage = 26.4;
-                                $paiement_reservation = $pourcentage * $Critere['price'] / 100;
-                                $Total=$Critere['price'] + $paiement_reservation + $paiement_reservation;
+                                $paiement_reservation = $pourcentage * $_GET['price'] / 100;
+                                $Total=$_GET['price'] + $paiement_reservation + $paiement_reservation;
                                 echo '£'.$Total?></p>                                
                                  <input type="hidden" placehooder="Total" value="<?=$Total?>" name="Total">
                             </div>
@@ -240,23 +228,28 @@ session_start();
                     </div><br>
                 </div>
                       <!-- Property_id -->
-                     
                       
-                    <input type="hidden" placehooder="property_id" value="<?=$_GET['property_id']?>" name="property_id">
-                        <!-- The client's informations -->
-                    <input type="hidden" placehooder="first_name" value="<?=$_GET['first_name']?>" name="first_name">
-                    <input type="hidden" placehooder="last_name" value="<?=$_GET['last_name']?>" name="last_name">
-                    <input type="hidden" placehooder="email" value="<?=$_GET['email']?>" name="email">
-                    <input type="hidden" placehooder="phone" value="<?=$_GET['phone']?>" name="phone">
-                    <input type="hidden" name="Purpose" value="<?=$_GET['Purpose']?>">
-                    <input type="hidden" placeholder="Name of Employer/ Organisaition" value=" <?=$_GET['Name_of_Employer_Organisaition']?>" name="Name_of_Employer_Organisaition">
-                    <input type="hidden"  value="<?=$_GET['I_m_booking_on_behalf_of_someone_else']?>" name="I_m_booking_on_behalf_of_someone_else"id="" >
-                    <input type="hidden" placeholder="Name" name="name" value="<?=$_GET['name']?>">
-                    <input type="hidden" placeholder="Email of the guest" name="email_of_the_guest" value="<?=$_GET['email_of_the_guest']?>">
-                    <input type="hidden" placeholder="move out" name="move_out" value="<?=$_SESSION['move-out_guest']['move-out']?>">
-                    <input type="hidden" placeholder="Email of the guest" name="method_paiement" value="<?=$_GET['paiement']?>">
                     <div class="footer_checkout">
                       <div>
+                        <?php
+                       
+                        // if (isset($_POST['submit'])) {
+                          ?>
+                      
+                        <input type="hidden" placehooder="property_id" value="<?=$_GET['property_id']?>" name="property_id">
+                            <!-- The client's informations -->
+                        <input type="hidden" placehooder="first_name" value="<?=$_GET['first_name']?>" name="first_name">
+                        <input type="hidden" placehooder="last_name" value="<?=$_GET['last_name']?>" name="last_name">
+                        <input type="hidden" placehooder="email" value="<?=$_GET['email']?>" name="email">
+                        <input type="hidden" placehooder="phone" value="<?=$_GET['phone']?>" name="phone">
+                        <input type="hidden" name="Purpose" value="<?=$_GET['Purpose']?>">
+                        <input type="hidden" placeholder="Name of Employer/ Organisaition" value=" <?=$_GET['Name_of_Employer_Organisaition']?>" name="Name_of_Employer_Organisaition">
+                        <input type="hidden"  value="<?=$_GET['I_m_booking_on_behalf_of_someone_else']?>" name="I_m_booking_on_behalf_of_someone_else"id="" >
+                        <input type="hidden" placeholder="Name" name="name" value="<?=$_GET['name']?>">
+                        <input type="hidden" placeholder="Email of the guest" name="email_of_the_guest" value="<?=$_GET['email_of_the_guest']?>">
+                        <input type="hidden" placeholder="move out" name="move_in" value="<?=$_GET['move_in']?>">
+                        <input type="hidden" placeholder="move out" name="move_out" value="<?=$_GET['move_out']?>">
+                        <input type="hidden" placeholder="Email of the guest" name="method_paiement" value="<?=$_GET['paiement']?>">   
                         <?php
                         if ($_GET['paiement'] == "Wave" or $_GET['paiement'] == "Orange Money" or $_GET['paiement'] == "Free Money" or $_GET['paiement'] == "PayPal") {
                        
@@ -270,17 +263,12 @@ session_start();
                                     <span>Veuillez-envoyer la somme de <strong class="text bg-danger text-light"> <?=$Total?><br> par Wave </strong>sur ce numéro: </span>
                                     <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 821 55 30</strong></div>
                                 </div>
-                                <!-- <div>
-                                  <lable class="form-lable">Ensuit veillez-entrez le numéro de référence de la transaction </lable><br>
-                                  <input type="text" placeholder="ref........." class="form-control " required>
-                                </div> -->
                             </div>
                         </div>
                         <?php
                          
                         }elseif ($_GET['paiement'] == "Orange Money") {
-                          # code...
-                        
+                          
                         ?>
                         <div class="orange" style="background-color:#F2F0F2; display:flex; flex-direction:row;justify-content:center; width:460px; gap: 5px;">
                             <img src="/image/ico-orange_money.png" style="width:135px; height:30vh;" alt="">
@@ -289,16 +277,12 @@ session_start();
                                     <span>Veuillez-envoyer la somme de <strong class="text bg-danger text-light"> <?=$Total?><br> par Orange Money </strong>sur ce numéro: </span>
                                     <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 821 55 30</strong></div>
                                 </div>
-                                <!-- <div>
-                                  <lable class="form-lable">Ensuit veillez-entrez le numéro de référence de la transaction </lable><br>
-                                  <input type="text" placeholder="ref........." class="form-control " required>
-                                </div> -->
                             </div>
                         </div>
                         <?php
                          
                         }elseif ($_GET['paiement'] == "Free Money") {
-                          # code...
+                          
                         
                         ?>
                         <div class="free" style="background-color:#F2F0F2; display:flex; flex-direction:row;   justify-content:center; width:460px; gap: 5px;">
@@ -337,12 +321,12 @@ session_start();
                         }
                         ?>
                         <div>
-                        <lable class="form-lable">Ensuit veillez-entrez le numéro de la transaction </lable><br>
-                        <input type="text" placeholder="........." class="form-control " name="numero_transaction" required>
+                        <lable class="form-lable">Ensuit veuillez-entrez le numéro de la transaction </lable><br>
+                        <input type="text" placeholder="" class="form-control " name="numero_transaction" required>
                       </div>
                       <?php
                       }
-
+                    // }
                 
                         ?>
                       </div>
@@ -358,19 +342,19 @@ session_start();
        </div>
         <div class="card2_guest_details">
             <div class="image_guest_details">
-                <img src="/images_property/{{$Critere->photo}}" alt="">
+                <img src="/images_property/<?=$_GET['photo']?>" alt="">
             </div><br>
             <div class="part1_guest_details">
                  <div class="ctn_part1_guest_details">
                         <div>
                             <div>
                                 <p>Move in</p>                  
-                                <span><img src="/image/Vector (9).png" alt=""> {{$Critere->date_of_availability}}</span>
+                                <span><img src="/image/Vector (9).png" alt=""> <?=$_GET['move_in']?></span>
                             </div>
                         </div><br>
                         <div>
                             <div>
-                                <span><img src="image/eva_people-fill.png" alt=""> Guests {{$Critere->nombre_chambre}}</span>
+                                <span><img src="image/eva_people-fill.png" alt=""> Guests <?=$_GET['guest']?></span>
                             </div>
                         </div><br><br>
                         <div>
@@ -382,7 +366,7 @@ session_start();
                             <p>Move out</p>
                         </div>
                         <span><img src="/image/Vector (9).png" alt=""> <?php
-                        echo $_SESSION['move-out_guest']['move-out'];
+                        echo $_GET['move_out'];
                         ?></span>
                     </div>        
             </div><br>
@@ -406,8 +390,8 @@ session_start();
                         <div>
                             <p><?php
                             $pourcentage = 8;
-                            $paiement_reservation = $pourcentage * $Critere['price'] / 100;
-                            echo '£' .$Critere['price'] - $paiement_reservation;
+                            $paiement_reservation = $pourcentage * $_GET['price'] / 100;
+                            echo '£' .$_GET['price'] - $paiement_reservation;
                             ?></p>
                         </div>
                         <p>incl. VAT</p>
@@ -422,8 +406,8 @@ session_start();
                         <div>
                             <p><?php
                             $pourcentage_total = 10;
-                            $paiement_reservation_total = $pourcentage_total * $Critere['price'] / 100;
-                            echo '£' .$Critere['price'] + $paiement_reservation_total;
+                            $paiement_reservation_total = $pourcentage_total * $_GET['price'] / 100;
+                            echo '£' .$_GET['price'] + $paiement_reservation_total;
                             ?></p>
                         </div>                          
                         <p>incl. VAT</p>
@@ -452,14 +436,14 @@ session_start();
                                     </div>
                                     <span>Receive your  <?php
                                       $pourcentage_reçu = 11;
-                                      $paiement_reservation_reçu = $pourcentage_reçu * $Critere['price'] / 100;
+                                      $paiement_reservation_reçu = $pourcentage_reçu * $_GET['price'] / 100;
                                       echo '£' .$paiement_reservation_reçu;
                                     ?>  <img src="/image/Vector (10).png" alt=""></span>
                                 </div>
                             </div> 
                             <div>
                                 <p><?php
-                                   echo '£' .$Critere['price'] + $paiement_reservation_total;
+                                   echo '£' .$_GET['price'] + $paiement_reservation_total;
                                 ?></p>
                           </div>
                     </div>
