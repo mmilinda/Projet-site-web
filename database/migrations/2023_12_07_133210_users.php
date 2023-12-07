@@ -1,7 +1,9 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+
 return new class extends Migration
 {
     /**
@@ -15,30 +17,23 @@ return new class extends Migration
             $table->string('nom');
             $table->integer('telephone');
             $table->string('email')->unique();
-            $table->string('type_profil')->nullable();
+            $table->string('type_user')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('created_at');
+            $table->string('updated_at');
             $table->rememberToken();
 
        
            
         });
-        Schema::create('criteres', function (Blueprint $table) {
-            $table->string('email');
-            $table->integer('numero_tel');// Utiliser 'integer' pour un nombre entier
-            $table->integer('nombre_chambre');
-            $table->timestamps();
-            
-            });
     }
-       
-        
-           
-        
-    
+
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('criteres');
+        //
     }
 };

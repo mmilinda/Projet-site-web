@@ -261,7 +261,7 @@ session_start();
                             <div style="display:flex; flex-direction:column;justify-content:center;">
                                 <div class="" >
                                     <span>Veuillez-envoyer la somme de <strong class="text bg-danger text-light"> <?=$Total?><br> par Wave </strong>sur ce numéro: </span>
-                                    <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 821 55 30</strong></div>
+                                    <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 976 56 32</strong></div>
                                 </div>
                             </div>
                         </div>
@@ -275,7 +275,7 @@ session_start();
                             <div style="display:flex; flex-direction:column;justify-content:center;">
                                 <div class="" >
                                     <span>Veuillez-envoyer la somme de <strong class="text bg-danger text-light"> <?=$Total?><br> par Orange Money </strong>sur ce numéro: </span>
-                                    <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 821 55 30</strong></div>
+                                    <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 976 56 32</strong></div>
                                 </div>
                             </div>
                         </div>
@@ -290,7 +290,7 @@ session_start();
                             <div style="display:flex; flex-direction:column;justify-content:center;">
                                 <div class="" >
                                     <span>Veuillez-envoyer la somme de <strong class="text bg-danger text-light"> <?=$Total?><br> par Free money </strong>sur ce numéro: </span>
-                                    <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 821 55 30</strong></div>
+                                    <div class="bg-danger text-light" style="width: 139px;"><strong>221 77 976 56 32</strong></div>
                                 </div>
                                 <!-- <div>
                                   <lable class="form-lable">Ensuit veillez-entrez le numéro de référence de la transaction </lable><br>

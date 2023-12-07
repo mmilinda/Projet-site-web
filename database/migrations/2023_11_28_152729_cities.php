@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
 
-    //     Schema::create('contacts', function (Blueprint $table) {
-    //         $table->id();
-    //         $table->string('un');
-    //         $table->string('nom');
-    //         $table->string('email')->unique();
-    //         $table->string('tel');
-    //         $table->string('created_at');
-    //         $table->string('updated_at'); 
-    // });
+        Schema::create('contacts', function (Blueprint $table) {
+            $table->id();
+            $table->string('un');
+            $table->string('nom');
+            $table->string('email')->unique();
+            $table->string('tel');
+            $table->string('created_at');
+            $table->string('updated_at'); 
+    });
     Schema::create('cities', function (Blueprint $table) {
         $table->id();
         $table->string('nomcity');

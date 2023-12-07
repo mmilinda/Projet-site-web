@@ -67,7 +67,7 @@
                     </div>
                   </a></li>
                     <li class="navbar-item">
-                         <p class="navbar-link Amdmin_Control" href="">Admin Control</p>
+                      <p class="navbar-link Amdmin_Control" href="">Admin Control</p>
                       <ul class="Amdmin_Control_container">
                         <li class="navbar-item"><a class="navbar-link" href="{{route('cities')}}">Add cities</a></li>
                         <li class="navbar-item"><a class="navbar-link" href="{{route('areas')}}">Add areas</a></li>
@@ -78,12 +78,8 @@
                       @endif
                            
                     @endguest 
-                    
-                    
-                    
-                    <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
-
                           @guest
+                          <div class="connexion_inscription" style="margin-top:-10px; display:flex;">
                             @if (Route::has('login'))
                                 <li class="nav-item  navbar-item">
                                     <a class="nav-link " href="{{ route('login') }}">{{ __('Conexion') }}</a>
@@ -93,7 +89,9 @@
                                 <li class="nav-item navbar-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
                                 </li>
+                          </div>
                             @endif
+
                         @else
                         <li class="nav-item dropdown  navbar-item">
                                                 <a href="/logout" class="btn btn-danger">Déconnexion</a>                  

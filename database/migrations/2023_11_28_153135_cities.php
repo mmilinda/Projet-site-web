@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreign('critere_id')->references('id')->on('criteres'); // Définition de la clé étrangère
         });
     }
-
     /**
      * Reverse the migrations.
      */

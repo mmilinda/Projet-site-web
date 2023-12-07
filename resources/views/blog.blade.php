@@ -49,12 +49,14 @@
                       @endifù
                   @else
                       @if(Auth::user()->type_user == 'admin')
+                       <div style="display:flex; gap:5px;">
                       <a href="edition_article_blog/{{$affiche->id}}" class="btn btn-primary text-light">Editer</a>
                           <form action="article-supprimer/{{$affiche->id}}" method="post">
                                           {{csrf_field()}}
                                           {{method_field('DELETE')}}
                                 <button type="submit" class="btn btn-danger">Supprimer </button>
                           </form>
+                          </div>
                           @endif
                   @endguest   
               </span>

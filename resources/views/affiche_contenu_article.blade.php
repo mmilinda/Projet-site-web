@@ -27,22 +27,30 @@
 </head>
 <body>
     
-  <header class="header">
+<header class="header">
     <div>
       <div>
         <ul class="containerheader">
           <div class="logoimage">
-                <a href="/" class="home-link"><img src="/image/Logo.png"  alt=""></a>
+                <a href="/" class="home-link"><img src="image/Logo.png"  alt=""></a>
             </div>
             <div class="menuheadera" >
                 <div class="ullia">
                     <li class="navbar-item"><a class="navbar-link" href="/homepage">Home</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/landlord">Landloards</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('showlandlord')}}">Landloards</a></li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="{{route('liste_critere')}}">liste critere</a></li> -->
                     <li class="navbar-item" style="display:flex; justify-content:center;">
                       <a class="navbar-link blog" id="blog"  href="/afficheArticle">Blog <span class="arrow_blog"></span></a>
-                      <ul class="ajout_article">
-                        <li>
-                        @guest
+                    </li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="/proper">Property</a></li> -->
+                    <li class="navbar-item">
+                      <!-- <a class="navbar-link" href="/booking">Booking</a> -->
+                      <ul class="liste_reservation">
+                      </ul>
+                    </li>
+                    <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li> -->
+                    @guest
                             @if (Route::has('login'))
                             @endif
                             @if (Route::has('register'))
@@ -50,20 +58,27 @@
                             @endif
                         @else
                             @if(Auth::user()->type_user == 'admin')
-                        <a href="/formulaire_ajout_articke"  style="list-style:none;">Ajouter un article</a>
-                            @endif
-                           
-                        @endguest                
-                        </li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="/message"><i class="fa-solid fa-bell"></i></a></li> -->
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('contacts.contact')}}"><i class="fa-solid fa-bell"></i>
+                     <!-- Affichage du nombre de notification -->
+                     <div style="margin-top:-30px; margin-left:10px;color:white; background-color:red; border-radius:100%;padding-left:6px;padding-right:6px; font-size:10px;">
+                        <strong>{{ $messageCount ? $messageCount : ''}}</strong>
+                    </div>
+                  </a></li>
+                    <li class="navbar-item">
+                      <p class="navbar-link Amdmin_Control" href="">Admin Control</p>
+                      <ul class="Amdmin_Control_container">
+                        <li class="navbar-item"><a class="navbar-link" href="{{route('cities')}}">Add cities</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="{{route('areas')}}">Add areas</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="/liste_reservation" style="list-style:none;">Liste des réservations<a></li>
+                         <li class="navbar-item"><a href="/formulaire_ajout_articke"  style="list-style:none;">Ajouter un article</a></li>
                       </ul>
                     </li>
-                    <!-- <li class="navbar-item"><a class="navbar-link" href="/proper">Property</a></li> -->
-                    <!-- <li class="navbar-item"><a class="navbar-link" href="/booking">Booking</a></li> -->
-                    <li class="navbar-item"><a class="navbar-link" href="/contact">Contacts</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="/Guest_Detail">Guest Detail</a></li>
-                    <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
-
+                      @endif
+                           
+                    @endguest 
                           @guest
+                          <div class="connexion_inscription" style="margin-top:-10px; display:flex;">
                             @if (Route::has('login'))
                                 <li class="nav-item  navbar-item">
                                     <a class="nav-link " href="{{ route('login') }}">{{ __('Conexion') }}</a>
@@ -73,12 +88,13 @@
                                 <li class="nav-item navbar-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
                                 </li>
+                          </div>
                             @endif
+
                         @else
                         <li class="nav-item dropdown  navbar-item">
                                                 <a href="/logout" class="btn btn-danger">Déconnexion</a>                  
                                     {{ Auth::user()->prenom}}                                     
-                                
                             </li>                     
                         @endguest
                 </div>
@@ -90,6 +106,81 @@
       </div>
     </div>
   </header>
+
+
+  <style>
+    .Amdmin_Control{
+      cursor:pointer;
+      color:blue;
+    }
+    .Amdmin_Control_container{
+      position:absolute;
+      display:none;
+      flex-direction:column;
+      margin-top:-18px;
+      background-color:#F2F0F2;
+      padding-right:10px;
+      padding-bottom:10px;
+    }
+    .Amdmin_Control_container.active{
+      display:flex;
+    }
+    .Amdmin_Control_container li:hover{
+      background-color:white;
+      padding:10px;
+      
+    }
+    .ajout_article{
+      background-color:#F2F0F2;
+      position:absolute;
+      margin-top:30px;
+      display:flex;  
+    }
+    .liste_reservation{
+      background-color:#F2F0F2;
+      position:absolute;
+      margin-top:20px;
+      display:flex;  
+    }
+    
+    .activeblog{
+      position:absolute;
+      margin-top:30px;
+      display:flex;
+    } 
+    .ajout_article li {
+      list-style: none;
+    }
+    .liste_reservation li {
+      list-style: none;
+    }
+    .ajout_article li a{
+      margin-left:-30px;
+      padding:5px;
+    }
+    .liste_reservation li a{
+      margin-left:-30px;
+      padding:5px;
+    }
+
+     #blog{
+      cursor:pointer;
+    }
+    .Active_arrow_blog{
+        display:flex;
+        margin-left: 35px;
+        margin-top:-17px;
+        transform: rotate(90deg);
+    }
+  </style>
+
+  <script>
+        admin  = document.querySelector(".Amdmin_Control");
+        admin.addEventListener('mouseover', function (){ 
+          appear = document.querySelector(".Amdmin_Control_container");
+          appear.classList.toggle("active");
+        });        
+  </script>
 
   <script src="/assets/build/js/intlTelInput.js"></script>
 
