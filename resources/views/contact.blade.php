@@ -9,12 +9,35 @@
             <div>
                 <p><strong>What would you like to contact us about?</strong></p>
             </div>
+            <div class="row">
+                        @if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+                        </div>
             <form action="/contact-contact" method="post">
                 @method('POST')
                 @csrf
                 <div class="groupe_input_contact">
                     <div class="radio_contact">
-                        <div>
+
+                    <div>
+                       <span><input type="radio" name="un" value="customer"> I'm a Customer</span>
+                    </div>
+                     <div>
+                    <span><input type="radio" name="un" value="landlord"> I'm a Landlord</span>
+                     </div>
+                     <div>
+                     <span><input type="radio" name="un" value="something_else"> Something else</span>
+                     </div>
+                        <!--<div>
                         <span><input type="radio" name="un" id=""> I'm a Customer</span>
                         </div>
                         <div>
@@ -22,7 +45,7 @@
                         </div>
                         <div>
                         <span><input type="radio" name="un" id=""> Something else</span>
-                        </div>
+                        </div>-->
                     </div><br>
                     <div class="groupe_input_text">
                         <div>

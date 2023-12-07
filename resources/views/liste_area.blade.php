@@ -47,7 +47,7 @@
                     <form method="POST" action="{{ route('area.supprimer', $area->id) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                            <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cet élément ?')" class="btn btn-danger">Supprimer</button>
                     </form>
                         
                     </td>

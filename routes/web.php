@@ -143,7 +143,10 @@ Route::get('/contact', function () {
     return view('/contact');
 });
 
-Route::post('/contact-contact', function () 
+Route::post('/contact-contact',[App\Http\Controllers\MessageController::class,'processContactForm']);
+
+
+/*Route::post('/contact-contact', function () 
 {
     // $reservationsEmail = 'reservations@theflexliving.com';
     // $reservationsPhone = '0203 307 4477';
@@ -174,4 +177,4 @@ Route::post('/contact-contact', function ()
     $contact->message = request('message');;
     $contact->save();
     return redirect('/contact')->with('message','L\'message bien envoyer !');   
- });
+ });*/
