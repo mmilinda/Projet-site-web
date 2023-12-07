@@ -68,8 +68,8 @@ Route::get('/LogIn', function () {
 //     return view('/proper');
 // });
 //Affichage de la page message
-Route::get('/message',[App\Http\Controllers\MessageController::class,'contact']);
-
+// Route::get('/message',[App\Http\Controllers\MessageController::class,'contact']);
+Route::get('/contacts', [App\Http\Controllers\MessageController::class, 'contact'])->name('contacts.contact');
 
 Route::group(['middleware' => ['auth','admin']], function(){
 Route::get('/cities',[LandController::class,'showcities'])->name('cities');

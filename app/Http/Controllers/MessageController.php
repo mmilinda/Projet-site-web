@@ -13,10 +13,23 @@ class MessageController extends Controller
     // affichage des articles pour edition
     public function  contact(Request $request)
     {
-        $message = contact::all();
+        $message=contact::all();
         return view('message')->with('contacts', $message);
+        //return view('message',compact('message'));
                                     // nom de la table
     }
+ // affichage des articles pour edition
+//  public function  index(Request $request)
+//  public function index(Request $request)
+//  {
+//      $message = contact::all();
+//      $message=contact::all();
+//      return view('message')->with('contacts', $message);
+//      //return view('message',compact('message'));
+//                                  // nom de la table
+//  }
+    
+
 
     // public function index()
     // {

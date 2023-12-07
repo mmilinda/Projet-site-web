@@ -59,7 +59,13 @@
                             @endif
                         @else
                             @if(Auth::user()->type_user == 'admin')
-                    <li class="navbar-item"><a class="navbar-link" href="/message"><i class="fa-solid fa-bell"></i></a></li>
+                    <!-- <li class="navbar-item"><a class="navbar-link" href="/message"><i class="fa-solid fa-bell"></i></a></li> -->
+                    <li class="navbar-item"><a class="navbar-link" href="{{route('contacts.contact')}}"><i class="fa-solid fa-bell"></i>
+                     <!-- Affichage du nombre de notification -->
+                     <div style="margin-top:-30px; margin-left:10px;color:white; background-color:red; border-radius:100%;padding-left:6px;padding-right:6px; font-size:10px;">
+                        <strong>{{ $messageCount ? $messageCount : ''}}</strong>
+                    </div>
+                  </a></li>
                     <li class="navbar-item">
                          <p class="navbar-link Amdmin_Control" href="">Admin Control</p>
                       <ul class="Amdmin_Control_container">

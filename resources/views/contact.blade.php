@@ -14,6 +14,7 @@
                 @csrf
                 <div class="groupe_input_contact">
                     <div class="radio_contact">
+                        <!-- value pour l'affichage du profil  -->
                         <div>
                         <span><input type="radio" name="un" id="" value="I'm a Customer"> I'm a Customer</span>
                         </div>
