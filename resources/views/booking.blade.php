@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Middleware;
 namespace App\Http\Controllers;
 session_start();
@@ -32,16 +32,16 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
                 </select>
             </div>
             <div class="movements">
-            
+
                 @method('get')
                     <div class="mvin">
                             <span class="move-in">move-in</span><input type="date" name="date" id="" placeholder="move-in" class="inputmi">
                     </div>
-                
+
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
             <div  class="mvout">
                     <span class="move-out">move-out</span><input type="date" name="move-out" id="" class="inputmo">
-            </div> 
+            </div>
             </div>
             <div class="parti3">
                 <div class="guest" style=" display:flex; flex-direction:colunm; gap:3px; align-items:center;">
@@ -76,10 +76,10 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
             <span>City view</span>
             <i class="fa fa-times"></i>
         </div>
-                    
+
     @elseif(request()->input('filter') == 'Parking')
         <div class="fliter_card">
-          <img src="/room_images/fa-solid_car-alt.png" alt=""> 
+          <img src="/room_images/fa-solid_car-alt.png" alt="">
           <span>Parking</span>
           <i class="fa fa-times"></i>
        </div>
@@ -88,14 +88,14 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
           <i class="fa-solid fa-elevator"></i>
           <span>Elevator</span>
           <i class="fa fa-times"></i>
-       </div> 
+       </div>
    @elseif(request()->input('filter') == 'Wifi')
        <div class="fliter_card">
           <img src="/room_images/Group (4).png" alt="">
           <span>Wifi</span>
           <i class="fa fa-times"></i>
        </div>
-       @endif    
+       @endif
     </div>
     <div class="search_by" >
        <div class="container_search_by card_property">
@@ -122,7 +122,7 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
             <div class="alert alert-danger">
                 {{ session('fail') }}
             </div>
-        @endif       
+        @endif
          <?php
          $rooms=Critere::where('city', 'like', "%request()->input('city')%")
         ?>
@@ -130,8 +130,8 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
                 <p>vjjssjsjsjjsjjsj</p>
         @endif
         @if(request()->input('city'))
-            <div class="alert"><strong>{{$Critere->total() }}  result for : "City : {{request()->input('city')}}" </strong></div> 
-        @endif   
+            <div class="alert"><strong>{{$Critere->total() }}  result for : "City : {{request()->input('city')}}" </strong></div>
+        @endif
         @if(request()->input('date'))
             <div class="alert"><strong>"Available: {{request()->input('date')}}"</strong> </div>
         @endif
@@ -141,10 +141,10 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
        @if(request()->input('filter'))
         <div class="alert"><strong>"{{request()->input('filter')}}"</strong></div>
         @endif
-        </div>  
+        </div>
         <div>
             <?php
-           
+
             ?>
         </div>
     </div>
@@ -152,10 +152,10 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
          GLOBAL $move_out;
          if (isset($_GET['move-out'])) {
             $move_out=$_GET['move-out'];
-            
-        $_SESSION['move-out_guest'] = 
+
+        $_SESSION['move-out_guest'] =
         [
-          "move-out"=>$_GET["move-out"],        
+          "move-out"=>$_GET["move-out"],
         ];
          }
         ?>
@@ -165,7 +165,7 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
                 @foreach($Critere as $affiches)
                 <a href="rol_proper/{{$affiches->id}}" class="card_property">
                         <div class="maincontainer_room_card">
-                        <div>
+                        <div class="image_chambre">
                             <img src="/images_property/{{$affiches->photo}}" alt="">
                         </div>
                         <div class="text_conatiner_card">
@@ -201,27 +201,27 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
                     </div>
                     </div>
                        @guest
-                       
+
                        @if (Route::has('login'))
                             @endif
                             @if (Route::has('register'))
-                             
+
                             @endif
                         @else
                             @if(Auth::user()->type_user == 'admin')
                     <p class="owner bg-danger text-light mt-3">The owner: {{$affiches->nom}}; {{$affiches->email}}; {{$affiches->numero_tel}}</p>
                     </a>
                     <div class="edit_suppimer" style="display:flex; gap:5px; margin-top:-10px;">
-                        <a href="edite_property_rol/{{$affiches->id}}" class="btn btn-primary">Editer</a> 
+                        <a href="edite_property_rol/{{$affiches->id}}" class="btn btn-primary">Editer</a>
                         <form method="POST" action="{{ route('critere.supprimer', $affiches->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"   onclick="return confirm('Voulez-vous vraiment supprimer cette Proprieté ?')">Supprimer</button>
                         </form>
                     </div>
-                
+
                     @endif
-                    @endguest 
+                    @endguest
                     <br>
                     @endforeach
                 </div>
@@ -231,7 +231,7 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
                 </div>
                 </div>
             </div>
-        </div>    
+        </div>
 </section>
 <style>
 .condition{
@@ -239,9 +239,13 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
 }
 .condition.activealert{
     display:block;
-} 
+}
+.image_chambre img{
+    height: 240px;
+    width: 300px;
+}
 </style>
-        
+
 <br><br><br>
     <script>
     const ddd = document.querySelector(".card_property");

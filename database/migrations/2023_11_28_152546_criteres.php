@@ -21,13 +21,15 @@ return new class extends Migration
     //         $table->string('created_at');
     //         $table->string('updated_at');
 
-       
+
     // });
     Schema::create('criteres', function (Blueprint $table) {
         $table->id();
         $table->string('nom');
         $table->string('email');
-        $table->integer('numero_tel');// Utiliser 'integer' pour un nombre entier
+        $table->integer('numero_tel');
+        $table->string('city');
+        $table->string('area');
         $table->integer('nombre_chambre');
         $table->string('photo');
         $table->string('type_property');
@@ -42,9 +44,9 @@ return new class extends Migration
         $table->timestamps();
 
 
-        
+
     });
-   
+
 }
 public function down(): void
 {
