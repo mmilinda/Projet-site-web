@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-     
+
         Schema::create('reservation_finales', function (Blueprint $table) {
             $table->id();
-            $table->decimal('Rent_per_month');                 
+            $table->decimal('Rent_per_month');
             $table->decimal('Utilities_per_month');
             $table->decimal('Monthly_subtotal');
             $table->decimal('One_time_cleaning_fee');
@@ -34,10 +34,10 @@ return new class extends Migration
             $table->string('move_out');
             $table->string('method_paiement');
             $table->string('numero_transaction');
-            $table->timestamps();   
+            $table->timestamps();
         });
-        
-        
+
+
     }
 
     /**

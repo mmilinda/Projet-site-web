@@ -5,29 +5,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <!--=============== REMIXICONS ===============-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
 
     <!--=============== SWIPER CSS ===============-->
-    
+
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/guest_details.css">
     <link rel="stylesheet" href="assets/css/contact_contact.css">
-
     <link rel="stylesheet" href="assets/css/style_homepage.css">
-<!-- header Bachir -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css">
+
+
+       <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+ />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    
+
   <header class="header">
     <div>
       <div>
@@ -55,7 +58,7 @@
                             @if (Route::has('login'))
                             @endif
                             @if (Route::has('register'))
-                             
+
                             @endif
                         @else
                             @if(Auth::user()->type_user == 'admin')
@@ -76,13 +79,7 @@
                       </ul>
                     </li>
                       @endif
-                           
-                    @endguest 
-                    
-                    
-                    
-                    <!-- <li class="navbar-item"><a class="navbar-link" href="/checkoutpageA">checkout</a></li> -->
-
+                    @endguest
                           @guest
                           <div class="connexion_inscription" style="margin-top:-9px; display:flex;">
 
@@ -99,9 +96,9 @@
                             @endif
                         @else
                         <li class="nav-item dropdown  navbar-item">
-                                                <a href="/logout" class="btn btn-danger">Déconnexion</a>                  
-                                    {{ Auth::user()->prenom}}                                     
-                            </li>                     
+                                    <a href="/logout" class="btn btn-danger">Déconnexion</a>
+                                    {{ Auth::user()->prenom}}
+                            </li>
                         @endguest
                 </div>
             </div>
@@ -134,26 +131,26 @@
     .Amdmin_Control_container li:hover{
       background-color:white;
       padding:10px;
-      
+
     }
     .ajout_article{
       background-color:#F2F0F2;
       position:absolute;
       margin-top:30px;
-      display:flex;  
+      display:flex;
     }
     .liste_reservation{
       background-color:#F2F0F2;
       position:absolute;
       margin-top:20px;
-      display:flex;  
+      display:flex;
     }
-    
+
     .activeblog{
       position:absolute;
       margin-top:30px;
       display:flex;
-    } 
+    }
     .ajout_article li {
       list-style: none;
     }
@@ -182,8 +179,8 @@
 
   <script>
         admin  = document.querySelector(".Amdmin_Control");
-        admin.addEventListener('mouseover', function (){ 
+        admin.addEventListener('mouseover', function (){
           appear = document.querySelector(".Amdmin_Control_container");
           appear.classList.toggle("active");
-        });        
+        });
   </script>

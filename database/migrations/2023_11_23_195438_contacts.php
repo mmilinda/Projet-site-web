@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('un');
             $table->string('nom');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('tel');
+            $table->string('message');
             $table->string('created_at');
             $table->string('updated_at');
 

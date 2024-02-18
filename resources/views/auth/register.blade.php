@@ -51,7 +51,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="row mb-3" >
                             <!-- <label for="type_user" class="col-md-4 col-form-label text-md-end">{{ __('Type_user') }}</label> -->
 
@@ -125,12 +125,12 @@
         margin-top:-100px;
     }
 
-        
+
 .card-header {
     background-color: white;
     padding: 0.5rem 1rem;
     margin-bottom: 0;
     border-bottom: 0px;
 }
-    
+
 </style>

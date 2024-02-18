@@ -11,18 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-    //     Schema::create('contact', function (Blueprint $table) {
-    //         $table->id();
-    //         $table->string('un');
-    //         $table->string('nom');
-    //         $table->string('email')->unique();
-    //         $table->string('tel');
-    //         $table->string('message');
-    //         $table->string('created_at');
-    //         $table->string('updated_at');
 
 
-    // });
     Schema::create('criteres', function (Blueprint $table) {
         $table->id();
         $table->string('nom');

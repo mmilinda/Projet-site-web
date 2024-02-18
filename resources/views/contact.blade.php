@@ -1,7 +1,18 @@
 @include('header')
 <br><br>
 <section class="contacts_contacts">
+
     <div class="Please_tell">
+        @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+        @endif
+        @if (session('fail'))
+            <div class="alert alert-danger">
+                {{ session('fail') }}
+            </div>
+        @endif
         <p><strong>Please tell us a little about you</strong></p>
     </div>
     <div class="maincontainer_contactT">
@@ -32,16 +43,19 @@
                         <div>
                             <input type="text" name="email" id="" placeholder="Email">
                         </div><br>
-                        <div>
-                        <input id="phone" name="tel" type="tel" placeholder="Phone number">   
+                        <div style="display: flex; flex-direction:row; gap:10px;">
+                        <input  name="tel" type="text" value="" id="phone" placeholder="Phone number">
+                        <span id="valid-msg" class="hide" style="color:green">valid</span>
+                        <span id="error-msg" class="hide" style="color:red"></span>
                         </div><br>
                         <div>
                             <textarea class="message_contact" name="message" id="" cols="30" rows="3" placeholder="Message"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-success">Send</button>
+                        <button type="submit" id="send" class="btn btn-success">Send</button>
                     </div>
                 </div>
             </form>
+
         </div>
         <div class="left_part_contact">
             <div class="left_part_contact_text">
@@ -72,7 +86,7 @@
                     </p>
                 </div>
             </div>
-           
+
         </div>
     </div>
      <!-- media query -->
@@ -104,6 +118,65 @@
             </div>
             <!-- media query -->
 </section><br><br><br>
+<style>
+    #send.active{
+        display: none;
+    }
+</style>
+
+<script>
+    var input = document.querySelector('#phone');
+    sendMsg = document.querySelector('#send');
+    errorMsg = document.querySelector('#error-msg');
+    validMsg = document.querySelector('#valid-msg');
+
+
+    var errorMap = ["Invalid number", "Invalid country code","Too short", "Too long"];
+
+
+    var iti = window.intlTelInput(input, {
+    utilsScript:
+    "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+});
+    var reset = function() {
+        input.classList.remove("error");
+        errorMsg.innerHTML = "";
+        errorMsg.classList.add("hide");
+         validMsg.classList.add("hide");
+
+    }
+
+    input.addEventListener('blur', function(){
+        reset();
+        if(input.value.trim()){
+            if(iti.isValidNumber()){
+                validMsg.classList.remove('hide');
+            }else{
+                input.classList.add('error');
+                var errorCode = iti.getValidationError();
+                errorMsg.innerHTML = errorMap[errorCode];
+                errorMsg.classList.remove("hide");
+
+                // recherche.style.transition = "all, 0.4s ease";
+            }
+            if (errorMap[errorCode]) {
+                // alert('Veuillez-entrer le bon numéro de téléphone');
+                sendMsg = document.querySelector('#send');
+                sendMsg.style.display = "none";
+                validMsg.style.display="none";
+                }else{
+                    sendMsg = document.querySelector('#send');
+                    sendMsg.style.display = "flex";
+                    validMsg.style.display="block";
+                }
+        }
+
+    });
+
+    input.addEventListener('change', reset);
+    input.addEventListener("keyup",reset);
+</script>
+
 <link rel="stylesheet" href="assets/build/css/intlTelInput.css" />
 
 @include('footer')
