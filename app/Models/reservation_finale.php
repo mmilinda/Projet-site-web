@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class reservation_finale extends Model
 {
     use HasFactory;
-    protected $filiable = [
+    protected $fillable = [
         'Rent_per_month',
         'Utilities_per_month',
         'Monthly_subtotal',

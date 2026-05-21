@@ -9,7 +9,7 @@ class contact extends Model
 {
    
     use HasFactory;
-    protected $filiable=[
+    protected $fillable=[
        
         'un', 'nom', 'email', 'tel', 'message'
     

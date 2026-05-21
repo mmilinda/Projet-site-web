@@ -258,7 +258,7 @@ session_start();
                         if($_GET['paiement'] == "Wave") {
 
                         ?>
-                        <div class="wave" style="background-color:#F2F0F2; display:flex; flex-direction:row;justify-content:center; width:460px; gap: 5px;">
+                        <div class="wave" style="background-color:#F2F0F2; display:flex; flex-direction:row;justify-content:center; max-width:460px; width:100%; gap: 5px; flex-wrap: wrap;">
                             <img src="/image/wave-senegal-mobile-money.png" style="width:135px; height:30vh;" alt="">
                             <div style="display:flex; flex-direction:column;justify-content:center;">
                                 <div class="" >
@@ -272,7 +272,7 @@ session_start();
                         }elseif ($_GET['paiement'] == "Orange Money") {
                           
                         ?>
-                        <div class="orange" style="background-color:#F2F0F2; display:flex; flex-direction:row;justify-content:center; width:460px; gap: 5px;">
+                        <div class="orange" style="background-color:#F2F0F2; display:flex; flex-direction:row;justify-content:center; max-width:460px; width:100%; gap: 5px; flex-wrap: wrap;">
                             <img src="/image/ico-orange_money.png" style="width:135px; height:30vh;" alt="">
                             <div style="display:flex; flex-direction:column;justify-content:center;">
                                 <div class="" >
@@ -287,7 +287,7 @@ session_start();
                           
                         
                         ?>
-                        <div class="free" style="background-color:#F2F0F2; display:flex; flex-direction:row;   justify-content:center; width:460px; gap: 5px;">
+                        <div class="free" style="background-color:#F2F0F2; display:flex; flex-direction:row; justify-content:center; max-width:460px; width:100%; gap: 5px; flex-wrap: wrap;">
                             <img src="/image/imgonline-com-ua-resize-Vd3fVrxQKg5Gqi.jpg" style="width:135px; height:20vh;" alt="">
                             <div style="display:flex; flex-direction:column;justify-content:center;">
                                 <div class="" >
@@ -306,7 +306,7 @@ session_start();
                           # code...
                     
                         ?>
-                        <div class="paypal" style="background-color:#F2F0F2; display:flex; flex-direction:row;   justify-content:center; width:460px; gap: 5px;">
+                        <div class="paypal" style="background-color:#F2F0F2; display:flex; flex-direction:row; justify-content:center; max-width:460px; width:100%; gap: 5px; flex-wrap: wrap;">
                             <img src="/image/paypal.jpg" style="width:135px; height:30vh;" alt="">
                             <div style="display:flex; flex-direction:column;justify-content:center;">
                                 <div class="" >
@@ -2231,7 +2231,29 @@ flex-wrap:wrap;
 
   } 
     
-  
+  /* GLOBAL RESPONSIVE FIXES */
+@media screen and (max-width: 768px) {
+  body, html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  div[class*="container"], div[class*="card"], div[class*="part"], section {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    box-sizing: border-box !important;
+  }
+  input, textarea, select {
+    max-width: 100% !important;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
   </style>
 
   <script>

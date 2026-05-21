@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ajouter_article_taphaA extends Model
 {
-    protected $filiable=[
+    protected $fillable=[
        
         'photo', 'titre', 'contenu'
     

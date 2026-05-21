@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class cities extends Model
 {
     use HasFactory;
-    protected $filiable=[
+    protected $fillable=[
         'nomcity'
 ];
 }

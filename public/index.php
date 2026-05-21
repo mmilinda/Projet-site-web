@@ -1,4 +1,8 @@
 <?php
+/**
+ * Author: MILINDA MENDY
+ * Email: mmilinda00@gmail.com
+ */
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;

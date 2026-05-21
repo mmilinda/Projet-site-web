@@ -59,7 +59,7 @@ a {
 
 
 .card__data {
-  background: #F2F0F2;
+  background: var(--bg-light);
   color: black;
   padding: 1.5rem 2rem;
   border-radius: 1rem;

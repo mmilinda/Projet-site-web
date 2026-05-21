@@ -1,4 +1,4 @@
-@include('header');
+@include('header')
   
 <section class="section">
 
@@ -7,7 +7,7 @@
 <section class="section1" >
   <div class="card1section1" id="card1section1">
     <div class="werent"><p>We rent your property</p></div>
-    <div class="werentlorem"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, totam?</p></div>
+    <div class="werentlorem"><p>Maximize your rental income with our hassle-free property management services. We handle everything from finding reliable tenants to maintaining your space.</p></div>
   </div>
 </section>
 </div>
@@ -16,7 +16,7 @@
         <div class="barrecherche">
             <div class="selectcity">
                 <i class="fa fa-search"></i>
-                <select name="city" id="" value="{{ request()->city ?? '' }}" placeholder="Select a City" class="select">
+                <select name="city" id="" value="{{ request()->city ?? '' }}" placeholder="Select a City" class="select" aria-label="Select a city">
                     <option value="">Select a city</option>
                     <option value="DAKAR">DAKAR</option>
                     <option value="SAINT-LOUIS" >SAINT-LOUIS</option>
@@ -31,19 +31,19 @@
             
                 @method('get')
                     <div class="mvin">
-                            <span class="move-in">move-in</span><input type="date" name="date" id="" placeholder="move-in" class="inputmi">
+                            <span class="move-in">move-in</span><input type="date" name="date" id="" placeholder="move-in" class="inputmi" aria-label="Move in date">
                     </div>
                 
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
             <div  class="mvout">
-                    <span class="move-out">move-out</span><input type="date" name="move-out" id="" class="inputmo">
+                    <span class="move-out">move-out</span><input type="date" name="move-out" id="" class="inputmo" aria-label="Move out date">
             </div> 
             </div>
             <div class="parti3">
-                <div class="guest" style=" display:flex; flex-direction:colunm; gap:3px; align-items:center;">
+                <div class="guest" style=" display:flex; flex-direction:column; gap:3px; align-items:center;">
                     <i class="fa fa-users"></i>
                     <span>Guests</span>
-                    <input type="number" name="guest" value="" style="width:40px; display:flex; flex-direction:colunm; justify-content:center; align-items:center;">
+                    <input type="number" name="guest" value="" style="width:40px; display:flex; flex-direction:column; justify-content:center; align-items:center;" aria-label="Number of guests">
                 </div>
                 <div class="bouttonrecherche">
                 <button type="submit" class="btn btn-primary rounded-pill">Search</button>
@@ -54,7 +54,7 @@
 <section class="section2">
 <div class="card2">
     <div class="imagecard2">
-      <img src="image/Imagessection2.png" alt="">
+      <img loading="lazy" src="image/Imagessection2.png" alt="">
     </div>
     <div class="textcard2">
         <div class="text1card2">
@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-</section><br><br><br>
+</section><br>
 <div class="section3">
 <div class="main-container">
    <div class="conttextsection3">
@@ -80,13 +80,13 @@
           </p>
      </div>
   </div>
-  <br><br>
+  
   <div class="containercardsection3">
     <div class="card1section3">
       <div class="card1section3-items">
           <div class="card1section3icon">
-            <img src="image/Vector.png" alt="">
-          </div><br>
+            <img loading="lazy" src="image/Vector.png" alt="">
+          </div>
           <div class="text1card1section3">
             <p>Flexible living</p>
           </div>
@@ -100,8 +100,8 @@
     <div class="card1section3">
       <div class="card1section3-items">
           <div class="card1section3icon">
-            <img src="image/Vector (1).png" alt="">
-          </div><br>
+            <img loading="lazy" src="image/Vector (1).png" alt="">
+          </div>
           <div class="text1card1section3">
             <p>Move-in ready</p>
           </div>
@@ -114,8 +114,8 @@
     <div class="card1section3">
       <div class="card1section3-items">
           <div class="card1section3icon">
-            <img src="image/eva_wifi-fill.png" alt="">
-          </div><br>
+            <img loading="lazy" src="image/eva_wifi-fill.png" alt="">
+          </div>
           <div class="text1card1section3">
             <p>High-speed Wi-Fi</p>
           </div>
@@ -129,8 +129,8 @@
     <div class="card1section3">
       <div class="card1section3-items">
           <div class="card1section3icon">
-            <img src="image/Vector (2).png" alt="">
-          </div><br>
+            <img loading="lazy" src="image/Vector (2).png" alt="">
+          </div>
           <div class="text1card1section3">
             <p>24/7 support</p>
           </div>
@@ -144,18 +144,18 @@
   </div>
 </div>
 </div>
- <br><br><br><br>
+ <br>
 <div class="part3-section2">
    <div class="containerpart3-section2">
         <div class="text1part3-section2">
           <p><strong>Choose your location</strong></p>
-        </div> <br><br>
+        </div> 
         <div class="textimage-part3-section2">
             <div class="cardimage-part3-section2">
                 <div class="text2part3-section2">
                 </div>
                 <div class="cardimage1-part3-section2">
-                    <img src="image/Frame 7.png" alt="">
+                    <img loading="lazy" src="image/Frame 7.png" alt="">
                 </div> 
             </div>
             <div class="cardimage-part3-section2">
@@ -163,14 +163,14 @@
                     <p><strong>City of London</strong></p>
                 </div>
                 <div class="cardimage1-part3-section2">
-                    <img src="image/unsplash_YxlZv4sG4Eg.png" alt="">
+                    <img loading="lazy" src="image/unsplash_YxlZv4sG4Eg.png" alt="">
                 </div>  
             </div>
             <div class="cardimage-part3-section2">
                 <div class="text2part3-section2">
                 </div>
                 <div class="cardimage1-part3-section2">
-                    <img src="image/Frame 9.png" alt="">
+                    <img loading="lazy" src="image/Frame 9.png" alt="">
                 </div>  
             </div>
             <div class="cardimage-part3-section2">
@@ -178,7 +178,7 @@
                     <p><strong>Kensington</strong></p>
                 </div>
                 <div class="cardimage1-part3-section2">
-                    <img src="image/unsplash_u3gTIoJLmpg.png" alt="">
+                    <img loading="lazy" src="image/unsplash_u3gTIoJLmpg.png" alt="">
                 </div>  
             </div>
             <div class="cardimage-part3-section2">
@@ -186,7 +186,7 @@
                     <p><strong>Kingston-Upon-Thames</strong></p>
                 </div>
                 <div class="cardimage1-part3-section2">
-                    <img src="image/unsplash_19szVauJ7KA.png" alt="">
+                    <img loading="lazy" src="image/unsplash_19szVauJ7KA.png" alt="">
                 </div>  
             </div>
             <div class="cardimage-part3-section2">
@@ -194,17 +194,17 @@
                     <p><strong>Hammersmith</strong></p>
                 </div>
                 <div class="cardimage1-part3-section2">
-                    <img src="image/unsplash_YxlZv4sG4Eg.png" alt="">
+                    <img loading="lazy" src="image/unsplash_YxlZv4sG4Eg.png" alt="">
                 </div>  
             </div>
             
         </div>
-        <br><br>
+        
         <div>
              <a class="btn btn-success rounded-pill">View all spaces</a>
         </div>
    </div> 
-</div><br><br><br><br>
+</div>
 <section class="section3A">
     <div class="main-container-section3A">
         <div class="bgimg_section3A">
@@ -220,7 +220,7 @@
                 </div>
             </div>
         </div>
-        <br><br><br><br>
+        <br>
          <div class="container_partcard_section3A">
               <div class="container_textpart_section3A">
                   <div class="text1_section3A">
@@ -231,14 +231,14 @@
                     </p>
                   </div>
               </div>
-              <br><br>
+              
               <div class="container_card_section3A">
                   <div class="card_section3A">
                         <div class="containerimg_card_section3A">
-                            <img src="image/Vector (3).png" alt="">
-                        </div><br>
+                            <img loading="lazy" src="image/Vector (3).png" alt="">
+                        </div>
                         <div class="text1_card_section3A">
-                            <p><strong> Booking manager</strong></p>
+                            <p><strong>Booking manager</strong></p>
                         </div>
                         <div class="text2_card_section3A">
                           <p>We do the searching for you</p>
@@ -246,10 +246,10 @@
                   </div>
                   <div class="card_section3A">
                         <div class="containerimg_card_section3A">
-                            <img src="image/eva_person-fill.png" alt="">
-                        </div><br>
+                            <img loading="lazy" src="image/eva_person-fill.png" alt="">
+                        </div>
                         <div class="text1_card_section3A">
-                            <p><strong>Account managerr</strong></p>
+                            <p><strong>Account manager</strong></p>
                         </div>
                         <div class="text2_card_section3A">
                           <p>Preferred partner rates</p>
@@ -257,8 +257,8 @@
                   </div>
                   <div class="card_section3A">
                         <div class="containerimg_card_section3A">
-                            <img src="image/eva_wifi-fill.png" alt="">
-                        </div><br>
+                            <img loading="lazy" src="image/eva_wifi-fill.png" alt="">
+                        </div>
                         <div class="text1_card_section3A">
                             <p><strong>Flexible terms</strong></p>
                         </div>
@@ -270,7 +270,7 @@
            </div>
        </div>
    </section>
-   <br><br><br>
+   <br>
   <div class="texttitle">
     <div class="containertitle_text1">
          <p><strong>What our partners think</strong></p>
@@ -288,7 +288,7 @@
                      <div class="card__data">
                         <div class="container_imgslider_sectionslider">
                            <div class="imgslider_sectionslider">
-                              <img src="assets/img/Ellipse 7.png" alt="">
+                              <img loading="lazy" src="assets/img/Ellipse 7.png" alt="">
                            </div>
                            <div class="ctner_text_imgslider_sectionslider">
                                  <div class="text1_imgslider_sectionslidert">
@@ -309,7 +309,7 @@
                      <div class="card__data">
                         <div class="container_imgslider_sectionslider">
                            <div class="imgslider_sectionslider">
-                              <img src="assets/img/Ellipse 7 (3).png" alt="">
+                              <img loading="lazy" src="assets/img/Ellipse 7 (3).png" alt="">
                            </div>
                            <div class="ctner_text_imgslider_sectionslider">
                                  <div class="text1_imgslider_sectionslidert">
@@ -329,7 +329,7 @@
                      <div class="card__data">
                         <div class="container_imgslider_sectionslider">
                            <div class="imgslider_sectionslider">
-                              <img src="assets/img/Ellipse 7.png" alt="">
+                              <img loading="lazy" src="assets/img/Ellipse 7.png" alt="">
                            </div>
                            <div class="ctner_text_imgslider_sectionslider">
                                  <div class="text1_imgslider_sectionslidert">
@@ -350,7 +350,7 @@
                      <div class="card__data">
                         <div class="container_imgslider_sectionslider">
                            <div class="imgslider_sectionslider">
-                              <img src="assets/img/Ellipse 7.png" alt="">
+                              <img loading="lazy" src="assets/img/Ellipse 7.png" alt="">
                            </div>
                            <div class="ctner_text_imgslider_sectionslider">
                                  <div class="text1_imgslider_sectionslidert">
@@ -368,10 +368,10 @@
                   </article>
                </div>
             </div>
-            <br><br><br><br>
+            <br>
             <div class="btnslider">
-               <img src="assets/img/Right (1).png" alt="" class="swiper-button-next">
-               <img src="assets/img/Left.png" alt="" class="swiper-button-prev">
+               <img loading="lazy" src="assets/img/Right (1).png" alt="" class="swiper-button-next">
+               <img loading="lazy" src="assets/img/Left.png" alt="" class="swiper-button-prev">
             </div>
             <!-- Pagination -->
             <div class="swiper-pagination"></div>
@@ -384,8 +384,8 @@
      <div class="swiperA-wrapperA">
           <div class="cardA ">
               <div class="cardA_image">
-                  <img src="image/unsplash_MP0bgaS_d1c.png" alt="">
-              </div><br>
+                  <img loading="lazy" src="image/unsplash_MP0bgaS_d1c.png" alt="">
+              </div>
               <div class="cardA_content">
                 <div class="ctn_text_cardA">
                     <div class="text1_cardA">
@@ -394,10 +394,10 @@
                     <div class="text2_cardA">
                       <p>Lorem ipsum dolor sit amet.</p>
                     </div>
-                </div><br>
+                </div>
                 <div class="footercardA">
                     <div class="icon_cardA">
-                      <img src="image/eva_clock-fill.png" alt="">
+                      <img loading="lazy" src="image/eva_clock-fill.png" alt="">
                     </div>
                     <div class="text_icon_cardA">
                       <p>1 min read.</p>
@@ -408,8 +408,8 @@
 
           <div class="cardA ">
               <div class="cardA_image">
-                  <img src="image/unsplash_MP0bgaS_d1c.png" alt="">
-              </div><br>
+                  <img loading="lazy" src="image/unsplash_MP0bgaS_d1c.png" alt="">
+              </div>
               <div class="cardA_content">
                 <div class="ctn_text_cardA">
                     <div class="text1_cardA">
@@ -418,10 +418,10 @@
                     <div class="text2_cardA">
                       <p>Lorem ipsum dolor sit amet.</p>
                     </div>
-                </div><br>
+                </div>
                 <div class="footercardA">
                     <div class="icon_cardA">
-                      <img src="image/eva_clock-fill.png" alt="">
+                      <img loading="lazy" src="image/eva_clock-fill.png" alt="">
                     </div>
                     <div class="text_icon_cardA">
                       <p>1 min read.</p>
@@ -432,8 +432,8 @@
 
           <div class="cardA ">
               <div class="cardA_image">
-                  <img src="image/unsplash_GnvurwJsKaY.png" alt="">
-              </div><br>
+                  <img loading="lazy" src="image/unsplash_GnvurwJsKaY.png" alt="">
+              </div>
               <div class="cardA_content">
                 <div class="ctn_text_cardA">
                     <div class="text1_cardA">
@@ -442,10 +442,10 @@
                     <div class="text2_cardA">
                       <p>Lorem ipsum dolor sit amet.</p>
                     </div>
-                </div><br>
+                </div>
                 <div class="footercardA">
                     <div class="icon_cardA">
-                      <img src="image/eva_clock-fill.png" alt="">
+                      <img loading="lazy" src="image/eva_clock-fill.png" alt="">
                     </div>
                     <div class="text_icon_cardA">
                       <p>1 min read.</p>
@@ -456,8 +456,8 @@
 
           <div class="cardA ">
               <div class="cardA_image">
-                  <img src="image/unsplash_sZYUKEWsDLA.png" alt="">
-              </div><br>
+                  <img loading="lazy" src="image/unsplash_sZYUKEWsDLA.png" alt="">
+              </div>
               <div class="cardA_content">
                 <div class="ctn_text_cardA">
                     <div class="text1_cardA">
@@ -466,10 +466,10 @@
                     <div class="text2_cardA">
                       <p>Lorem ipsum dolor sit amet.</p>
                     </div>
-                </div><br>
+                </div>
                 <div class="footercardA">
                     <div class="icon_cardA">
-                      <img src="image/eva_clock-fill.png" alt="">
+                      <img loading="lazy" src="image/eva_clock-fill.png" alt="">
                     </div>
                     <div class="text_icon_cardA">
                       <p>1 min read.</p>
@@ -481,12 +481,12 @@
      <div class="Read_more">
       <a class="btn btn-success rounded-pill">Read more</a>
      </div>
-    </section><br><br><br><br>
+    </section><br>
     <section class="section6">
      <div class="maincontainer">
         <div class="title_section6">
           <p><strong>Useful links</strong></p>
-        </div><br><br>
+        </div>
           <div class="container_section6">
               <div class="linkcontainer_section6">
                   <div class="link_items">
@@ -522,7 +522,7 @@
               </div>
             </div>
       </div>
-    </section><br><br><br>
+    </section><br>
     <section class="section7">
           <div class="maincontainer_section7">
               <div class="textctn_section6">
@@ -534,7 +534,7 @@
                   </div>
               </div>
               <div class="selectcnt_section7">
-                <select name="" id="" class="selectopt_section7">
+                <select name="" id="" class="selectopt_section7" aria-label="Choose a city">
                   <option value="">Choose city</option>
                   <option value="">Dakar</option>
                   <option value="">Dakar</option>
@@ -544,9 +544,8 @@
               </div>
           </div>
     </section>
-    <br><br><br><br><br><br>
     <!-- Footer -->
-    @include('footer');    
+    @include('footer')
 </html>
 <style>
  

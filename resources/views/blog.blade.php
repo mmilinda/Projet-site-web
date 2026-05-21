@@ -6,7 +6,7 @@
 <section class="section1 section-blog" >
   <div class="card1section1" id="card1section1">
     <div class="werent"><p>We rent your property</p></div>
-    <div class="werentlorem"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, totam?</p></div>
+    <div class="werentlorem"><p>Maximize your rental income with our hassle-free property management services. We handle everything from finding reliable tenants to maintaining your space.</p></div>
   </div>
 </section>
 <section class="section5 section5_article">

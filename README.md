@@ -1,66 +1,92 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Flex Living - Projet Site Web
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Flex Living est une plateforme web développée avec Laravel permettant de rechercher, réserver et gérer des propriétés immobilières flexibles (appartements meublés, coliving, etc.). Le projet dispose d'une interface client moderne (responsive mobile) et d'un espace d'administration.
 
-## About Laravel
+## 🚀 Prérequis
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Avant de commencer, assurez-vous d'avoir installé sur votre machine :
+- **PHP** >= 8.1
+- **Composer** (Gestionnaire de dépendances PHP)
+- **Node.js & npm** (Pour la compilation des assets)
+- **MySQL** ou tout autre SGBD compatible
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Installation & Configuration
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Suivez ces étapes pour déployer le projet en local :
 
-## Learning Laravel
+1. **Cloner ou récupérer le dépôt :**
+   Placez-vous dans le répertoire du projet.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. **Installer les dépendances PHP (Laravel) :**
+   ```bash
+   composer install
+   ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. **Installer les dépendances Frontend (Node) :**
+   ```bash
+   npm install
+   npm run build
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. **Configurer l'environnement :**
+   Dupliquez le fichier `.env.example` et renommez-le en `.env` :
+   ```bash
+   cp .env.example .env
+   ```
+   Ouvrez le fichier `.env` et configurez vos accès à la base de données :
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=nom_de_votre_base
+   DB_USERNAME=votre_utilisateur
+   DB_PASSWORD=votre_mot_de_passe
+   ```
 
-## Laravel Sponsors
+5. **Générer la clé d'application Laravel :**
+   ```bash
+   php artisan key:generate
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+6. **Exécuter les migrations (Création de la base de données) :**
+   ```bash
+   php artisan migrate
+   ```
+   *(Si des seeders sont configurés, exécutez : `php artisan migrate --seed`)*
 
-### Premium Partners
+7. **Lancer le serveur de développement :**
+   ```bash
+   php artisan serve
+   ```
+   Le site sera accessible à l'adresse : `http://127.0.0.1:8000`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## 🔐 Accès (Identifiants par défaut)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Voici les accès recommandés pour tester les différentes interfaces du site après la migration/seeding. 
+*(Note : Si vous êtes en production, assurez-vous de changer ces mots de passe !)*
 
-## Code of Conduct
+### Espace Administrateur
+Permet de gérer les annonces, de valider les réservations, de publier des articles de blog, etc.
+- **Email :** `admin@flexliving.com` *(à configurer dans votre BDD si non présent)*
+- **Mot de passe :** `password` ou `admin123`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Espace Utilisateur (Guest / Locataire)
+Permet de réserver un espace, consulter ses détails de voyage, etc.
+- **Email :** `user@flexliving.com`
+- **Mot de passe :** `password` ou `user123`
 
-## Security Vulnerabilities
+> **Astuce :** Si la base de données est vide après l'installation, vous pouvez créer un compte utilisateur directement depuis la page d'inscription (`/register`) du site, puis modifier la colonne `type_user` ou `role` en `admin` dans votre base de données MySQL (via PhpMyAdmin par exemple) pour obtenir les droits d'administration.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 💻 Technologies Utilisées
+- **Backend :** Laravel (PHP)
+- **Frontend :** HTML, CSS natif, JavaScript (Swiper.js pour les carrousels)
+- **Design :** Interface 100% Responsive, approche Mobile-First, micro-animations.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🎨 Résumé des dernières mises à jour
+- Optimisation globale de la responsivité Mobile (anti-débordement).
+- Remplacement du placement absolu par des boîtes flexibles pour s'adapter à toutes les résolutions.
+- Ajout d'animations "hover" premiums sur les boutons (Start Booking, Search).

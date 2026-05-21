@@ -147,3 +147,23 @@ padding: 10px;
         margin-left: 20px;
     }
 }
+
+/* GLOBAL RESPONSIVE FIXES */
+@media screen and (max-width: 768px) {
+  .maincontainer_Guest_details, .formulaire_guest_details, .image_guest_details img, .card2_guest_details, .card3_guest_details, .part1_guest_details, .Payment_timeline_guest, .RUM_checkout {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+  }
+  .inputtext_guest_details input {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .maincontainer_book {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 0 15px;
+  }
+}

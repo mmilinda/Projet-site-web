@@ -2067,8 +2067,30 @@ flex-wrap:wrap;
   }
 
   } 
-    
   
+  /* GLOBAL RESPONSIVE FIXES */
+@media screen and (max-width: 768px) {
+  body, html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  div[class*="container"], div[class*="card"], div[class*="part"], section {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    box-sizing: border-box !important;
+  }
+  input, textarea, select {
+    max-width: 100% !important;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
     </style>
      <script>
         admin  = document.querySelector(".Amdmin_Control");
